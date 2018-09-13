@@ -1,0 +1,80 @@
+/*colors*/
+$cool-grey: #9d9fa2;
+$orangey-yellow: #fdbf11;
+$hot-pink: #ec008b;
+$dirty-purple: #5c5859;
+$mid-green: #55b748;
+$tomato: #db2b27;
+$black: #333333;
+$gray: #e6e5e5;
+$soft-blue: #73bfe2;
+$twilight-blue: #0a4c6a;
+$light-teal: #a2d4ec;
+$nice-blue: #12719e;
+$soft-green: #78c26d;
+$pale-magenta: #e46aa7;
+$dark-orange: #ca5800;
+$blush: #f1aaa9;
+$purple-grey: #848081;
+$cerulean: #0096d2;
+
+$light-orangey-yellow: #f8e71c;
+$dark-orangey-yellow: #e88e2d;
+
+// Media Query sizes
+$MaxDesktopSize: 1100px;
+$MaxTabletSize: 960px;
+$MaxPhoneSize:	768px;
+$MidPhoneSize: 500px;
+
+
+#isPhone, #isTablet, #isDesktop {
+  display: none;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.hide-for-mobile-only {
+	display: block;	
+}
+
+.show-for-mobile-only {
+	display: none;
+}
+
+// Can edit these as time goes on. 
+@media (max-width: $MaxPhoneSize){
+  #isPhone {
+    display: block;
+  }
+
+  #isTablet, #isDesktop {
+    display: none;
+  }
+
+  .hide-for-mobile-only {
+  	display: none;
+  }
+  .show-for-mobile-only {
+  	display: block;
+  }
+}
+
+@media (max-width: $MaxTabletSize){
+	#isTablet {
+    display: block;
+  }
+
+  #isPhone, #isDesktop {
+    display: none;
+  }
+}
+
+@media (max-width: $MaxDesktopSize){
+
+}
+

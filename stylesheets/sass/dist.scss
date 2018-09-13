@@ -1,0 +1,76 @@
+@import "variables";
+@import "typography";
+
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+#map { 
+  position:relative;   
+  width: 100%;
+  height: 200px;
+}
+
+.domain {
+  stroke: $gray;
+}
+
+.tick line {
+  display: none;
+}
+
+.tick text {
+  font-family: Lato;
+  font-size: 12px;
+}
+
+.axis-label {
+  font-family: Lato;
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.nametext {
+	font-family: Lato;
+	font-size: 12px;
+}
+
+div.meanTime, div.name { 
+  position: fixed;       
+  font-family: Lato;
+}
+
+div.meanTime p, div.name p {
+	margin: 0px;
+	padding: 0px;	
+	font-family: Lato;
+	font-size: 15px;  
+	color: $cerulean;
+	text-anchor: end; 
+}
+
+div.name {
+	width: 100px;
+}
+
+div.meanTime{
+	width: 100px;
+}
+
+div.name p {
+	text-align: right;
+}
+
+div.meanTime h2 {
+	font-size: 26px;
+	text-align: center;       
+	margin: 0px;
+	padding: 0px;
+}
+
+@media (max-width: $MaxPhoneSize){	
+	div.name {
+		width: 200px;
+	}
+}

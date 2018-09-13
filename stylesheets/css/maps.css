@@ -1,0 +1,558 @@
+/*colors*/
+/* line 31, ../sass/_variables.scss */
+#isPhone, #isTablet, #isDesktop {
+  display: none;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* line 41, ../sass/_variables.scss */
+.hide-for-mobile-only {
+  display: block;
+}
+
+/* line 45, ../sass/_variables.scss */
+.show-for-mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* line 51, ../sass/_variables.scss */
+  #isPhone {
+    display: block;
+  }
+
+  /* line 55, ../sass/_variables.scss */
+  #isTablet, #isDesktop {
+    display: none;
+  }
+
+  /* line 59, ../sass/_variables.scss */
+  .hide-for-mobile-only {
+    display: none;
+  }
+
+  /* line 62, ../sass/_variables.scss */
+  .show-for-mobile-only {
+    display: block;
+  }
+}
+@media (max-width: 960px) {
+  /* line 68, ../sass/_variables.scss */
+  #isTablet {
+    display: block;
+  }
+
+  /* line 72, ../sass/_variables.scss */
+  #isPhone, #isDesktop {
+    display: none;
+  }
+}
+/* Text styles */
+/* line 3, ../sass/_typography.scss */
+h1 {
+  font-family: Lato;
+  font-size: 36px;
+  text-align: left;
+  color: #000000;
+  font-weight: 400;
+}
+
+/* line 11, ../sass/_typography.scss */
+h2 {
+  font-family: Lato;
+  font-size: 25px;
+  line-height: 1.36;
+  text-align: left;
+  color: #000000;
+  font-weight: 400;
+}
+
+/* line 20, ../sass/_typography.scss */
+.placeholder {
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.56;
+  text-align: left;
+  color: #db2b27;
+  color: #db2b27;
+}
+
+/* line 30, ../sass/_typography.scss */
+.button-text {
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.28;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* line 39, ../sass/_typography.scss */
+.chart-title {
+  font-family: Lato;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  color: #000000;
+  margin-top: 48px;
+}
+
+/* line 48, ../sass/_typography.scss */
+.tagline {
+  font-family: Lato;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.31;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 58, ../sass/_typography.scss */
+p {
+  font-family: Lato;
+  font-size: 18px;
+  line-height: 1.56;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 66, ../sass/_typography.scss */
+link {
+  font-family: Lato;
+  font-size: 18px;
+  line-height: 1.56;
+  text-align: left;
+  color: #0096d2;
+  color: #0096d2;
+}
+
+/* line 75, ../sass/_typography.scss */
+.title-mobile {
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 84, ../sass/_typography.scss */
+h3 {
+  font-family: Lato;
+  font-size: 15px;
+  text-align: left;
+  color: #0096d2;
+  color: #0096d2;
+}
+
+/* line 92, ../sass/_typography.scss */
+.subtitle {
+  font-family: Lato;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 99, ../sass/_typography.scss */
+.data-labels {
+  font-family: Lato;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 107, ../sass/_typography.scss */
+.x-and-y-axis-titles {
+  font-family: Lato;
+  font-size: 12px;
+  font-style: italic;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 115, ../sass/_typography.scss */
+.p-small {
+  font-family: Lato;
+  font-size: 12px;
+  line-height: 1.67;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 123, ../sass/_typography.scss */
+.key-labels {
+  font-family: Lato;
+  font-size: 12px;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 130, ../sass/_typography.scss */
+.x-and-y-axis-labels {
+  font-family: Lato;
+  font-size: 12px;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 137, ../sass/_typography.scss */
+.data-point-label {
+  font-family: Lato;
+  font-size: 11px;
+  text-align: left;
+  color: #000000;
+}
+
+/* line 144, ../sass/_typography.scss */
+.source-and-notes {
+  font-family: Lato;
+  font-size: 11px;
+  text-align: left;
+  color: #000000;
+}
+
+@media (max-width: 960px) {
+  /* line 158, ../sass/_typography.scss */
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* line 162, ../sass/_typography.scss */
+  h1 {
+    font-size: 24px;
+  }
+
+  /* line 166, ../sass/_typography.scss */
+  h2 {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  /* line 172, ../sass/_typography.scss */
+  .tagline {
+    font-size: 16px;
+    line-height: 1.31;
+  }
+}
+/* line 4, ../sass/maps.scss */
+html, body {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* line 11, ../sass/maps.scss */
+#map {
+  position: relative;
+  width: 100%;
+  height: 632px;
+}
+
+/* line 19, ../sass/maps.scss */
+#chart {
+  position: relative;
+  width: 100%;
+  height: 632px;
+  background-color: pink;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    stroke-opacity: 1;
+    stroke-width: 0;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 20px;
+  }
+}
+@-webkit-keyframes pulse1 {
+  0% {
+    stroke-opacity: 0.2;
+    stroke-width: 0;
+  }
+  100% {
+    stroke-opacity: 0;
+    stroke-width: 50px;
+  }
+}
+/* line 53, ../sass/maps.scss */
+.pulse {
+  /* Giving Animation Function */
+  -webkit-animation: pulse 2s linear infinite;
+}
+
+/* line 59, ../sass/maps.scss */
+.onepulse {
+  -webkit-animation: pulse1 1s linear 1;
+}
+
+/* line 63, ../sass/maps.scss */
+#replay {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background-color: #0096d2;
+  height: 36px;
+  width: 46px;
+  cursor: pointer;
+  z-index: 10;
+}
+/* line 73, ../sass/maps.scss */
+#replay img {
+  margin-top: 8px;
+  margin-left: 13px;
+  width: 20px;
+}
+
+/* line 81, ../sass/maps.scss */
+#replay:hover {
+  background-color: #0096d2;
+}
+
+/* line 85, ../sass/maps.scss */
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 90, ../sass/maps.scss */
+.hidden {
+  display: none;
+}
+
+/* line 93, ../sass/maps.scss */
+.ward {
+  fill: none;
+  stroke-width: 2px;
+}
+
+/* line 98, ../sass/maps.scss */
+.ward.w1 {
+  stroke: #fdbf11;
+}
+
+/* line 102, ../sass/maps.scss */
+.ward.w7 {
+  stroke: #0096d2;
+}
+
+/* line 106, ../sass/maps.scss */
+.ward.wardmap {
+  stroke: #fff !important;
+  fill-opacity: 0.75;
+  cursor: pointer;
+}
+
+/* line 112, ../sass/maps.scss */
+.ward.wardmap.active {
+  fill-opacity: 0.9;
+}
+
+/* line 116, ../sass/maps.scss */
+.ward.distro.w1, .ward.wardmap.w1, text.w1 {
+  fill: #fdbf11;
+}
+
+/* line 117, ../sass/maps.scss */
+.ward.distro.w2, .ward.wardmap.w2, text.w2 {
+  fill: #12719e;
+}
+
+/* line 118, ../sass/maps.scss */
+.ward.distro.w3, .ward.wardmap.w3, text.w3 {
+  fill: #78c26d;
+}
+
+/* line 119, ../sass/maps.scss */
+.ward.distro.w4, .ward.wardmap.w4, text.w4 {
+  fill: #848081;
+}
+
+/* line 120, ../sass/maps.scss */
+.ward.distro.w5, .ward.wardmap.w5, text.w5 {
+  fill: #ca5800;
+}
+
+/* line 121, ../sass/maps.scss */
+.ward.distro.w6, .ward.wardmap.w6, text.w6 {
+  fill: #e25552;
+}
+
+/* line 122, ../sass/maps.scss */
+.ward.distro.w7, .ward.wardmap.w7, text.w7 {
+  fill: #0096d2;
+}
+
+/* line 123, ../sass/maps.scss */
+.ward.distro.w8, .ward.wardmap.w8, text.w8 {
+  fill: #e88e2d;
+}
+
+/* line 126, ../sass/maps.scss */
+text.plusText {
+  font-weight: 700;
+  font-size: 18px;
+  display: none;
+  pointer-events: none;
+}
+
+/* line 133, ../sass/maps.scss */
+div.tooltip h2 {
+  font-size: 12px !important;
+  margin: 0px;
+  padding: 0px;
+  font-weight: 700;
+  border-bottom: 1px solid #e6e5e5;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 143, ../sass/maps.scss */
+div.tooltip p {
+  font-size: 12px !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 149, ../sass/maps.scss */
+div.tooltip {
+  position: fixed;
+  width: 260px;
+  padding: 11px;
+  background: #fff;
+  top: -1000px;
+  left: -1000px;
+  border: 1px solid #0096d2;
+  pointer-events: none;
+}
+
+/* line 160, ../sass/maps.scss */
+div.tooltip.bottom:after, div.tooltip.bottom:before, div.tooltip.top:after, div.tooltip.top:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #fff;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+/* line 183, ../sass/maps.scss */
+div.tooltip.bottom:after, div.tooltip.bottom:before {
+  top: unset;
+  bottom: 100%;
+  border-bottom-color: #fff;
+  border-top: unset;
+}
+
+/* line 190, ../sass/maps.scss */
+div.tooltip.top:before {
+  border-color: rgba(0, 150, 210, 0);
+  border-top-color: #0096d2;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+/* line 197, ../sass/maps.scss */
+div.tooltip.bottom:before {
+  border-color: rgba(0, 150, 210, 0);
+  border-bottom-color: #0096d2;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+/* line 204, ../sass/maps.scss */
+.plus {
+  display: none;
+  fill: #fff;
+  pointer-events: none;
+}
+
+/* line 210, ../sass/maps.scss */
+.times-subset {
+  width: 50%;
+  float: left;
+}
+
+/* line 216, ../sass/maps.scss */
+.indiapoint {
+  fill: #0096d2;
+  stroke: #0096d2;
+  pointer-events: none;
+}
+
+/* line 222, ../sass/maps.scss */
+.skylerpoint {
+  fill: #fdbf11;
+  stroke: #fdbf11;
+  pointer-events: none;
+}
+
+/* line 228, ../sass/maps.scss */
+.stroker {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+/* line 233, ../sass/maps.scss */
+.pointText {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: Lato;
+  pointer-events: none;
+}
+
+/* line 240, ../sass/maps.scss */
+.dot.india {
+  fill: #73bfe2;
+  stroke: #73bfe2;
+}
+
+/* line 245, ../sass/maps.scss */
+.dot.skyler {
+  fill: #e88e2d;
+}
+
+@media (max-width: 460.8px) {
+  /* line 251, ../sass/maps.scss */
+  #map {
+    height: 300px;
+  }
+
+  /* line 255, ../sass/maps.scss */
+  .plus, text.plusText {
+    display: block;
+  }
+
+  /* line 259, ../sass/maps.scss */
+  div.tooltip.bottom:after, div.tooltip.bottom:before, div.tooltip.top:after, div.tooltip.top:before {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  /* line 266, ../sass/maps.scss */
+  #map {
+    height: 374px;
+  }
+}
+@media (max-width: 660px) {
+  /* line 273, ../sass/maps.scss */
+  #map {
+    height: 474px;
+  }
+}
