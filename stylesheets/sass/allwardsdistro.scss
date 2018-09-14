@@ -29,6 +29,10 @@ svg {
   height: 100%;
 }
 
+
+.ward.wardmap {
+  fill: $cerulean;
+}
 .ward.distro.w1, .ward.wardmap.w1 {fill: $orangey-yellow}
 .ward.distro.w2, .ward.wardmap.w2 {fill: $nice-blue}
 .ward.distro.w3, .ward.wardmap.w3 {fill: $soft-green}

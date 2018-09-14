@@ -24,60 +24,6 @@ html, body {
   background-color: pink;
 }
 
- @-webkit-keyframes pulse 
-    {       
-      0%   {
-        stroke-opacity: 1;
-        stroke-width:0;
-
-      }
-      100% {
-        stroke-opacity: 0;
-        stroke-width:20px;
-      }
-    }
-
-     @-webkit-keyframes pulse1
-    {       
-      0%   {
-        stroke-opacity: 0.2;
-        stroke-width:0;
-
-      }
-      100% {
-        stroke-opacity: 0;
-        stroke-width:50px;
-      }
-    }
-    
-    .pulse
-    {
-      /* Giving Animation Function */
-      -webkit-animation: pulse 2s linear infinite;
-    }
-
-    .onepulse {
-      -webkit-animation: pulse1 1s linear 1; 
-    }
-
-#replay {
-  position: absolute;
-  left: 20px;
-  top:20px;
-  background-color: $cerulean;
-  height: 36px;
-  width: 46px;
-  cursor: pointer;
-  z-index: 10;
-
-  img {
-    margin-top: 8px;
-    margin-left: 13px;
-    width: 20px;
-  }
-
-}
-
 #replay:hover {
   background-color: $cerulean;
 }
@@ -90,160 +36,15 @@ svg {
 .hidden {
   display: none;
 }
-.ward {
-  fill: none;  
+.tract {
+  fill: $cerulean;  
   stroke-width: 2px;
 }
 
-.ward.w1 {
-  stroke: $orangey-yellow;
-}
-
-.ward.w7 {
-  stroke: $cerulean;
-}
-
-.ward.wardmap {
+.tract.tractmap {
   stroke: #fff !important;
   fill-opacity: 0.75;
   cursor: pointer;
-}
-
-.ward.wardmap.active {
-  fill-opacity: 0.9;
-}
-
-.ward.distro.w1, .ward.wardmap.w1, text.w1 {fill: $orangey-yellow}
-.ward.distro.w2, .ward.wardmap.w2, text.w2 {fill: $nice-blue}
-.ward.distro.w3, .ward.wardmap.w3, text.w3 {fill: $soft-green}
-.ward.distro.w4, .ward.wardmap.w4, text.w4 {fill: $purple-grey}
-.ward.distro.w5, .ward.wardmap.w5, text.w5 {fill: $dark-orange}
-.ward.distro.w6, .ward.wardmap.w6, text.w6 {fill: #e25552}
-.ward.distro.w7, .ward.wardmap.w7, text.w7 {fill: $cerulean}
-.ward.distro.w8, .ward.wardmap.w8, text.w8 {fill: #e88e2d}
-
-
-text.plusText {
-  font-weight: 700;
-  font-size: 18px;
-  display: none;
-  pointer-events: none;
-}
-
-div.tooltip h2 {
-  font-size: 12px !important;
-  margin:0px;
-  padding: 0px;
-  font-weight: 700;
-  border-bottom: 1px solid $gray;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-}
-
-div.tooltip p {
-  font-size: 12px !important;
-  margin:0px;
-  padding: 0px;
-}
-
-div.tooltip { 
-  position: fixed;     
-  width: 260px;               
-  padding: 11px;       
-  background: #fff;
-  top:-1000px;
-  left:-1000px;
-  border: 1px solid $cerulean;    
-  pointer-events: none;        
-}
-
-div.tooltip.bottom:after, div.tooltip.bottom:before, div.tooltip.top:after, div.tooltip.top:before {
-  top: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-color: rgba(255, 255, 255, 0);
-  border-top-color: #fff;
-  border-width: 6px;
-  margin-left: -6px;
-}
-
-// div.tooltip.w3:after,div.tooltip.w3:before {
-//   left:39.5%;
-// }
-
-// div.tooltip.w7:after,div.tooltip.w7:before {
-//   left:61.5%;
-// }
-
-div.tooltip.bottom:after, div.tooltip.bottom:before {
-  top: unset;
-  bottom: 100%;
-  border-bottom-color: #fff;
-  border-top: unset;
-}
-
-div.tooltip.top:before {
-  border-color: rgba(0, 150, 210,0);
-  border-top-color: $cerulean;
-  border-width: 8px;
-  margin-left: -8px;
-}
-
-div.tooltip.bottom:before {
-  border-color: rgba(0, 150, 210,0);
-  border-bottom-color: $cerulean;
-  border-width: 8px;
-  margin-left: -8px; 
-}
-
-.plus {
-  display: none;
-  fill: #fff;
-  pointer-events: none;
-}
-
-.times-subset {
-  width: 50%;
-  float: left;
-  
-}
-
-.indiapoint {
-  fill: $cerulean;
-  stroke: $cerulean;
-  pointer-events: none;
-}
-
-.skylerpoint {
-  fill: $orangey-yellow;
-  stroke: $orangey-yellow;
-  pointer-events: none;
-}
-
-.stroker {
-  stroke: #fff;
-  stroke-width: 2px;
-}
-
-.pointText {
-  font-size: 12px;
-  font-weight: 700;
-  font-family: Lato;
-  pointer-events: none;
-}
-
-.dot.india {
-  fill: $soft-blue;
-  stroke: $soft-blue;
-}
-
-.dot.skyler {
-  fill: $dark-orangey-yellow;
 }
 
 
@@ -252,14 +53,6 @@ div.tooltip.bottom:before {
     // width: 600px;
     height: 300px;  
   }
-  .plus, text.plusText {
-    display: block;
-  }
-
-  div.tooltip.bottom:after, div.tooltip.bottom:before, div.tooltip.top:after, div.tooltip.top:before {
-    display: none;
-  }
-
 }
 
 @media (max-width: $MaxTabletSize * 0.6){
