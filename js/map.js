@@ -19,10 +19,11 @@ function mapDraw(geojson,demo) {
 	mapboxgl.accessToken = 'pk.eyJ1IjoidXJiYW5pbnN0aXR1dGUiLCJhIjoiTEJUbmNDcyJ9.mbuZTy4hI_PWXw3C3UFbDQ';
 	var map = new mapboxgl.Map({
 	  container: 'map', 
-	  style: 'mapbox://styles/urbaninstitute/cjdozdvbd02lv2sswwwuxsxmr', 
+	  // style:  'mapbox://styles/urbaninstitute/cjdozdvbd02lv2sswwwuxsxmr'
+	  style: 'mapbox://styles/urbaninstitute/cjm0rmchq2r5p2smk0q28gpnh'
 	  // center: [-77.0265709, 38.8970754], 
 	  // zoom: 9,
-	  interactive: false
+	  // interactive: false
 	});
 
 	// map bounds
@@ -34,26 +35,27 @@ function mapDraw(geojson,demo) {
 	// zoom to DC bounds
 	map.fitBounds(llb, { duration: 0, padding: 20 })
 
-    var container = map.getCanvasContainer()
-    var svg = d3.select(container).append("svg")
 
-    var transform = d3.geoTransform({point: projectPoint});
-	var path = d3.geoPath().projection(transform);
 
-	var featureElement = svg.selectAll("path")
-		.data(geojson.features)
-		.enter()
-		.append("path")		
-		.attr("class",function(d){
-			console.log(d)
-			return "tractmap tract t" + d.properties.GEOID
-		})
+ //    var container = map.getCanvasContainer()
+ //    var svg = d3.select(container).append("svg")
+
+ //    var transform = d3.geoTransform({point: projectPoint});
+	// var path = d3.geoPath().projection(transform);
+
+	// var featureElement = svg.selectAll("path")
+	// 	.data(geojson.features)
+	// 	.enter()
+	// 	.append("path")		
+	// 	.attr("class",function(d){
+	// 		return "tractmap tract t" + d.properties.GEOID
+	// 	})
 
 	// Functions!!!!	
 
-    function update() {
-        featureElement.attr("d",path);        
-    }
+    // function update() {
+    //     featureElement.attr("d",path);        
+    // }
 
 	function projectPoint(lon, lat) {
         var point = map.project(new mapboxgl.LngLat(lon, lat));
@@ -73,17 +75,46 @@ function mapDraw(geojson,demo) {
 	  clearTimeout(resizeTimer);
 	  resizeTimer = setTimeout(function() {	   	
 		map.fitBounds(llb, { duration: 0, padding: 20 })
-		update()
+		// update()
 		removeTooltip()
 		pymChild.sendHeight()
 
 	  }, 250);
 	})
 
-    update()
+    // update()
 
 
   	// What to do when we get to the map in the parent container
-	pymChild.onMessage('hover', onHover);
+	// pymChild.onMessage('hover', onHover);
+
+	map.on('load', function () {
+		
+		var layers = map.getStyle().layers;
+		console.log(layers)
+	    // Find the index of the first symbol layer in the map style
+	    var firstSymbolId;
+	    for (var i = 0; i < layers.length; i++) {
+	        if (layers[i].type === 'symbol') {
+	            firstSymbolId = layers[i].id;
+	            break;
+	        }
+	    }
+	    
+	    map.addLayer({
+	        'id': 'urban-areas-fill',
+	        'type': 'fill',
+	        'source': {
+	            'type': 'geojson',
+	            'data': 'data/baltimore.geojson'
+	        },
+	        'layout': {},
+	        'paint': {
+	            'fill-color': '#f08',
+	            'fill-opacity': 0.4
+	        }
+    	}, firstSymbolId);
+
+	})
 }
 
