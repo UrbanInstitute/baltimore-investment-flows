@@ -20,10 +20,10 @@ function mapDraw(geojson,demo) {
 	var map = new mapboxgl.Map({
 	  container: 'map', 
 	  // style:  'mapbox://styles/urbaninstitute/cjdozdvbd02lv2sswwwuxsxmr'
-	  style: 'mapbox://styles/urbaninstitute/cjm0rmchq2r5p2smk0q28gpnh'
+	  style: 'mapbox://styles/urbaninstitute/cjm0rmchq2r5p2smk0q28gpnh',
 	  // center: [-77.0265709, 38.8970754], 
 	  // zoom: 9,
-	  // interactive: false
+	  interactive: false
 	});
 
 	// map bounds
@@ -73,7 +73,7 @@ function mapDraw(geojson,demo) {
 	  clearTimeout(resizeTimer);
 	  resizeTimer = setTimeout(function() {	   	
 		map.fitBounds(llb, { duration: 0, padding: 20 })
-		// update()
+		update()
 		removeTooltip()
 		pymChild.sendHeight()
 
