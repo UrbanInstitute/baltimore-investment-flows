@@ -35,27 +35,25 @@ function mapDraw(geojson,demo) {
 	// zoom to DC bounds
 	map.fitBounds(llb, { duration: 0, padding: 20 })
 
+    var container = map.getCanvasContainer()
+    var svg = d3.select(container).append("svg")
 
+    var transform = d3.geoTransform({point: projectPoint});
+	var path = d3.geoPath().projection(transform);
 
- //    var container = map.getCanvasContainer()
- //    var svg = d3.select(container).append("svg")
-
- //    var transform = d3.geoTransform({point: projectPoint});
-	// var path = d3.geoPath().projection(transform);
-
-	// var featureElement = svg.selectAll("path")
-	// 	.data(geojson.features)
-	// 	.enter()
-	// 	.append("path")		
-	// 	.attr("class",function(d){
-	// 		return "tractmap tract t" + d.properties.GEOID
-	// 	})
+	var featureElement = svg.selectAll("path")
+		.data(geojson.features)
+		.enter()
+		.append("path")		
+		.attr("class",function(d){
+			return "tractmap tract t" + d.properties.GEOID
+		})
 
 	// Functions!!!!	
 
-    // function update() {
-    //     featureElement.attr("d",path);        
-    // }
+    function update() {
+        featureElement.attr("d",path);        
+    }
 
 	function projectPoint(lon, lat) {
         var point = map.project(new mapboxgl.LngLat(lon, lat));
@@ -63,12 +61,12 @@ function mapDraw(geojson,demo) {
 	}
 
     // Event Listeners
- //    map.on("viewreset", function(){    	
- //    	// map.fitBounds(llb, { duration: 0, padding: 20 })
- //    	update()
-	// 	// pymChild.sendHeight()
-	// 	// console.log("viewreset")
- //    });	    	
+    map.on("viewreset", function(){    	
+    	// map.fitBounds(llb, { duration: 0, padding: 20 })
+    	update()
+		// pymChild.sendHeight()
+		// console.log("viewreset")
+    });	    	
 
    	var resizeTimer;	
 	window.addEventListener("resize", function(e){
@@ -82,7 +80,7 @@ function mapDraw(geojson,demo) {
 	  }, 250);
 	})
 
-    // update()
+    update()
 
 
   	// What to do when we get to the map in the parent container
@@ -90,30 +88,32 @@ function mapDraw(geojson,demo) {
 
 	map.on('load', function () {
 		
-		var layers = map.getStyle().layers;
-		console.log(layers)
-	    // Find the index of the first symbol layer in the map style
-	    var firstSymbolId;
-	    for (var i = 0; i < layers.length; i++) {
-	        if (layers[i].type === 'symbol') {
-	            firstSymbolId = layers[i].id;
-	            break;
-	        }
-	    }
+		// var layers = map.getStyle().layers;
+		// console.log(layers)
+	 //    // Find the index of the first symbol layer in the map style
+	 //    var firstSymbolId;
+	 //    for (var i = 0; i < layers.length; i++) {
+	 //        if (layers[i].type === 'symbol') {
+	 //            firstSymbolId = layers[i].id;
+	 //            break;
+	 //        }
+	 //    }
 	    
-	    map.addLayer({
-	        'id': 'urban-areas-fill',
-	        'type': 'fill',
-	        'source': {
-	            'type': 'geojson',
-	            'data': 'data/baltimore.geojson'
-	        },
-	        'layout': {},
-	        'paint': {
-	            'fill-color': '#f08',
-	            'fill-opacity': 0.4
-	        }
-    	}, firstSymbolId);
+	    // https://www.mapbox.com/mapbox-gl-js/example/updating-choropleth/
+	    // https://www.mapbox.com/help/mapbox-gl-js-expressions/
+	    // map.addLayer({
+	    //     'id': 'urban-areas-fill',
+	    //     'type': 'fill',
+	    //     'source': {
+	    //         'type': 'geojson',
+	    //         'data': 'data/baltimore.geojson'
+	    //     },
+	    //     'layout': {},
+	    //     'paint': {
+	    //         'fill-color': '#f08',
+	    //         'fill-opacity': 0.4
+	    //     }
+    	// }, firstSymbolId);
 
 	})
 }
