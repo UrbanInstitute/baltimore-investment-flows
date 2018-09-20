@@ -287,6 +287,15 @@ h3 {
   transform: translate3d(0, 0, 0);
 }
 /* line 47, ../sass/main.scss */
+#story-container #sticky-right.is-fixed {
+  position: fixed;
+}
+/* line 50, ../sass/main.scss */
+#story-container #sticky-rightis-bottom {
+  top: auto;
+  bottom: 0;
+}
+/* line 55, ../sass/main.scss */
 #story-container #sticky-right .graphic {
   width: 100%;
   height: 50%;
@@ -296,13 +305,9 @@ h3 {
   position: relative;
   transform: translateY(-50%);
 }
-/* line 55, ../sass/main.scss */
-#story-container #sticky-right .graphic.is-fixed {
-  position: fixed;
-}
 
 @media (max-width: 960px) {
-  /* line 69, ../sass/main.scss */
+  /* line 74, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }

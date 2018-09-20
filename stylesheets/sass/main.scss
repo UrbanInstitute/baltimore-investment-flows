@@ -44,6 +44,14 @@
 	    -moz-transform: translate3d(0, 0, 0);
 	    transform: translate3d(0, 0, 0);	
 
+	    &.is-fixed {
+		    position: fixed;
+		}
+		&is-bottom {
+			top: auto;
+			bottom: 0;
+		}
+
     	.graphic {
     		width: 100%;
     		height: 50%;
@@ -52,9 +60,6 @@
 		    top: 50%;
 		    position: relative;
 		    transform: translateY(-50%);
-		    &.is-fixed {
-			    position: fixed;
-			}
     	}
     }
 }
