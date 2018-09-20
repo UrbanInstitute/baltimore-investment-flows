@@ -20,7 +20,12 @@ function mapDraw(geojson,demo) {
 	var map = new mapboxgl.Map({
 	  container: 'map', 
 	  // style:  'mapbox://styles/urbaninstitute/cjdozdvbd02lv2sswwwuxsxmr'
+	  
+	  // This is the city roads/water
 	  style: 'mapbox://styles/urbaninstitute/cjm0rmchq2r5p2smk0q28gpnh',
+
+	  // This is just the labels (for on top)
+	  // style: 'mapbox://styles/urbaninstitute/cjm6prd44d8w42smglmi2qrqx',
 	  // center: [-77.0265709, 38.8970754], 
 	  // zoom: 9,
 	  interactive: false
@@ -41,12 +46,25 @@ function mapDraw(geojson,demo) {
     var transform = d3.geoTransform({point: projectPoint});
 	var path = d3.geoPath().projection(transform);
 
+	console.log(demo)
+	var key = d3.map(demo, function(d) { return d.tractID; });	
+
+	var color = d3.scaleThreshold()
+	    .domain([50000, 100000, 150000, 200000])
+	    .range(["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"]);
+
 	var featureElement = svg.selectAll("path")
 		.data(geojson.features)
 		.enter()
 		.append("path")		
-		.attr("class",function(d){
+		.attr("class",function(d){	
 			return "tractmap tract t" + d.properties.GEOID
+		})
+		.attr("fill",function(d){
+			var geoid = d.properties.GEOID;
+			var thisVariable = +key.get(geoid)["aggregate investment $ Per capita"]
+			var thisColor = color(thisVariable)
+			return thisColor;
 		})
 
 	// Functions!!!!	
