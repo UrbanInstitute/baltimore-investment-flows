@@ -12,13 +12,51 @@
     // top: 50%;
     display: block;
     width: 100%;
-    height: 500px;
+    height: 400px;
     max-width: none;
     background-image: url(../../img/baltimore.jpg);
-    
-    // -webkit-transform: translate(0px, -50%);
-    // -ms-transform: translate(0px, -50%);
-    // transform: translate(0px, -50%);
+    background-position: center bottom;
+    background-size: cover;   
+}
+
+#story-container {
+	width: 100%;
+    position: relative;
+
+    #story {
+    	width: 60%;
+
+		 .trigger {
+		    padding: 0;
+		    margin: 0;
+		    min-height: 240px;
+		}	
+    }
+
+    #sticky-right {    	
+    	height: 100vh;
+	    width: 40%;
+		background-color: salmon;    	
+    	position: absolute;
+	    top: 0;
+	    margin-left: 60%;
+	    -webkit-transform: translate3d(0, 0, 0);
+	    -moz-transform: translate3d(0, 0, 0);
+	    transform: translate3d(0, 0, 0);	
+
+    	.graphic {
+    		width: 100%;
+    		height: 50%;
+    		background-color: pink;
+    		border: 1px dashed black;
+		    top: 50%;
+		    position: relative;
+		    transform: translateY(-50%);
+		    &.is-fixed {
+			    position: fixed;
+			}
+    	}
+    }
 }
     
 @media (max-width: $MaxDesktopSize){	
@@ -28,6 +66,10 @@
 // Tablet size styles
 @media (max-width: $MaxTabletSize){	
 
+	.banner-img {
+		height: 300px;	
+	}
+	
 }
 
 @media (max-width: $MaxPhoneSize){	
