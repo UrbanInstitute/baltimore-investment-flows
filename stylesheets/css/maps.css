@@ -1,5 +1,5 @@
 /*colors*/
-/* line 34, ../sass/_variables.scss */
+/* line 35, ../sass/_variables.scss */
 #isPhone, #isTablet, #isDesktop {
   display: none;
   pointer-events: none;
@@ -10,44 +10,44 @@
   left: 0;
 }
 
-/* line 44, ../sass/_variables.scss */
+/* line 45, ../sass/_variables.scss */
 .hide-for-mobile-only {
   display: block;
 }
 
-/* line 48, ../sass/_variables.scss */
+/* line 49, ../sass/_variables.scss */
 .show-for-mobile-only {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* line 54, ../sass/_variables.scss */
+  /* line 55, ../sass/_variables.scss */
   #isPhone {
     display: block;
   }
 
-  /* line 58, ../sass/_variables.scss */
+  /* line 59, ../sass/_variables.scss */
   #isTablet, #isDesktop {
     display: none;
   }
 
-  /* line 62, ../sass/_variables.scss */
+  /* line 63, ../sass/_variables.scss */
   .hide-for-mobile-only {
     display: none;
   }
 
-  /* line 65, ../sass/_variables.scss */
+  /* line 66, ../sass/_variables.scss */
   .show-for-mobile-only {
     display: block;
   }
 }
 @media (max-width: 960px) {
-  /* line 71, ../sass/_variables.scss */
+  /* line 72, ../sass/_variables.scss */
   #isTablet {
     display: block;
   }
 
-  /* line 75, ../sass/_variables.scss */
+  /* line 76, ../sass/_variables.scss */
   #isPhone, #isDesktop {
     display: none;
   }
@@ -96,7 +96,12 @@ p {
   line-height: 24px;
 }
 
-/* line 50, ../sass/_typography.scss */
+/* line 43, ../sass/_typography.scss */
+a {
+  color: #1696d2;
+}
+
+/* line 47, ../sass/_typography.scss */
 .date {
   color: #353535;
   font-size: 14px;

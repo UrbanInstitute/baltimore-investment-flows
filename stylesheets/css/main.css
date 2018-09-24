@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /*colors*/
-/* line 34, ../sass/_variables.scss */
+/* line 35, ../sass/_variables.scss */
 #isPhone, #isTablet, #isDesktop {
   display: none;
   pointer-events: none;
@@ -14,44 +14,44 @@
   left: 0;
 }
 
-/* line 44, ../sass/_variables.scss */
+/* line 45, ../sass/_variables.scss */
 .hide-for-mobile-only {
   display: block;
 }
 
-/* line 48, ../sass/_variables.scss */
+/* line 49, ../sass/_variables.scss */
 .show-for-mobile-only {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* line 54, ../sass/_variables.scss */
+  /* line 55, ../sass/_variables.scss */
   #isPhone {
     display: block;
   }
 
-  /* line 58, ../sass/_variables.scss */
+  /* line 59, ../sass/_variables.scss */
   #isTablet, #isDesktop {
     display: none;
   }
 
-  /* line 62, ../sass/_variables.scss */
+  /* line 63, ../sass/_variables.scss */
   .hide-for-mobile-only {
     display: none;
   }
 
-  /* line 65, ../sass/_variables.scss */
+  /* line 66, ../sass/_variables.scss */
   .show-for-mobile-only {
     display: block;
   }
 }
 @media (max-width: 960px) {
-  /* line 71, ../sass/_variables.scss */
+  /* line 72, ../sass/_variables.scss */
   #isTablet {
     display: block;
   }
 
-  /* line 75, ../sass/_variables.scss */
+  /* line 76, ../sass/_variables.scss */
   #isPhone, #isDesktop {
     display: none;
   }
@@ -100,7 +100,12 @@ p {
   line-height: 24px;
 }
 
-/* line 50, ../sass/_typography.scss */
+/* line 43, ../sass/_typography.scss */
+a {
+  color: #1696d2;
+}
+
+/* line 47, ../sass/_typography.scss */
 .date {
   color: #353535;
   font-size: 14px;
@@ -188,7 +193,7 @@ p {
   margin-left: 40%;
 }
 /* line 89, ../sass/main.scss */
-#story-container #sticky-rightis-bottom {
+#story-container #sticky-right.is-bottom {
   top: auto;
   bottom: 0;
 }
@@ -208,8 +213,56 @@ p {
   transform: translateY(-50%);
 }
 
+/* line 111, ../sass/main.scss */
+.footer {
+  width: 100%;
+  max-width: 725px;
+  padding: 20px;
+  margin: 0 auto;
+}
+/* line 117, ../sass/main.scss */
+.footer h1 {
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  padding-top: 75px;
+  color: #000;
+  font-size: 34px;
+  font-weight: 300;
+}
+/* line 127, ../sass/main.scss */
+.footer p {
+  color: #353535;
+  font-size: 16px;
+}
+/* line 132, ../sass/main.scss */
+.footer .button {
+  background-color: #000;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 400;
+  display: inline-block;
+  padding: 9px 15px;
+  border: 0;
+  line-height: 26px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+  text-transform: uppercase;
+}
+/* line 146, ../sass/main.scss */
+.footer .button:hover {
+  background-color: #1696d2;
+}
+/* line 152, ../sass/main.scss */
+.footer .credit-list p {
+  margin-bottom: 10px;
+  color: #353535;
+  font-size: 14px;
+}
+
 @media (max-width: 960px) {
-  /* line 118, ../sass/main.scss */
+  /* line 167, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }
