@@ -1,5 +1,5 @@
 /*colors*/
-/* line 31, ../sass/_variables.scss */
+/* line 34, ../sass/_variables.scss */
 #isPhone, #isTablet, #isDesktop {
   display: none;
   pointer-events: none;
@@ -10,44 +10,44 @@
   left: 0;
 }
 
-/* line 41, ../sass/_variables.scss */
+/* line 44, ../sass/_variables.scss */
 .hide-for-mobile-only {
   display: block;
 }
 
-/* line 45, ../sass/_variables.scss */
+/* line 48, ../sass/_variables.scss */
 .show-for-mobile-only {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* line 51, ../sass/_variables.scss */
+  /* line 54, ../sass/_variables.scss */
   #isPhone {
     display: block;
   }
 
-  /* line 55, ../sass/_variables.scss */
+  /* line 58, ../sass/_variables.scss */
   #isTablet, #isDesktop {
     display: none;
   }
 
-  /* line 59, ../sass/_variables.scss */
+  /* line 62, ../sass/_variables.scss */
   .hide-for-mobile-only {
     display: none;
   }
 
-  /* line 62, ../sass/_variables.scss */
+  /* line 65, ../sass/_variables.scss */
   .show-for-mobile-only {
     display: block;
   }
 }
 @media (max-width: 960px) {
-  /* line 68, ../sass/_variables.scss */
+  /* line 71, ../sass/_variables.scss */
   #isTablet {
     display: block;
   }
 
-  /* line 72, ../sass/_variables.scss */
+  /* line 75, ../sass/_variables.scss */
   #isPhone, #isDesktop {
     display: none;
   }
@@ -66,14 +66,37 @@ h1 {
   text-align: center;
 }
 
-/* line 17, ../sass/_typography.scss */
-p {
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 12px;
+/* line 16, ../sass/_typography.scss */
+h2 {
+  font-family: Lato;
+  font-size: 22px;
+  line-height: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: left;
+  color: #333;
 }
 
 /* line 27, ../sass/_typography.scss */
+p {
+  margin-bottom: 12px;
+  margin-top: 0;
+  font-size: 12px;
+  font-family: Lato, sans-serif;
+  color: #333;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+/* line 38, ../sass/_typography.scss */
+#lede p {
+  font-size: 17px;
+  line-height: 24px;
+}
+
+/* line 50, ../sass/_typography.scss */
 .date {
   color: #353535;
   font-size: 14px;

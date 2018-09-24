@@ -43,8 +43,9 @@
     margin: 0 auto;
 
     #story {
-    	width: 60%;
+    	width: $story-width;
 		padding-top: 20px;
+		padding-right: 3%;
 
 		.div-section-divider {
 		    display: block;
@@ -64,14 +65,15 @@
 
     #sticky-right {    	
     	height: 100vh;
-	    width: 40%;
+	    width: $chart-width;
 		// background-color: salmon;    	
     	position: absolute;
 	    top: 0;
-	    margin-left: 60%;
+	    margin-left: $story-width;
 	    -webkit-transform: translate3d(0, 0, 0);
 	    -moz-transform: translate3d(0, 0, 0);
 	    transform: translate3d(0, 0, 0);	
+	    padding-left: 3%;
 
 	    &.is-fixed {
 		    position: fixed;
@@ -80,8 +82,8 @@
 		    margin-left: 0;
 
 		    .sticky-right-inner {
-		    	width: 40%;
-    			margin-left: 60%;
+		    	width: $chart-width;
+    			margin-left: $story-width;
 		    }
 		}
 		&is-bottom {
