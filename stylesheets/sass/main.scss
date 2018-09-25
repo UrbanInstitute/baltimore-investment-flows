@@ -111,6 +111,38 @@
 				    margin-top: 50px;
 			    }
 	    	}
+
+	    	.bubble-nav {
+	    		width: 50px;
+	    		overflow: auto;
+	    		// background-color: salmon;
+	    		// border: 1px dashed black;
+			    position: relative;
+			    transform: translateY(-50%);
+			    // float: right;
+			    margin-left: calc(-77% - 50px);
+
+			    .bubble {
+			    	height: 10px;
+					width: 10px;
+					background-color: white;
+					border-radius: 50%;
+					float:left;
+					clear: both;
+					margin-top:5px;
+					margin-bottom:5px;
+					margin-left:5px;
+					border: 1px solid black;
+
+					&.active {
+						background-color: $cerulean;
+						border: 0;
+						height: 15px;
+						width: 15px;
+						margin-left:3px;
+					}
+			    }
+			}
 		}
     }
 }
