@@ -113,7 +113,7 @@
 
 	    	.bubble-nav {
 	    		width: 50px;
-	    		overflow: auto;
+	    		// overflow: auto;
 	    		// background-color: salmon;
 	    		// border: 1px dashed black;
 			    position: relative;
@@ -132,6 +132,18 @@
 					margin-bottom:5px;
 					margin-left:5px;
 					border: 1px solid black;
+					cursor: pointer;
+					
+					.label {
+						width: max-content;
+					    margin-left: 20px;
+					    margin-top: -3px;
+					    font-size: 13px;
+					    display: none;
+					    pointer-events:none;
+					    text-transform: capitalize;
+					    background-color: #fff;
+					}
 
 					&.active {
 						background-color: $cerulean;
@@ -140,6 +152,15 @@
 						width: 15px;
 						margin-left:3px;
 					}
+
+					&:hover {
+						.label {
+							display: block;
+						}
+					}
+			    }
+			    .clearer {
+			    	clear:both;
 			    }
 			}
 		}

@@ -82,11 +82,17 @@
 
 		// create div for each
 		for (var i = 0; i < numTriggers; i++) {
-			$(".bubble-nav").append("<div class='bubble'></div>");
+			// get item label
+			var itemLabel = getRandomTitle()
+			// append items
+			$(".bubble-nav").append("<div class='bubble'><div class='label'>" + itemLabel +"</div></div>");
 		}
-
-		$(".bubble").first().addClass("active")
+		
 		// set first to active
+		$(".bubble").first().addClass("active")
+		
+		// create clearing div below everything
+		$(".bubble-nav").append("<div class='clearer'></div>")
 	}
 
 	waypoints()
@@ -103,4 +109,19 @@ function updateChart(nextStep) {
 	$(".graphic div").html(nextStep)
 
 
+}
+
+function getRandomTitle() {
+	var words = "suricate homonomous unconsiderable asphaltene sturdiness Trionyx pigmentation episcope torchlight keynoter Kharia osmose Halteridium underproduce misbecomingly compulsory zyme overdaringly Cristivomer unaffrightedly bailey septemplicate alterity sarcophagy"
+	var words = words.split(" ")	
+	var max = 10;
+	var min = 3;
+	var num = Math.floor(Math.random() * (max - min) ) + min;
+	var num2 = Math.floor(Math.random() * (max - min) ) + min;
+	var randTitle = "";
+	for (var i = 0; i < num; i++) {
+		randTitle = randTitle + " " + words[i+num2];
+	}
+
+	return randTitle;
 }
