@@ -73,7 +73,6 @@
 	    -webkit-transform: translate3d(0, 0, 0);
 	    -moz-transform: translate3d(0, 0, 0);
 	    transform: translate3d(0, 0, 0);	
-	    padding-left: 3%;
 
 	    &.is-fixed {
 		    position: fixed;
@@ -120,7 +119,7 @@
 			    position: relative;
 			    transform: translateY(-50%);
 			    // float: right;
-			    margin-left: calc(-77% - 50px);
+			    margin-left: -77%;
 
 			    .bubble {
 			    	height: 10px;
