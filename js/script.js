@@ -98,6 +98,19 @@
 	waypoints()
 	createDots()
 
+	// initialize click function for lefthand nav bubbles
+	$(".bubble").click(function(){
+		// Get div index
+		var index = $(this).parent().children().index(this)
+		// Get div
+		var mover = $(".trigger").eq(index)
+		console.log(mover)
+
+		// Scroll to div
+		$('html,body').animate({
+        	scrollTop: mover.offset().top - 100},
+        	'slow');
+	})
 })()
 
 function updateChart(nextStep) {

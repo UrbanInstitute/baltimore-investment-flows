@@ -141,8 +141,8 @@
 					
 					.label {
 						// width: max-content;
-					    margin-left: 20px;
-					    margin-top: -3px;
+					    margin-left: 17px;
+					    margin-top: -9px;
 					    font-size: 13px;
 					    display: none;
 					    pointer-events:none;
@@ -162,6 +162,11 @@
 						height: 15px;
 						width: 15px;
 						margin-left:3px;
+
+						.label {
+							margin-top: -6px;
+							margin-left: 20px;
+						}
 					}
 
 					&:hover {
