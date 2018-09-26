@@ -85,7 +85,7 @@
 			// get item label
 			var itemLabel = getRandomTitle()
 			// append items
-			$(".bubble-nav").append("<div class='bubble'><div class='label'>" + itemLabel +"</div></div>");
+			$(".bubble-nav").append("<div class='bubble'><div class='label'><p class='bubble-text'>" + itemLabel +"</p></div></div>");
 		}
 		
 		// set first to active
