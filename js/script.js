@@ -95,6 +95,33 @@
 		$(".bubble-nav").append("<div class='clearer'></div>")
 	}
 
+
+	function updateChart(nextStep) {
+		// update left-hand nav
+		$(".bubble").removeClass("active")
+		$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
+
+		// update inside of the chart
+		$(".graphic div").html(nextStep)
+
+
+	}
+
+	function getRandomTitle() {
+		var words = "suricate homonomous unconsiderable asphaltene sturdiness Trionyx pigmentation episcope torchlight keynoter Kharia osmose Halteridium underproduce misbecomingly compulsory zyme overdaringly Cristivomer unaffrightedly bailey septemplicate alterity sarcophagy"
+		var words = words.split(" ")	
+		var max = 10;
+		var min = 3;
+		var num = Math.floor(Math.random() * (max - min) ) + min;
+		var num2 = Math.floor(Math.random() * (max - min) ) + min;
+		var randTitle = "";
+		for (var i = 0; i < num; i++) {
+			randTitle = randTitle + " " + words[i+num2];
+		}
+
+		return randTitle;
+	}
+
 	waypoints()
 	createDots()
 
@@ -103,8 +130,7 @@
 		// Get div index
 		var index = $(this).parent().children().index(this)
 		// Get div
-		var mover = $(".trigger").eq(index)
-		console.log(mover)
+		var mover = $(".trigger").eq(index)		
 
 		// Scroll to div
 		$('html,body').animate({
@@ -112,29 +138,3 @@
         	'slow');
 	})
 })()
-
-function updateChart(nextStep) {
-	// update left-hand nav
-	$(".bubble").removeClass("active")
-	$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
-
-	// update inside of the chart
-	$(".graphic div").html(nextStep)
-
-
-}
-
-function getRandomTitle() {
-	var words = "suricate homonomous unconsiderable asphaltene sturdiness Trionyx pigmentation episcope torchlight keynoter Kharia osmose Halteridium underproduce misbecomingly compulsory zyme overdaringly Cristivomer unaffrightedly bailey septemplicate alterity sarcophagy"
-	var words = words.split(" ")	
-	var max = 10;
-	var min = 3;
-	var num = Math.floor(Math.random() * (max - min) ) + min;
-	var num2 = Math.floor(Math.random() * (max - min) ) + min;
-	var randTitle = "";
-	for (var i = 0; i < num; i++) {
-		randTitle = randTitle + " " + words[i+num2];
-	}
-
-	return randTitle;
-}

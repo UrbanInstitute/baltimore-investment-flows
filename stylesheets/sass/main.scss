@@ -74,6 +74,10 @@
 	    -moz-transform: translate3d(0, 0, 0);
 	    transform: translate3d(0, 0, 0);	
 	    pointer-events: none;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
 
 
 	    &.is-fixed {
