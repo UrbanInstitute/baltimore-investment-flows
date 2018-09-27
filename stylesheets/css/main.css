@@ -257,13 +257,14 @@ a {
   text-transform: capitalize;
   background-color: #fff;
   white-space: nowrap;
+  direction: rtl;
 }
-/* line 158, ../sass/main.scss */
+/* line 159, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
   display: inline-block;
   background-color: #fff;
 }
-/* line 164, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble.active {
   background-color: #0096d2;
   border: 0;
@@ -271,28 +272,28 @@ a {
   width: 15px;
   margin-left: 3px;
 }
-/* line 171, ../sass/main.scss */
+/* line 172, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble.active .label {
   margin-top: -6px;
   margin-left: 20px;
 }
-/* line 178, ../sass/main.scss */
+/* line 179, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble:hover .label {
   display: block;
 }
-/* line 183, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .clearer {
   clear: both;
 }
 
-/* line 191, ../sass/main.scss */
+/* line 192, ../sass/main.scss */
 .footer {
   width: 100%;
   max-width: 725px;
   padding: 20px;
   margin: 0 auto;
 }
-/* line 197, ../sass/main.scss */
+/* line 198, ../sass/main.scss */
 .footer h1 {
   text-align: left;
   text-transform: uppercase;
@@ -302,12 +303,12 @@ a {
   font-size: 34px;
   font-weight: 300;
 }
-/* line 207, ../sass/main.scss */
+/* line 208, ../sass/main.scss */
 .footer p {
   color: #353535;
   font-size: 16px;
 }
-/* line 212, ../sass/main.scss */
+/* line 213, ../sass/main.scss */
 .footer .button {
   background-color: #000;
   color: #fff;
@@ -322,11 +323,11 @@ a {
   border-radius: 0;
   text-transform: uppercase;
 }
-/* line 226, ../sass/main.scss */
+/* line 227, ../sass/main.scss */
 .footer .button:hover {
   background-color: #1696d2;
 }
-/* line 232, ../sass/main.scss */
+/* line 233, ../sass/main.scss */
 .footer .credit-list p {
   margin-bottom: 10px;
   color: #353535;
@@ -334,7 +335,7 @@ a {
 }
 
 @media (max-width: 960px) {
-  /* line 247, ../sass/main.scss */
+  /* line 248, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }
