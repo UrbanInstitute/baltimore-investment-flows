@@ -124,10 +124,11 @@
 	    		// overflow: auto;
 	    		// background-color: salmon;
 	    		// border: 1px dashed black;
-			    position: relative;
+			    position: absolute;
 			    transform: translateY(-50%);
 			    // float: right;
-			    margin-left: -77%;
+			    // margin-left: -77%;
+			    right: -60px;
 
 			    .bubble {
 			    	height: 10px;
