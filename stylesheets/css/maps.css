@@ -1,5 +1,5 @@
 /*colors*/
-/* line 35, ../sass/_variables.scss */
+/* line 36, ../sass/_variables.scss */
 #isPhone, #isTablet, #isDesktop {
   display: none;
   pointer-events: none;
@@ -10,44 +10,44 @@
   left: 0;
 }
 
-/* line 45, ../sass/_variables.scss */
+/* line 46, ../sass/_variables.scss */
 .hide-for-mobile-only {
   display: block;
 }
 
-/* line 49, ../sass/_variables.scss */
+/* line 50, ../sass/_variables.scss */
 .show-for-mobile-only {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* line 55, ../sass/_variables.scss */
+  /* line 56, ../sass/_variables.scss */
   #isPhone {
     display: block;
   }
 
-  /* line 59, ../sass/_variables.scss */
+  /* line 60, ../sass/_variables.scss */
   #isTablet, #isDesktop {
     display: none;
   }
 
-  /* line 63, ../sass/_variables.scss */
+  /* line 64, ../sass/_variables.scss */
   .hide-for-mobile-only {
     display: none;
   }
 
-  /* line 66, ../sass/_variables.scss */
+  /* line 67, ../sass/_variables.scss */
   .show-for-mobile-only {
     display: block;
   }
 }
-@media (max-width: 960px) {
-  /* line 72, ../sass/_variables.scss */
+@media (max-width: 850px) {
+  /* line 73, ../sass/_variables.scss */
   #isTablet {
     display: block;
   }
 
-  /* line 76, ../sass/_variables.scss */
+  /* line 77, ../sass/_variables.scss */
   #isPhone, #isDesktop {
     display: none;
   }
@@ -163,7 +163,7 @@ svg {
     height: 300px;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 510px) {
   /* line 59, ../sass/maps.scss */
   #map {
     height: 374px;

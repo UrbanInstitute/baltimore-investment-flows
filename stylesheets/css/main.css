@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /*colors*/
-/* line 35, ../sass/_variables.scss */
+/* line 36, ../sass/_variables.scss */
 #isPhone, #isTablet, #isDesktop {
   display: none;
   pointer-events: none;
@@ -14,44 +14,44 @@
   left: 0;
 }
 
-/* line 45, ../sass/_variables.scss */
+/* line 46, ../sass/_variables.scss */
 .hide-for-mobile-only {
   display: block;
 }
 
-/* line 49, ../sass/_variables.scss */
+/* line 50, ../sass/_variables.scss */
 .show-for-mobile-only {
   display: none;
 }
 
 @media (max-width: 768px) {
-  /* line 55, ../sass/_variables.scss */
+  /* line 56, ../sass/_variables.scss */
   #isPhone {
     display: block;
   }
 
-  /* line 59, ../sass/_variables.scss */
+  /* line 60, ../sass/_variables.scss */
   #isTablet, #isDesktop {
     display: none;
   }
 
-  /* line 63, ../sass/_variables.scss */
+  /* line 64, ../sass/_variables.scss */
   .hide-for-mobile-only {
     display: none;
   }
 
-  /* line 66, ../sass/_variables.scss */
+  /* line 67, ../sass/_variables.scss */
   .show-for-mobile-only {
     display: block;
   }
 }
-@media (max-width: 960px) {
-  /* line 72, ../sass/_variables.scss */
+@media (max-width: 850px) {
+  /* line 73, ../sass/_variables.scss */
   #isTablet {
     display: block;
   }
 
-  /* line 76, ../sass/_variables.scss */
+  /* line 77, ../sass/_variables.scss */
   #isPhone, #isDesktop {
     display: none;
   }
@@ -140,20 +140,26 @@ a {
   padding-bottom: 30px;
 }
 
-/* line 39, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
+.mega-container {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+/* line 43, ../sass/main.scss */
 #story-container {
   width: 100%;
   position: relative;
   max-width: 950px;
   margin: 0 auto;
 }
-/* line 45, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 #story-container #story {
   width: 40%;
   padding-top: 20px;
   padding-right: 3%;
 }
-/* line 50, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 #story-container #story .div-section-divider {
   display: block;
   width: 200px;
@@ -162,13 +168,13 @@ a {
   background-color: #1696d2;
   margin-bottom: 50px;
 }
-/* line 59, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 #story-container #story .trigger {
   padding: 0;
   margin: 0;
   min-height: 940px;
 }
-/* line 66, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 #story-container #sticky-right {
   height: 100vh;
   width: 60%;
@@ -184,31 +190,38 @@ a {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 83, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 #story-container #sticky-right.is-fixed {
   position: fixed;
   width: inherit;
   max-width: inherit;
   margin-left: 0;
 }
-/* line 89, ../sass/main.scss */
+@media (max-width: 1050px) {
+  /* line 87, ../sass/main.scss */
+  #story-container #sticky-right.is-fixed {
+    width: calc(100% - 100px);
+    max-width: none;
+  }
+}
+/* line 99, ../sass/main.scss */
 #story-container #sticky-right.is-fixed .sticky-right-inner {
   width: 60%;
   margin-left: 40%;
 }
-/* line 94, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 #story-container #sticky-right.is-bottom {
   top: auto;
   bottom: 0;
 }
-/* line 99, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner {
   width: 100%;
   height: 100%;
 }
-/* line 103, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic {
-  width: 100%;
+  width: calc(100% - 25px);
   height: 50%;
   background-color: pink;
   border: 1px dashed black;
@@ -217,7 +230,7 @@ a {
   transform: translateY(-50%);
   pointer-events: all;
 }
-/* line 113, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic div {
   font-size: 100px;
   margin: 0 auto;
@@ -225,14 +238,14 @@ a {
   margin-top: 50px;
   cursor: pointer;
 }
-/* line 122, ../sass/main.scss */
+/* line 132, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav {
-  width: 50px;
+  width: 15px;
   position: absolute;
   transform: translateY(-50%);
-  right: -60px;
+  right: 5px;
 }
-/* line 133, ../sass/main.scss */
+/* line 143, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble {
   height: 14px;
   width: 14px;
@@ -246,7 +259,7 @@ a {
   cursor: pointer;
   pointer-events: all;
 }
-/* line 146, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label {
   margin-left: 17px;
   margin-top: -9px;
@@ -258,32 +271,32 @@ a {
   white-space: nowrap;
   direction: rtl;
 }
-/* line 158, ../sass/main.scss */
+/* line 168, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
   display: inline-block;
   background-color: #fff;
 }
-/* line 164, ../sass/main.scss */
+/* line 174, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble.active {
   background-color: #0096d2;
 }
-/* line 169, ../sass/main.scss */
+/* line 179, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble:hover .label {
   display: block;
 }
-/* line 174, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .clearer {
   clear: both;
 }
 
-/* line 182, ../sass/main.scss */
+/* line 192, ../sass/main.scss */
 .footer {
   width: 100%;
   max-width: 725px;
   padding: 20px;
   margin: 0 auto;
 }
-/* line 188, ../sass/main.scss */
+/* line 198, ../sass/main.scss */
 .footer h1 {
   text-align: left;
   text-transform: uppercase;
@@ -293,12 +306,12 @@ a {
   font-size: 34px;
   font-weight: 300;
 }
-/* line 198, ../sass/main.scss */
+/* line 208, ../sass/main.scss */
 .footer p {
   color: #353535;
   font-size: 16px;
 }
-/* line 203, ../sass/main.scss */
+/* line 213, ../sass/main.scss */
 .footer .button {
   background-color: #000;
   color: #fff;
@@ -313,19 +326,19 @@ a {
   border-radius: 0;
   text-transform: uppercase;
 }
-/* line 217, ../sass/main.scss */
+/* line 227, ../sass/main.scss */
 .footer .button:hover {
   background-color: #1696d2;
 }
-/* line 223, ../sass/main.scss */
+/* line 233, ../sass/main.scss */
 .footer .credit-list p {
   margin-bottom: 10px;
   color: #353535;
   font-size: 14px;
 }
 
-@media (max-width: 960px) {
-  /* line 238, ../sass/main.scss */
+@media (max-width: 850px) {
+  /* line 248, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }

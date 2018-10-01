@@ -35,6 +35,10 @@
 	}
 }
 
+.mega-container {
+	margin-left:50px;
+	margin-right:50px;
+}
 
 #story-container {
 	width: 100%;
@@ -86,6 +90,12 @@
 		    max-width: inherit;
 		    margin-left: 0;
 
+		    
+		    @media (max-width: $MaxOpenSize){	
+		    	width: calc(100% - 100px);
+		    	max-width: none;		    	
+			}
+
 		    .sticky-right-inner {
 		    	width: $chart-width;
     			margin-left: $story-width;
@@ -101,7 +111,7 @@
 			height: 100%;
 
 			.graphic {
-	    		width: 100%;
+	    		width: calc(100% - 25px);
 	    		height: 50%;
 	    		background-color: pink;
 	    		border: 1px dashed black;
@@ -120,7 +130,7 @@
 	    	}
 
 	    	.bubble-nav {
-	    		width: 50px;
+	    		width: 15px;
 	    		// overflow: auto;
 	    		// background-color: salmon;
 	    		// border: 1px dashed black;
@@ -128,7 +138,7 @@
 			    transform: translateY(-50%);
 			    // float: right;
 			    // margin-left: -77%;
-			    right: -60px;
+			    right: 5px;
 
 			    .bubble {
 			    	height: 14px;
