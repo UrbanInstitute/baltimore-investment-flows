@@ -274,29 +274,36 @@ a {
 /* line 168, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
   display: inline-block;
-  background-color: #fff;
+  background-color: #1696D2;
+  color: #fff;
+  margin-right: 27px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: -6px;
 }
-/* line 174, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble.active {
   background-color: #0096d2;
 }
-/* line 179, ../sass/main.scss */
+/* line 186, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble:hover .label {
   display: block;
 }
-/* line 184, ../sass/main.scss */
+/* line 191, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .clearer {
   clear: both;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 199, ../sass/main.scss */
 .footer {
   width: 100%;
   max-width: 725px;
   padding: 20px;
   margin: 0 auto;
 }
-/* line 198, ../sass/main.scss */
+/* line 205, ../sass/main.scss */
 .footer h1 {
   text-align: left;
   text-transform: uppercase;
@@ -306,12 +313,12 @@ a {
   font-size: 34px;
   font-weight: 300;
 }
-/* line 208, ../sass/main.scss */
+/* line 215, ../sass/main.scss */
 .footer p {
   color: #353535;
   font-size: 16px;
 }
-/* line 213, ../sass/main.scss */
+/* line 220, ../sass/main.scss */
 .footer .button {
   background-color: #000;
   color: #fff;
@@ -326,11 +333,11 @@ a {
   border-radius: 0;
   text-transform: uppercase;
 }
-/* line 227, ../sass/main.scss */
+/* line 234, ../sass/main.scss */
 .footer .button:hover {
   background-color: #1696d2;
 }
-/* line 233, ../sass/main.scss */
+/* line 240, ../sass/main.scss */
 .footer .credit-list p {
   margin-bottom: 10px;
   color: #353535;
@@ -338,7 +345,7 @@ a {
 }
 
 @media (max-width: 850px) {
-  /* line 248, ../sass/main.scss */
+  /* line 255, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }
