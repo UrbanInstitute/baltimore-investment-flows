@@ -247,6 +247,9 @@
 
 // Tablet size styles
 @media (max-width: $MaxTabletSize){	
+	h2 {
+		font-size: 20px;
+	}
 	.banner-img {
 		height: 300px;	
 	}

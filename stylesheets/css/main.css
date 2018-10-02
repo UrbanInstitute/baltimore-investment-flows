@@ -346,81 +346,86 @@ a {
 
 @media (max-width: 850px) {
   /* line 250, ../sass/main.scss */
+  h2 {
+    font-size: 20px;
+  }
+
+  /* line 253, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }
 
-  /* line 253, ../sass/main.scss */
+  /* line 256, ../sass/main.scss */
   #lede {
     padding-left: 40px;
     padding-right: 40px;
   }
 
-  /* line 257, ../sass/main.scss */
+  /* line 260, ../sass/main.scss */
   .mega-container {
     margin: 0px;
   }
-  /* line 262, ../sass/main.scss */
+  /* line 265, ../sass/main.scss */
   .mega-container #story-container #story {
     width: 100%;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 0px;
   }
-  /* line 269, ../sass/main.scss */
+  /* line 272, ../sass/main.scss */
   .mega-container #story-container #story .div-section-divider {
     margin-top: 40px;
     margin-bottom: 30px;
   }
-  /* line 279, ../sass/main.scss */
+  /* line 282, ../sass/main.scss */
   .mega-container #story-container #sticky-right {
     display: none;
   }
-  /* line 282, ../sass/main.scss */
+  /* line 285, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed {
     width: 100%;
     display: block;
   }
-  /* line 286, ../sass/main.scss */
+  /* line 289, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner {
     width: 100%;
     margin-left: 0;
   }
-  /* line 290, ../sass/main.scss */
+  /* line 293, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner .graphic {
     width: 100%;
     transform: none;
     top: 40px;
   }
-  /* line 302, ../sass/main.scss */
+  /* line 305, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .graphic {
     border-bottom: 3px solid black;
   }
-  /* line 309, ../sass/main.scss */
+  /* line 312, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav {
     width: 40px;
     right: -15px;
     background-color: rgba(255, 255, 255, 0.5);
   }
-  /* line 316, ../sass/main.scss */
+  /* line 319, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
     display: none;
   }
 
-  /* line 326, ../sass/main.scss */
+  /* line 329, ../sass/main.scss */
   .footer {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
 @media (max-width: 600px) {
-  /* line 334, ../sass/main.scss */
+  /* line 337, ../sass/main.scss */
   .footer, #story, #lede {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  /* line 339, ../sass/main.scss */
+  /* line 342, ../sass/main.scss */
   #story-container #story .div-section-divider {
     width: 100%;
   }
