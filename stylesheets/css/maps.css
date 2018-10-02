@@ -20,7 +20,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   /* line 56, ../sass/_variables.scss */
   #isPhone {
     display: block;
@@ -157,7 +157,7 @@ svg {
   cursor: pointer;
 }
 
-@media (max-width: 460.8px) {
+@media (max-width: 360px) {
   /* line 52, ../sass/maps.scss */
   #map {
     height: 300px;

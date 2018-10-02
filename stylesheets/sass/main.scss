@@ -244,20 +244,99 @@
 		}
 	}
 }
-    
-@media (max-width: $MaxDesktopSize){	
-
-}
 
 // Tablet size styles
 @media (max-width: $MaxTabletSize){	
-
 	.banner-img {
 		height: 300px;	
 	}
+	#lede {
+		padding-left:40px;
+		padding-right:40px;
+	}
+	.mega-container {
+		margin:0px;
+
+		#story-container {
+
+		    #story {
+		    	width:100%;
+		    	padding-left:40px;
+		    	padding-right:40px;
+		    	padding-top:0px;
+
+
+				.div-section-divider {
+					margin-top:40px;
+					margin-bottom: 30px;
+				}
+
+				 .trigger {
+
+				}	
+		    }
+
+		    #sticky-right {    	
+		    	display: none;
+
+			    &.is-fixed {
+			    	width: 100%;
+			    	display: block;
+
+				    .sticky-right-inner {
+				    	width:100%;
+				    	margin-left:0;
+
+				    	.graphic {
+				    		width: 100%;
+				    		transform: none;
+				    		top:40px;
+				    	}
+				    }
+				}
+				&.is-bottom {
+				}
+
+				.sticky-right-inner {
+
+					.graphic {
+						border-bottom: 3px solid black;
+
+					    div {
+					    }
+			    	}
+
+			    	.bubble-nav {
+			    		width: 40px;					    
+					    right: -15px;
+					    background-color: rgba(255,255,255,.5);
+
+						.bubble {
+							.label {
+								p.bubble-text {
+									display: none;
+								}
+							}	
+						}
+			    	}
+			    }
+			}
+		}	
+	}
+	.footer {
+ 		padding-left:40px;
+ 		padding-right:40px;
+ 	}
 	
 }
 
 @media (max-width: $MaxPhoneSize){	
+	.footer, #story, #lede {
+ 		padding-left:30px;
+ 		padding-right:30px;
+ 	}
 
+ 	#story-container #story .div-section-divider {
+ 		width: 100%;
+ 	}
 }
