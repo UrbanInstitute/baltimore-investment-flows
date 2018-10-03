@@ -230,14 +230,6 @@ a {
   transform: translateY(-50%);
   pointer-events: all;
 }
-/* line 123, ../sass/main.scss */
-#story-container #sticky-right .sticky-right-inner .graphic div {
-  font-size: 100px;
-  margin: 0 auto;
-  width: 10%;
-  margin-top: 50px;
-  cursor: pointer;
-}
 /* line 132, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav {
   width: 15px;

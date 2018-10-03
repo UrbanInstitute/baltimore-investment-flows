@@ -8,10 +8,23 @@
 
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href='stylesheets/css/mapbox-gl.css' rel='stylesheet' />
   <link rel="stylesheet" type="text/css" href="stylesheets/css/urban.css"/>
-  <link rel="stylesheet" type="text/css" href="stylesheets/css/main.css"/>
   <link rel="stylesheet" type="text/css" href="stylesheets/css/urban-header.css"/>
+  <link rel="stylesheet" type="text/css" href="stylesheets/css/main.css"/>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic,900" rel="stylesheet" type="text/css">
+
+<style>
+	#map { 
+	  position:relative; 
+	  /*// width: 800px;*/
+	  width: 100%;
+	  height: 632px;
+	  /*// background-color: pink;*/
+	}
+
+
+</style>
 
   <!-- Add in meta data -->
 
@@ -77,7 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<div class="mega-container">
 		<div id="story-container">
 			<div id="story">
-				<div class="slide trigger" data-step="0">
+				<div class="slide trigger" data-name="sales_1000" data-step="0">
 					<div class="div-section-divider"></div>
 					<h2>Investment across Baltimore is uneven</h2>
 					<p>Investment in Baltimore is uneven—fragmented by race, income, and geography. Some residents feel the effects of all three.</p>
@@ -86,20 +99,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 					<p>This analysis maps and examines a broad range of investment types--federal, state, private and mission (i.e.capital from investors seeking both a social and financial return)—to show important differences in economic activity—and access to opportunity--between neighborhoods.</p>
 				</div>	
-				<div class="slide trigger" data-step="1">
+				<div class="slide trigger" data-name="permits_1000" data-step="1">
 					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
 				</div>
-				<div class="slide trigger" data-step="2">
+				<div class="slide trigger" data-name="agg_1000" data-step="2">
 					<div class="div-section-divider"></div>
 					<h2>mycosterol rhabdomancer cha</h2>
 					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
 					<p>astrometeorologist bebrave yawnful ephemerid bagatine paurometabolism titre thunderbearer asparagyl congruist furnacelike kitar unverdant belemnitic glossoscopy fiendliness pituitary Trypanosomatidae Fauvist playless spruntly amphimacer hypocritic Maythorn</p>
 					<p>astrometeorologist bebrave yawnful ephemerid bagatine paurometabolism titre thunderbearer asparagyl congruist furnacelike kitar unverdant belemnitic glossoscopy fiendliness pituitary Trypanosomatidae Fauvist playless spruntly amphimacer hypocritic Maythorn</p>
 				</div>
-				<div class="slide trigger" data-step="3">
+				<div class="slide trigger" data-name="res_1000" data-step="3">
 					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
 				</div>
-				<div class="slide trigger" data-step="4">
+				<div class="slide trigger" data-name="loans_1000" data-step="4">
+					<div class="div-section-divider"></div>
+					<h2>mycosterol rhabdomancer cha</h2>
+					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
+				</div>
+								<div class="slide trigger" data-name="AnnualCRAp" data-step="5">
+					<div class="div-section-divider"></div>
+					<h2>mycosterol rhabdomancer cha</h2>
+					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
+				</div>
+								<div class="slide trigger" data-name="pub_1000" data-step="6">
+					<div class="div-section-divider"></div>
+					<h2>mycosterol rhabdomancer cha</h2>
+					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
+				</div>
+								<div class="slide trigger" data-name="miss_1000" data-step="7">
 					<div class="div-section-divider"></div>
 					<h2>mycosterol rhabdomancer cha</h2>
 					<p>theriaca triformin restigmatize cancerousness unalterable zany Echinostomatidae unpredictableness begnaw romanticistic chromid sixtypenny unbased Siuslaw barefaced newlandite panically Psephurus inspreith ski Serena</p>
@@ -108,7 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			<div id="sticky-right" class="">
 				<div class="sticky-right-inner">
 					<div class="graphic">
-						<div></div>
+						<div id="map"></div>
 					</div>	
 					<div class="bubble-nav">
 	<!-- 					<div class="bubble active"></div>
@@ -148,10 +176,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</div>
 	</div>
 </div>
-
+<script src="js/lib/mapbox-gl.js"></script>
 <script src="js/lib/waypoints/noframework.waypoints.min.js"></script>
 <script src="js/lib/pym.min.js"></script>
 <script src="js/lib/jquery.min.js"></script>
 <script src="js/script.js"></script>
+<script src="js/map.js"></script>
 </body>
 </html>

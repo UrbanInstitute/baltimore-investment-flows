@@ -1,6 +1,36 @@
+var startIndex = 0;
+var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
+var pymChild = new pym.Child();
+var ranges = {
+	"sales_1000":{
+		"range":[135,270,404,539,680]	
+	},
+	"permits_1000":{
+		"range":[467,934,1402,1869,2336]	
+	},
+	"agg_1000":{
+		"range":[1389,2778,4166,5555,6944]	
+	},
+	"res_1000":{
+		"range":[656,1312,1967,2623,3279]	
+	},
+	"loans_1000":{
+		"range":[556,1112,1668,2224,2780]	
+	},
+	"AnnualCRAp":{
+		"range":[4884,9769,14653,19537,24573]	
+	},
+	"pub_1000":{
+		"range":[228,456,684,912,1140]	
+	},
+	"miss_1000":{
+		"range":[139,278,418,557,696]	
+	}
+};
 
+ready();
 
-(function() {
+function ready() {
 
 	// helper function so we can map over dom selection
 	function selectionToArray(selection) {
@@ -49,7 +79,8 @@
 					
 					// tell our graphic to update with a specific step
 					// graphic.update(nextStep)		
-					updateChart(nextStep)										
+					var dataName = el.getAttribute('data-name');
+					updateChart(nextStep, dataName)
 				},
 				offset: '50%',  // trigger halfway up the viewport
 			})
@@ -96,14 +127,15 @@
 	}
 
 
-	function updateChart(nextStep) {
+	function updateChart(nextStep,dataName) {
 		// update left-hand nav
 		$(".bubble").removeClass("active")
 		$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
 
 		// update inside of the chart
-		$(".graphic div").html(nextStep)
-
+		// use try???? if item is below the fold on load, don't shoot error
+		advance(map, dataName)
+		// $(".graphic div").html(nextStep)
 
 	}
 
@@ -122,8 +154,107 @@
 		return randTitle;
 	}
 
-	waypoints()
-	createDots()
+
+	function mapDraw() {
+
+	////// Initial map and other initial items//////
+		mapboxgl.accessToken = 'pk.eyJ1IjoidXJiYW5pbnN0aXR1dGUiLCJhIjoiTEJUbmNDcyJ9.mbuZTy4hI_PWXw3C3UFbDQ';
+		var map = new mapboxgl.Map({
+		  container: 'map', 
+		  style: 'mapbox://styles/urbaninstitute/cjm9fzb762tdd2ro26791vasq',
+		  interactive: false
+		});
+
+		return map;
+	}
+
+	function advance(map, item) {
+		map.setPaintProperty("urban-areas-fill", 'fill-color', [
+	                'interpolate',
+	                ['linear'],
+	                ['to-number',['get', item]],
+	               	ranges[item].range[0], colors[0],
+	               	ranges[item].range[1], colors[1],
+	               	ranges[item].range[2], colors[2],
+	               	ranges[item].range[3], colors[3],
+	               	ranges[item].range[4], colors[4],
+	            ]);
+	}
+
+	waypoints();
+	createDots();
+	var map = mapDraw();	
+
+
+	// map bounds
+	var sw = new mapboxgl.LngLat(-76.7156027, 39.196494);
+	var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
+	var llb = new mapboxgl.LngLatBounds(sw, ne);
+
+	// zoom to DC bounds
+	map.fitBounds(llb, { duration: 0, padding: 10 })
+
+
+    // Event Listeners
+    map.on("viewreset", function(){    	
+    	// map.fitBounds(llb, { duration: 0, padding: 20 })
+    	// update()
+		// pymChild.sendHeight()
+		// console.log("viewreset")
+    });	    	
+
+   	var resizeTimer;	
+	window.addEventListener("resize", function(e){
+	  clearTimeout(resizeTimer);
+	  resizeTimer = setTimeout(function() {	   	
+		map.fitBounds(llb, { duration: 0, padding: 20 })
+		// update()
+		removeTooltip()
+		pymChild.sendHeight()
+
+	  }, 250);
+	})
+
+	map.on('load', function () {
+		
+		var layers = map.getStyle().layers;
+		console.log(layers)
+	    // Find the index of the first symbol layer in the map style
+	    var firstSymbolId;
+	    for (var i = 0; i < layers.length; i++) {
+	        if (layers[i].type === 'symbol') {
+	            firstSymbolId = layers[i].id;
+	            break;
+	        }
+	    }
+	    
+	    map.addLayer({
+	        'id': 'urban-areas-fill',
+	        'type': 'fill',
+	        'source': {
+	            'type': 'geojson',
+	            'data': 'data/joined/balt_joined.geojson'
+	        },
+	        'layout': {},
+			'paint': {
+	            'fill-color': [
+	                'interpolate',
+	                ['linear'],
+	                ['to-number',['get', 'miss_1000']],
+	                0, '#F2F12D',
+	                10, '#EED322',
+	                20, '#E6B71E'
+	            ],
+	            'fill-opacity': 0.75
+	        }
+    	}, firstSymbolId);
+
+	})
+
+
+	$("button").click(function(){
+		advance(map, "AnnualCRAp")
+	})
 
 	// initialize click function for lefthand nav bubbles
 	$(".bubble").click(function(){
@@ -137,4 +268,7 @@
         	scrollTop: mover.offset().top - 100},
         	'slow');
 	})
-})()
+
+
+
+}
