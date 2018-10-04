@@ -29,7 +29,8 @@ var ranges = {
 }; 
 
 // define starting variable
-var curStep = "agg_1000"
+var curStep = "agg_1000";
+var circleOpacity = 0.5;
 
 ready();
 
@@ -257,6 +258,43 @@ function ready() {
 	        },
 	        'layout': {},
 			'paint': {}
+    	}, firstSymbolId);
+
+	    map.addLayer({
+	        'id': 'dots',
+	        'type': 'circle',
+	        'source': {
+	            'type': 'vector',
+	            'url': 'mapbox://urbaninstitute.1lmj6hin'
+	        },
+	        'source-layer':'combined_race_200-cg5tla',
+	        'layout': {},
+			'paint': {'circle-color':[
+			  "match",
+			  ["get", "type"],
+			  "aapi",
+			  "#fdbf11",
+			  "hisp",
+			  "hsl(113, 44%, 50%)",
+			  "white",
+			  "#ec008b",
+			  "black",
+			  "hsl(199, 81%, 45%)",
+			  "#fdbf11"
+			],
+			'circle-radius':[
+			  "interpolate",
+			  ["exponential", 1.06],
+			  ["zoom"],
+			  0,
+			  1,
+			  14,
+			  4,
+			  22,
+			  15
+			]
+			// 'circle-opacity':circleOpacity
+		}
     	}, firstSymbolId);
 
 	    advance(map, curStep)
