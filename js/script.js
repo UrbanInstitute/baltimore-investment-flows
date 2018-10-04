@@ -184,7 +184,7 @@ function ready() {
 	waypoints();
 	createDots();
 	var map = mapDraw();	
-
+	
 
 	// map bounds
 	var sw = new mapboxgl.LngLat(-76.7156027, 39.196494);
@@ -193,7 +193,8 @@ function ready() {
 
 	// zoom to DC bounds
 	map.fitBounds(llb, { duration: 0, padding: 10 })
-
+	
+	
 
     // Event Listeners
     map.on("viewreset", function(){    	
@@ -236,19 +237,19 @@ function ready() {
 	            'data': 'data/joined/balt_joined.geojson'
 	        },
 	        'layout': {},
-			'paint': {
-	            'fill-color': [
-	                'interpolate',
-	                ['linear'],
-	                ['to-number',['get', 'miss_1000']],
-	                0, '#F2F12D',
-	                10, '#EED322',
-	                20, '#E6B71E'
-	            ],
-	            'fill-opacity': 0.75
-	        }
+			'paint': {}
+	        //     'fill-color': [
+	        //         'interpolate',
+	        //         ['linear'],
+	        //         ['to-number',['get', 'miss_1000']],
+	        //         0, '#F2F12D',
+	        //         10, '#EED322',
+	        //         20, '#E6B71E'
+	        //     ],
+	        //     'fill-opacity': 0.75
+	        // }
     	}, firstSymbolId);
-
+	    advance(map, "agg_1000")
 	})
 
 
