@@ -112,32 +112,24 @@
 
 			.graphic {
 	    		width: calc(100% - 25px);
-	    		height: 50%;
-	    		background-color: pink;
-	    		border: 1px dashed black;
+	    		height: 70%;
 			    top: 50%;
 			    position: relative;
 			    transform: translateY(-50%);
 			    pointer-events: all;
 
-			    // div {
-			    // 	font-size: 100px;
-				   //  margin: 0 auto;
-				   //  width: 10%;
-				   //  margin-top: 50px;
-				   //  cursor: pointer;
-			    // }
+			    #map { 
+				  position:relative; 
+				  width: 100%;
+				  height: 100%;				
+				}
 	    	}
 
 	    	.bubble-nav {
 	    		width: 15px;
-	    		// overflow: auto;
-	    		// background-color: salmon;
-	    		// border: 1px dashed black;
 			    position: absolute;
 			    transform: translateY(-50%);
-			    // float: right;
-			    // margin-left: -77%;
+    			top: 50%;
 			    right: 5px;
 
 			    .bubble {
