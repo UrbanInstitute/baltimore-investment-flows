@@ -26,7 +26,10 @@ var ranges = {
 	"miss_1000":{
 		"range":[139,278,418,557,696]	
 	}
-};
+}; 
+
+// define starting variable
+var curStep = "agg_1000"
 
 ready();
 
@@ -91,7 +94,12 @@ function ready() {
 					}
 
 					// tell our graphic to update with a specific step
-					updateChart(nextStep, dataName)
+					try {
+						curStep = dataName;
+						updateChart(nextStep, dataName)	
+					}
+					catch(err) {}
+					
 				},
 				offset: '50%',  // trigger halfway up the viewport
 			})
@@ -251,7 +259,7 @@ function ready() {
 			'paint': {}
     	}, firstSymbolId);
 
-	    advance(map, "agg_1000")
+	    advance(map, curStep)
 	})
 
 
