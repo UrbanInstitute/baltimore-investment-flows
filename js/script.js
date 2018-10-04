@@ -77,9 +77,20 @@ function ready() {
 					// else, we want to trigger the previous one
 					var nextStep = direction === 'down' ? step : Math.max(0, step - 1)
 					
+					if (direction === 'down') {
+						var nextStep = step;
+						var dataName = el.getAttribute('data-name');
+					} else {
+						var nextStep = Math.max(0, step - 1)
+						try {							
+							var dataName = $(el)[0].previousElementSibling.getAttribute('data-name');
+						} 
+						catch(err) {
+							var dataName = el.getAttribute('data-name');
+						}
+					}
+
 					// tell our graphic to update with a specific step
-					// graphic.update(nextStep)		
-					var dataName = el.getAttribute('data-name');
 					updateChart(nextStep, dataName)
 				},
 				offset: '50%',  // trigger halfway up the viewport
@@ -194,7 +205,7 @@ function ready() {
 	// zoom to DC bounds
 	map.fitBounds(llb, { duration: 0, padding: 10 })
 	
-	
+
 
     // Event Listeners
     map.on("viewreset", function(){    	
@@ -208,10 +219,10 @@ function ready() {
 	window.addEventListener("resize", function(e){
 	  clearTimeout(resizeTimer);
 	  resizeTimer = setTimeout(function() {	   	
-		map.fitBounds(llb, { duration: 0, padding: 20 })
+		map.fitBounds(llb, { duration: 0, padding: 10 })
 		// update()
-		removeTooltip()
-		pymChild.sendHeight()
+		// removeTooltip()
+		// pymChild.sendHeight()
 
 	  }, 250);
 	})
@@ -219,7 +230,7 @@ function ready() {
 	map.on('load', function () {
 		
 		var layers = map.getStyle().layers;
-		console.log(layers)
+		// console.log(layers)
 	    // Find the index of the first symbol layer in the map style
 	    var firstSymbolId;
 	    for (var i = 0; i < layers.length; i++) {
@@ -238,17 +249,8 @@ function ready() {
 	        },
 	        'layout': {},
 			'paint': {}
-	        //     'fill-color': [
-	        //         'interpolate',
-	        //         ['linear'],
-	        //         ['to-number',['get', 'miss_1000']],
-	        //         0, '#F2F12D',
-	        //         10, '#EED322',
-	        //         20, '#E6B71E'
-	        //     ],
-	        //     'fill-opacity': 0.75
-	        // }
     	}, firstSymbolId);
+
 	    advance(map, "agg_1000")
 	})
 
