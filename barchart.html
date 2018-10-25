@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Baltimore Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+    <!-- <link href="stylesheets/css/bar.css" rel='stylesheet' /> -->
+    <!-- <link href="stylesheets/css/wardmap.css" rel='stylesheet' /> -->
+
+	<style type="text/css">
+		#container {
+			width: 100%;
+		}
+
+		.left, .right {
+			float: left;
+		}
+
+		.left {
+			width: 60%;
+			background-color: pink;
+		}
+		.right {
+			width: 40%;
+			background-color: orange;
+		}
+
+/*bar stuff*/
+.bar {
+	fill: #6F257F;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.x path {
+	display: none;
+}
+	</style>
+
+</head>
+<body>
+
+<div id="container">
+	<div class="left">
+		<p>
+			spinelike univalent zooecium preclassic rancer archontate improvisor endoparasitic boskiness parados Cosmati Bonapartist morulation dextrous electromotion ambulation eremochaetous azogrenadine unheler mathetic opposer cureless rhomboidly componental
+		</p>
+		<p>
+			spinelike univalent zooecium preclassic rancer archontate improvisor endoparasitic boskiness parados Cosmati Bonapartist morulation dextrous electromotion ambulation eremochaetous azogrenadine unheler mathetic opposer cureless rhomboidly componental
+		</p>
+		<p>
+			spinelike univalent zooecium preclassic rancer archontate improvisor endoparasitic boskiness parados Cosmati Bonapartist morulation dextrous electromotion ambulation eremochaetous azogrenadine unheler mathetic opposer cureless rhomboidly componental
+		</p>
+		<p>
+			spinelike univalent zooecium preclassic rancer archontate improvisor endoparasitic boskiness parados Cosmati Bonapartist morulation dextrous electromotion ambulation eremochaetous azogrenadine unheler mathetic opposer cureless rhomboidly componental
+		</p>
+		<p>
+			spinelike univalent zooecium preclassic rancer archontate improvisor endoparasitic boskiness parados Cosmati Bonapartist morulation dextrous electromotion ambulation eremochaetous azogrenadine unheler mathetic opposer cureless rhomboidly componental
+		</p>
+	</div>
+	<div class="right">
+		Here is our chart
+		<div id='chart'>
+		</div>	
+	</div>
+</div>
+
+
+<script src="js/lib/pym.min.js"></script>
+<script src="js/lib/d3.v4.min.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+<!-- <script src="js/barchart.js"></script> -->
+
+<script type="text/javascript">
+    var margin = {top: 20, right: 20, bottom: 30, left: 80},
+    width = getChartWidth() - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+    
+    var svg = d3.select("#chart").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+
+	var x = d3.scaleLinear().range([0, width]);
+	var y = d3.scaleBand().range([height, 0]);
+
+	var g = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	var data = [
+	    {"area": "central ", "value": 18000},
+	    {"area": "Riverside ", "value": 17000},
+	    {"area": "Picton ", "value": 80000},
+	    {"area": "Everton ", "value": 55000},
+	    {"area": "Kensington ", "value": 100000},
+	    {"area": "Kirkdale", "value": 50000}
+	] 
+
+	data.sort(function(a, b) { return a.value - b.value; });
+
+	x.domain([0, d3.max(data, function(d) { return d.value; })]);
+	y.domain(data.map(function(d) { return d.area; })).padding(0.1);
+
+	g.append("g")
+	    .attr("class", "x axis")
+	   	.attr("transform", "translate(0," + height + ")")
+	  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return parseInt(d / 1000); }).tickSizeInner([-height]));
+
+	g.append("g")
+	    .attr("class", "y axis")
+	    .call(d3.axisLeft(y));
+
+	g.selectAll(".bar")
+	    .data(data)
+	  .enter().append("rect")
+	    .attr("class", "bar")
+	    .attr("x", 0)
+	    .attr("height", y.bandwidth())
+	    .attr("y", function(d) { return y(d.area); })
+	    .attr("width", function(d) { return x(d.value); })
+
+    window.addEventListener("resize", redraw);
+
+	function getChartWidth() {
+		var chartDiv = document.getElementById("chart");		
+		var w = chartDiv.clientWidth;
+		// console.log(w)
+		return w;
+	}
+
+	function redraw(){
+		// get new width
+		width = getChartWidth() - margin.left - margin.right;
+
+		// set new x range
+		x.range([0, width]);
+
+		// transition bars
+		g.selectAll(".bar").transition()
+	    	.attr("width", function(d) { 
+	    		return x(d.value); 
+	    	})
+
+	   	g.select("g.x.axis").transition()
+	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return parseInt(d / 1000); }).tickSizeInner([-height]));
+
+	}
+
+</script>
+
+</body>
+</html>
