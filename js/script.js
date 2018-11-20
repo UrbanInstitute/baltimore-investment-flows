@@ -255,7 +255,7 @@ function ready() {
 	        'type': 'fill',
 	        'source': {
 	            'type': 'geojson',
-	            'data': 'data/joined/balt_joined.geojson'
+	            'data': 'data/joined/balt_joined2.geojson'
 	        },
 	        'layout': {},
 			'paint': {
