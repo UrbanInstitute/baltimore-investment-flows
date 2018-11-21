@@ -1,41 +1,42 @@
 var startIndex = 0;
 var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
 var pymChild = new pym.Child();
-var ranges = {
-	"sales_1000":{
-		"range":[86,134,177,256,680]
-	},
-	"permits_1000":{
-		"range":[37,66,109,261,2336]
-	},
-	"agg_1000":{
-		"range":[488,695,948,1227,6944]
-	},
-	"res_1000":{
-		"range":[120,227,312,445,3279]
-	},
-	"loans_1000":{
-		"range":[8,27,66,163,2780]
-	},
-	"AnnualCRAp":{
-		"range":[1906,3160,5209,7986,24573]
-	},
-	"pub_1000":{
-		"range":[0,3,8,25,1140]
-	},
-	"miss_1000":{
-		"range":[5,14,23,40,696]
-	}
-}; 
 
 // define starting variable
-var curStep = "agg_1000";
+var curStep = "capFlowRate";
 var circleOpacity = 0.8;
 var fillOpacity = 0.7;
 
 ready();
 
 function ready() {
+
+	waypoints();
+	createDots();
+	var map = mapDraw();	
+	
+
+	// map bounds
+	var sw = new mapboxgl.LngLat(-76.7156027, 39.196494);
+	var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
+	var llb = new mapboxgl.LngLatBounds(sw, ne);
+
+	// zoom to DC bounds
+	map.fitBounds(llb, { duration: 0, padding: 10 })
+
+    // Event Listeners
+   	var resizeTimer;	
+	window.addEventListener("resize", function(e){
+	  clearTimeout(resizeTimer);
+	  resizeTimer = setTimeout(function() {	   	
+		map.fitBounds(llb, { duration: 0, padding: 10 })
+		// update()
+		// removeTooltip()
+		// pymChild.sendHeight()
+
+	  }, 250);
+	})
+
 
 	// helper function so we can map over dom selection
 	function selectionToArray(selection) {
@@ -47,6 +48,7 @@ function ready() {
 		return result
 	}
 
+	// create waypoints for 
 	function waypoints() {
 		// select elements
 		var graphicEl = document.querySelector('#story-container')
@@ -131,17 +133,19 @@ function ready() {
 	function createDots() {
 		// Count number of "trigger"
 		var numTriggers = $('.trigger').length
-
 		// create div for each
 		for (var i = 0; i < numTriggers; i++) {
 			// get item label
-			var itemLabel = getRandomTitle()
+
+			var name = $('.trigger')[i].getAttribute('data-name');
+			var itemLabel = varListMaster[name].chartTitle;
+			
 			// append items
 			$(".bubble-nav").append("<div class='bubble'><div class='label'><p class='bubble-text'>" + itemLabel +"</p></div></div>");
 		}
 		
 		// set first to active
-		$(".bubble").first().addClass("active")
+		// $(".bubble").first().addClass("active")
 		
 		// create clearing div below everything
 		$(".bubble-nav").append("<div class='clearer'></div>")
@@ -149,32 +153,21 @@ function ready() {
 
 
 	function updateChart(nextStep,dataName) {
-		// update left-hand nav
+		// update left-hand nav		
 		$(".bubble").removeClass("active")
+
 		$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
 
+		if (varListMaster[dataName].chartType === "poly-map") {
+			console.log('herere')
+			advanceMap(map, dataName)	
+		}
 		// update inside of the chart
 		// use try???? if item is below the fold on load, don't shoot error
-		advance(map, dataName)
+		
 		// $(".graphic div").html(nextStep)
 
 	}
-
-	function getRandomTitle() {
-		var words = "suricate homonomous unconsiderable asphaltene sturdiness Trionyx pigmentation episcope torchlight keynoter Kharia osmose Halteridium underproduce misbecomingly compulsory zyme overdaringly Cristivomer unaffrightedly bailey septemplicate alterity sarcophagy"
-		var words = words.split(" ")	
-		var max = 10;
-		var min = 3;
-		var num = Math.floor(Math.random() * (max - min) ) + min;
-		var num2 = Math.floor(Math.random() * (max - min) ) + min;
-		var randTitle = "";
-		for (var i = 0; i < num; i++) {
-			randTitle = randTitle + " " + words[i+num2];
-		}
-
-		return randTitle;
-	}
-
 
 	function mapDraw() {
 
@@ -189,55 +182,22 @@ function ready() {
 		return map;
 	}
 
-	function advance(map, item) {
+	function advanceMap(map, item) {
 		map.setPaintProperty("urban-areas-fill", 'fill-color', [
 	                'interpolate',
 	                ['linear'],
 	                ['to-number',['get', item]],
-	               	ranges[item].range[0], colors[0],
-	               	ranges[item].range[1], colors[1],
-	               	ranges[item].range[2], colors[2],
-	               	ranges[item].range[3], colors[3],
-	               	ranges[item].range[4], colors[4],
+	               	varListMaster[item].range[0], colors[0],
+	               	varListMaster[item].range[1], colors[1],
+	               	varListMaster[item].range[2], colors[2],
+	               	varListMaster[item].range[3], colors[3],
+	               	varListMaster[item].range[4], colors[4],
 	            ]);
 	}
 
-	waypoints();
-	createDots();
-	var map = mapDraw();	
-	
-
-	// map bounds
-	var sw = new mapboxgl.LngLat(-76.7156027, 39.196494);
-	var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
-	var llb = new mapboxgl.LngLatBounds(sw, ne);
-
-	// zoom to DC bounds
-	map.fitBounds(llb, { duration: 0, padding: 10 })
-	
 
 
-    // Event Listeners
-    map.on("viewreset", function(){    	
-    	// map.fitBounds(llb, { duration: 0, padding: 20 })
-    	// update()
-		// pymChild.sendHeight()
-		// console.log("viewreset")
-    });	    	
-
-   	var resizeTimer;	
-	window.addEventListener("resize", function(e){
-	  clearTimeout(resizeTimer);
-	  resizeTimer = setTimeout(function() {	   	
-		map.fitBounds(llb, { duration: 0, padding: 10 })
-		// update()
-		// removeTooltip()
-		// pymChild.sendHeight()
-
-	  }, 250);
-	})
-
-	map.on('load', function () {
+	map.on('load', function () {		
 		
 		var layers = map.getStyle().layers;
 		// console.log(layers)
@@ -259,13 +219,56 @@ function ready() {
 	        },
 	        'layout': {},
 			'paint': {
-				'fill-opacity':fillOpacity
+				'fill-opacity': fillOpacity
+				// 'fill-opacity': [
+				// 	  "match",
+				// 	  ["get", "HighPov_numeric"],
+				// 	  ["1"],
+				// 	  fillOpacity,		
+				// 	  .1
+				// 	]
 			}
-			// "transition": {
-			//   "duration": 1000,
-			//   "delay": 2000
-			// }
-    	}, firstSymbolId);
+		// Do not remove, this is how you would bring the neighborhood name layer on top
+    	// }, firstSymbolId);
+    	});
+
+
+    	map.addLayer({
+	        'id': 'balt-tract-lines',
+	        'type': 'line',
+	        'source': {
+	            'type': 'geojson',
+	            'data': 'data/joined/balt_joined2.geojson'
+	        },
+	        'layout': {},
+			"paint": {
+	            "line-color": "#fff",
+	            "line-width": 1
+	        }			
+    	});    	
+
+	  //   map.addLayer({
+	  //       'id': 'balt-tract-lines2',
+	  //       'type': 'line',
+	  //       'source': {
+	  //           'type': 'geojson',
+	  //           'data': 'data/joined/balt_joined2.geojson'
+	  //       },
+	  //       'layout': {},
+			// "paint": {
+	  //           "line-color": [
+	  //               'interpolate',
+	  //               ['linear'],
+	  //               ['to-number',['get', "HighPov_numeric"]],
+	  //              	0, "transparent",
+	  //              	1, "#fdbf11",	     
+	  //           ],
+	  //           "line-width": 4
+	  //       }
+   //  	});   
+
+
+
 
 	 //    map.addLayer({
 	 //        'id': 'dots',
@@ -304,13 +307,15 @@ function ready() {
 		// }
   //   	});
 
-	    advance(map, curStep)
+  		// console.log('start')
+  		// updateChart(0, curStep)
+	    // advanceMap(map, curStep)
 	})
 
 
-	$("button").click(function(){
-		advance(map, "AnnualCRAp")
-	})
+	// $("button").click(function(){
+	// 	advanceMap(map, "AnnualCRAp")
+	// })
 
 	// initialize click function for lefthand nav bubbles
 	$(".bubble").click(function(){
