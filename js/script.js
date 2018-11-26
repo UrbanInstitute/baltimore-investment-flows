@@ -160,7 +160,7 @@ function ready() {
 		$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
 
 		$(".chart-type").addClass("inactive")
-		if (varListMaster[dataName].chartType === "poly-map") {
+		if (varListMaster[dataName].chartType === "poly-map" || varListMaster[dataName].chartType === "dot-map") {
 			$("#map").removeClass("inactive")
 			advanceMap(map, dataName)	
 		} else if (varListMaster[dataName].chartType === "long-bar-chart") {
@@ -189,7 +189,16 @@ function ready() {
 	}
 
 	function advanceMap(map, item) {
-		map.setPaintProperty("urban-areas-fill", 'fill-color', [
+		if (item === "raceMap") {
+			map.setPaintProperty("urban-areas-fill",'fill-opacity',0)
+			map.setPaintProperty("balt-tract-lines",'line-opacity',0)		
+			map.setPaintProperty("dots",'circle-opacity',circleOpacity)
+		} else {
+			map.setPaintProperty("dots",'circle-opacity',0)
+			map.setPaintProperty("urban-areas-fill", 'fill-opacity', fillOpacity)
+			map.setPaintProperty("balt-tract-lines", 'line-opacity', 1)
+			map.setPaintProperty("urban-areas-fill", 
+				'fill-color', [
 	                'interpolate',
 	                ['linear'],
 	                ['to-number',['get', item]],
@@ -198,12 +207,15 @@ function ready() {
 	               	varListMaster[item].range[2], colors[2],
 	               	varListMaster[item].range[3], colors[3],
 	               	varListMaster[item].range[4], colors[4],
-	            ]);
+	            ]	           
+	            );
+		}
+		
 	}
 
 
 
-	map.on('load', function () {		
+	map.on('load', function () {	
 		
 		var layers = map.getStyle().layers;
 		// console.log(layers)
@@ -225,7 +237,7 @@ function ready() {
 	        },
 	        'layout': {},
 			'paint': {
-				'fill-opacity': fillOpacity
+				'fill-opacity': 0
 				// 'fill-opacity': [
 				// 	  "match",
 				// 	  ["get", "HighPov_numeric"],
@@ -253,6 +265,45 @@ function ready() {
 	        }			
     	});    	
 
+
+
+	    map.addLayer({
+	        'id': 'dots',
+	        'type': 'circle',
+	        'source': {
+	            'type': 'vector',
+	            'url': 'mapbox://urbaninstitute.1lmj6hin'
+	        },
+	        'source-layer':'combined_race_200-cg5tla',
+	        'layout': {},
+			'paint': {'circle-color':[
+			  "match",
+			  ["get", "type"],
+			  "aapi",
+			  "#000",
+			  "hisp",
+			  "#fdbf11",
+			  "white",
+			  "#ec008b",
+			  "black",
+			  "hsl(199, 81%, 45%)",
+			  "#fdbf11"
+			],
+			'circle-radius':[
+			  "interpolate",
+			  ["exponential", 1.06],
+			  ["zoom"],
+			  0,
+			  1,
+			  14,
+			  4,
+			  22,
+			  15
+			],
+			'circle-opacity':0
+			}
+    	});
+
 	  //   map.addLayer({
 	  //       'id': 'balt-tract-lines2',
 	  //       'type': 'line',
@@ -276,42 +327,6 @@ function ready() {
 
 
 
-	 //    map.addLayer({
-	 //        'id': 'dots',
-	 //        'type': 'circle',
-	 //        'source': {
-	 //            'type': 'vector',
-	 //            'url': 'mapbox://urbaninstitute.1lmj6hin'
-	 //        },
-	 //        'source-layer':'combined_race_200-cg5tla',
-	 //        'layout': {},
-		// 	'paint': {'circle-color':[
-		// 	  "match",
-		// 	  ["get", "type"],
-		// 	  "aapi",
-		// 	  "#000",
-		// 	  "hisp",
-		// 	  "#fdbf11",
-		// 	  "white",
-		// 	  "#ec008b",
-		// 	  "black",
-		// 	  "hsl(199, 81%, 45%)",
-		// 	  "#fdbf11"
-		// 	],
-		// 	'circle-radius':[
-		// 	  "interpolate",
-		// 	  ["exponential", 1.06],
-		// 	  ["zoom"],
-		// 	  0,
-		// 	  1,
-		// 	  14,
-		// 	  4,
-		// 	  22,
-		// 	  15
-		// 	],
-		// 	'circle-opacity':circleOpacity
-		// }
-  //   	});
 
   		// console.log('start')
   		// updateChart(0, curStep)
