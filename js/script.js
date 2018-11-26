@@ -1,21 +1,22 @@
 var startIndex = 0;
 var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
-var pymChild = new pym.Child();
 
 // define starting variable
 var curStep = "capFlowRate";
 var circleOpacity = 0.8;
 var fillOpacity = 0.7;
 
-ready();
+ready();	
 
 function ready() {
 
 	waypoints();
 	createDots();
+	longchart();
+	shortchart();
+	
 	var map = mapDraw();	
 	
-
 	// map bounds
 	var sw = new mapboxgl.LngLat(-76.7156027, 39.196494);
 	var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
@@ -158,9 +159,14 @@ function ready() {
 
 		$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
 
+		$(".chart-type").addClass("inactive")
 		if (varListMaster[dataName].chartType === "poly-map") {
-			console.log('herere')
+			$("#map").removeClass("inactive")
 			advanceMap(map, dataName)	
+		} else if (varListMaster[dataName].chartType === "long-bar-chart") {
+			$("#chartLong").removeClass("inactive")
+		} else if (varListMaster[dataName].chartType === "hor-bar-chart") {			
+			$("#chartSmall").removeClass("inactive")
 		}
 		// update inside of the chart
 		// use try???? if item is below the fold on load, don't shoot error
@@ -332,4 +338,29 @@ function ready() {
 
 
 
+}
+
+// wrap text
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", -5).attr("y", y).attr("dy", (dy-0.75) + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", -5).attr("y", y).attr("dy", ++lineNumber * lineHeight + (dy) + "em").text(word);
+      }
+    }
+  });
 }

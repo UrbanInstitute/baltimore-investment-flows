@@ -1,80 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8' />
-    <title>Baltimore Map</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
+function shortchart() {
 
-	<style type="text/css">
-		#container {
-			width: 100%;
-			font-family: "Lato";
-			height:100%;
-		}
+	var margin = {top: 20, right: 60, bottom: 30, left: 90},
+	width = getChartWidth(),
+	Chartwidth = width - margin.left - margin.right,
+	height = getChartHeight(),
+	Chartheight = height - margin.top - margin.bottom;	
 
-		#chart {
-			width: 100%;
-			height: 100%;
-			position: relative;
-		}
-
-		/*bar stuff*/
-		.bar {
-			fill: #1696d2;
-		}
-
-		.bar.poverty {
-			fill: #fdbf11;
-		}
-
-		.axis path,
-		.axis line {
-		  fill: none;
-		  stroke: #D4D8DA;
-		  stroke-width: 1px;
-		  shape-rendering: crispEdges;
-		}
-
-		.tick text {
-			font-family: "Lato"
-		}
-
-		.x path {
-			display: none;
-		}
-	</style>
-
-</head>
-<body>
-
-<div id="container">	
-	<!-- <h1>Here is our chart</h1> -->
-	<div id='chart'>
-	</div>	
-</div>
-
-
-<!-- <script src="js/lib/pym.min.js"></script> -->
-<script src="js/lib/d3.v4.min.js"></script>
-<script src="js/lib/jquery.min.js"></script>
-<!-- <script src="js/barchart.js"></script> -->
-
-<script type="text/javascript">
-    var margin = {top: 20, right: 20, bottom: 30, left:180},
-    width = getChartWidth(),
-    Chartwidth = width - margin.left - margin.right,
-    height = 480,
-    Chartheight = height - margin.top - margin.bottom;
-    
-    console.log(Chartheight)
-
-    var svg = d3.select("#chart").append("svg")
+    var svg = d3.select("#chartSmall").append("svg")
         .attr("width", width)
         .attr("height", height)
 
 	var x = d3.scaleLinear().range([0, Chartwidth]);
+
 	var y = d3.scaleBand().range([Chartheight, 0]);
 
 	var g = svg.append("g")
@@ -89,7 +26,7 @@
 		{"area":"More than 85% African American","value":33987,"type":"race"}
 	] 
 
-	x.domain([0, d3.max(data, function(d) { return d.value; })]);
+	x.domain([0, d3.max(data, function(d) { return d.value; })]).nice();
 	y.domain(data.map(function(d) { return d.area; })).padding(0.2);
 
 	g.append("g")
@@ -99,7 +36,9 @@
 
 	g.append("g")
 	    .attr("class", "y axis")
-	    .call(d3.axisLeft(y));
+	    .call(d3.axisLeft(y))
+	        .selectAll(".tick text")
+	    	.call(wrap, (margin.left-5));
 
 	g.selectAll(".bar")
 	    .data(data)
@@ -115,19 +54,14 @@
     window.addEventListener("resize", redraw);
 
 	function getChartWidth() {
-		var chartDiv = document.getElementById("chart");		
-		var w = chartDiv.clientWidth;
+		var chartDiv = $("#graphic-container");	
+		var w = chartDiv.innerWidth();
 		return w;
 	}
 
 	function getChartHeight() {
-		var chartDiv = document.getElementById("chart");		
-		var h = chartDiv.clientHeight;
-		// console.log(chartDiv)
-		// console.log(chartDiv.clientWidth)
-		// console.log(window.innerWidth)
-		// console.log(window.innerHeight)
-
+		var chartDiv = document.getElementById("graphic-container");		
+		var h = chartDiv.clientHeight;		
 		return h;
 	}
 
@@ -151,8 +85,4 @@
 	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
 
 	}
-
-</script>
-
-</body>
-</html>
+}

@@ -36,6 +36,7 @@
 }
 
 .mega-container {
+	background-color: #fff;
 	margin-left:50px;
 	margin-right:50px;
 }
@@ -117,11 +118,18 @@
 			    position: relative;
 			    transform: translateY(-50%);
 			    pointer-events: all;
+			    background-color: #fff;
 
-			    #map { 
-				  position:relative; 
+			    // #map, #chartlong, #chartshort { 
+				.chart-type {
+				  position:absolute; 
 				  width: 100%;
-				  height: 100%;				
+				  height: 100%;		
+				  // display: none;		
+
+				  &.inactive {
+				  	opacity: 0;
+				  }
 				}
 	    	}
 
@@ -272,11 +280,14 @@
 		    }
 
 		    #sticky-right {    	
-		    	display: none;
+		    	// display: none;
+		    	z-index: -100;
+		    	width: 100%;
 
 			    &.is-fixed {
-			    	width: 100%;
-			    	display: block;
+			    	
+			    	// display: block;
+			    	z-index: 100;
 
 				    .sticky-right-inner {
 				    	width:100%;
@@ -323,6 +334,36 @@
  		padding-right:40px;
  	}
 	
+}
+
+// bar chart styles
+
+.bar {
+	fill: #1696d2;
+}
+
+.bar.special, .bar.poverty {
+	fill: #fdbf11;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D4D8DA;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+.tick text {
+	font-family: "Lato"
+}
+
+.x path {
+	display: none;
+}
+
+.y line {
+	display: none;
 }
 
 @media (max-width: $MaxPhoneSize){	

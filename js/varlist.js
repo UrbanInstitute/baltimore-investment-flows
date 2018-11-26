@@ -1,4 +1,11 @@
 var varListMaster = {
+	"longChart":{
+		"chartType":"long-bar-chart",
+		"chartTitle":"Multifamily, Commerical, and Industrial Lending Volume per Capita, 2011–16",
+		"textTitle":"Multifamily, Commerical, and Industrial Lending Volume per Capita, 2011–16",
+		"notes":"Notes here",
+		"sources":"Sources here"
+	},
 	"capFlowRate":{
 		"chartType":"hor-bar-chart",
 		"chartTitle":"Capital Flows per Household by Neighborhood Characteristics, 2011–16",
