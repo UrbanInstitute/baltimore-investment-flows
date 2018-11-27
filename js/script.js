@@ -13,7 +13,7 @@ function ready() {
 	waypoints();
 	createDots();
 	longchart();
-	shortchart();
+	var shortchartVars = shortchart();
 	
 	var map = mapDraw();	
 	
@@ -167,6 +167,7 @@ function ready() {
 			$("#chartLong").removeClass("inactive")
 		} else if (varListMaster[dataName].chartType === "hor-bar-chart") {			
 			$("#chartSmall").removeClass("inactive")
+			advanceChart(shortchartVars,dataName)
 		}
 		// update inside of the chart
 		// use try???? if item is below the fold on load, don't shoot error
@@ -186,6 +187,24 @@ function ready() {
 		});
 
 		return map;
+	}
+
+
+	function advanceChart(shortchartVars,dataName) {
+		var x = shortchartVars.x;
+		x.domain([0, d3.max(shortchartVars.data, function(d) { return d[dataName]; })]).nice();
+
+		// console.log(g.selectAll(".bar"))
+		var g = shortchartVars.g;
+
+		// transition bars
+		d3.select("#chartSmall").selectAll(".bar").transition()
+	    	.attr("width", function(d) { 
+	    		return x(d[dataName])
+	    	})
+	   
+	   	d3.select("#chartSmall").select("g.x.axis").transition()
+	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
 	}
 
 	function advanceMap(map, item) {
