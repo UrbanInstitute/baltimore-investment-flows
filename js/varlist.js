@@ -20,10 +20,17 @@ var varListMaster = {
 		"notes":"Notes here",
 		"sources":"Sources here"
 	},
-	"tripleChart":{
-		"chartType":"group-bar-chart",
-		"chartTitle":"Title",
-		"textTitle":"Title",
+	"tripleChart1":{
+		"chartType":"hor-bar-chart",
+		"chartTitle":"HUD’s HOME and CDBG Investment",
+		"textTitle":"HUD’s HOME and CDBG Investment",
+		"notes":"Notes here",
+		"sources":"Sources here"
+	},	
+	"tripleChart2":{
+		"chartType":"hor-bar-chart",
+		"chartTitle":"Baltimore’s Capital Improvement Program Financing",
+		"textTitle":"Baltimore’s Capital Improvement Program Financing",
 		"notes":"Notes here",
 		"sources":"Sources here"
 	},	
@@ -33,7 +40,7 @@ var varListMaster = {
 		"textTitle":"Baltimore Investment Share by Type",
 		"notes":"Notes here",
 		"sources":"Sources here"
-	},		
+	},
 	"raceMap":{
 		"chartType":"dot-map",
 		"chartTitle":"Map showing race (and population density) across Baltimore",

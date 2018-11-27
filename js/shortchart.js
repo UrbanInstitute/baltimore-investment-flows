@@ -21,12 +21,12 @@ function shortchart() {
 	shortchartVars.g = g;
 
 	var data = [
-		{"area":"Low Poverty Neighborhoods","capFlowRate":89754,"loanChart":111577,"type":"poverty"},
-		{"area":"High Poverty Neighborhoods","capFlowRate":58328,"loanChart":59822,"type":"poverty"},
-		{"area":"","capFlowRate":0,"loanChart":0,"type":"spacer"},
-		{"area":"Less than 50% African American","capFlowRate":133601,"loanChart":160438,"type":"race"},		
-		{"area":"50% - 85% African American","capFlowRate":56412,"loanChart":0,"type":"race"},
-		{"area":"More than 85% African American","capFlowRate":33987,"loanChart":68133,"type":"race"}
+		{"area":"Low Poverty Neighborhoods","capFlowRate":89754,"tripleChart1":99,"tripleChart2":2606,"loanChart":111577,"type":"poverty"},
+		{"area":"High Poverty Neighborhoods","capFlowRate":58328,"tripleChart1":531,"tripleChart2":4596,"loanChart":59822,"type":"poverty"},
+		{"area":"","capFlowRate":0,"tripleChart1":0,"tripleChart2":0,"loanChart":0,"type":"spacer"},
+		{"area":"Less than 50% African American","capFlowRate":133601,"tripleChart1":163,"tripleChart2":3022,"loanChart":160438,"type":"race"},		
+		{"area":"50% - 85% African American","capFlowRate":56412,"tripleChart1":280,"tripleChart2":5583,"loanChart":0,"type":"race"},
+		{"area":"More than 85% African American","capFlowRate":33987,"tripleChart1":368,"tripleChart2":2372,"loanChart":68133,"type":"race"}
 	] 
 	shortchartVars.data = data;
 
