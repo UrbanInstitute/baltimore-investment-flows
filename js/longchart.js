@@ -26,7 +26,7 @@ function longchart() {
 	x.domain([0, d3.max(data, function(d) { return d.value; })]);
 	y.domain(data
 		.sort(function(a, b) { return b.pop - a.pop; })
-		.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore")) })
+		.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore") || (d.area === "Washington, DC") || (d.area === "Los Angeles") || (d.area === "San Antonio"))  })
 		.sort(function(a, b) { return a.value - b.value; })
 		.map(function(d) { return d.area; })).padding(0.1);
 
@@ -43,7 +43,7 @@ function longchart() {
 	g.selectAll(".bar")
 	    .data(data
 	    	.sort(function(a, b) { return b.pop - a.pop; })
-			.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore")) })
+			.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore") || (d.area === "Washington, DC") || (d.area === "Los Angeles") || (d.area === "San Antonio")) })
 			.sort(function(a, b) { return a.value - b.value; })
 	    )
 	  	.enter().append("rect")
@@ -92,7 +92,7 @@ function longchart() {
 
 		y.domain(data
 			.sort(function(a, b) { return b.pop - a.pop; })
-			.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore")) })
+			.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore") || (d.area === "Washington, DC") || (d.area === "Los Angeles") || (d.area === "San Antonio")) })
 			.sort(function(a, b) { return a.value - b.value; })
 			.map(function(d) { return d.area; })).padding(0.1);		
 
