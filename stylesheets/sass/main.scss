@@ -121,6 +121,62 @@
 			    pointer-events: all;
 			    background-color: #fff;
 
+			    .legend {
+			    	// width: 100px;
+			    	// height: 100px;
+			    	background-color: white;
+			    	position:absolute;
+			    	bottom:0;
+			    	left: 0;
+			    	z-index: 1000;
+			    	padding:10px;
+			    	margin:10px;
+
+			    	h5 {
+			    		font-size: 16px;
+			    		font-weight: bold;
+			    		text-transform: uppercase;
+			    	}
+			    	.choromap {
+			    		div.item {
+				    		font-size: 14px;
+				    		div {
+				    			// border-radius:50%;
+				    			height: 10px;
+				    			width: 20px;
+				    			float: left;
+				    			margin-top: 1px;
+				    			margin-right: 10px;
+
+
+				    			&#c1 {background-color:#cfe8f3;}
+				    			&#c2 {background-color:#73bfe2;}
+				    			&#c3 {background-color:#1696d2;}
+				    			&#c4 {background-color:#0a4c6a;}
+				    			&#c5 {background-color:#000000;}
+				    		}
+				    	}
+			    	}
+			    	.dotmap {
+			    		div.item {
+				    		font-size: 14px;
+				    		div {
+				    			border-radius:50%;
+				    			height: 10px;
+				    			width: 10px;
+				    			float: left;
+				    			margin-top: 5px;
+				    			margin-right: 10px;
+
+				    			&#b1 {background-color: hsl(199, 81%, 45%);}
+				    			&#b2 {background-color: #ec008b;}
+				    			&#b3 {background-color: #fdbf11;}
+				    			&#b4 {background-color: #000;}
+				    		}
+				    	}
+			    	}				    	
+			    }
+
 			    // #map, #chartlong, #chartshort { 
 				.chart-type {
 				  position:absolute; 
