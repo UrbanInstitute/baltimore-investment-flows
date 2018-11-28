@@ -427,11 +427,16 @@ a {
 }
 
 /* line 346, ../sass/main.scss */
-.bar.special, .bar.poverty {
+.bar.mission, .bar.special, .bar.poverty {
   fill: #fdbf11;
 }
 
 /* line 350, ../sass/main.scss */
+.bar.public {
+  fill: #000;
+}
+
+/* line 354, ../sass/main.scss */
 .axis path,
 .axis line {
   fill: none;
@@ -440,29 +445,29 @@ a {
   shape-rendering: crispEdges;
 }
 
-/* line 358, ../sass/main.scss */
+/* line 362, ../sass/main.scss */
 .tick text {
   font-family: "Lato";
 }
 
-/* line 362, ../sass/main.scss */
+/* line 366, ../sass/main.scss */
 .x path {
   display: none;
 }
 
-/* line 366, ../sass/main.scss */
+/* line 370, ../sass/main.scss */
 .y line {
   display: none;
 }
 
 @media (max-width: 600px) {
-  /* line 371, ../sass/main.scss */
+  /* line 375, ../sass/main.scss */
   .footer, #story, #lede {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  /* line 376, ../sass/main.scss */
+  /* line 380, ../sass/main.scss */
   #story-container #story .div-section-divider {
     width: 100%;
   }

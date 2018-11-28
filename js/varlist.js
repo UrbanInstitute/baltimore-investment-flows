@@ -35,7 +35,7 @@ var varListMaster = {
 		"sources":"Sources here"
 	},	
 	"investmentShareChart":{
-		"chartType":"hor-bar-chart",
+		"chartType":"stacked-bar-chart",
 		"chartTitle":"Baltimore Investment Share by Type",
 		"textTitle":"Baltimore Investment Share by Type",
 		"notes":"Notes here",

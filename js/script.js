@@ -14,6 +14,7 @@ function ready() {
 	createDots();
 	longchart();
 	var shortchartVars = shortchart();
+	stackedchart();
 	
 	var map = mapDraw();	
 	
@@ -168,6 +169,8 @@ function ready() {
 		} else if (varListMaster[dataName].chartType === "hor-bar-chart") {			
 			$("#chartSmall").removeClass("inactive")
 			advanceChart(shortchartVars,dataName)
+		} else if (varListMaster[dataName].chartType === "stacked-bar-chart") {			
+			$("#chartStacked").removeClass("inactive")
 		}
 		// update inside of the chart
 		// use try???? if item is below the fold on load, don't shoot error

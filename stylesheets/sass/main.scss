@@ -343,8 +343,12 @@
 	fill: #1696d2;
 }
 
-.bar.special, .bar.poverty {
+.bar.mission, .bar.special, .bar.poverty {
 	fill: #fdbf11;
+}
+
+.bar.public {
+	fill: #000;
 }
 
 .axis path,
