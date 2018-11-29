@@ -1,3 +1,4 @@
+var cache = {}
 var startIndex = 0;
 var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
 
@@ -104,7 +105,10 @@ function ready() {
 						curStep = dataName;
 						updateChart(nextStep, dataName)	
 					}
-					catch(err) {}
+					catch(err) {
+						cache.nextStep = nextStep;
+						cache.dataName = dataName;
+					}
 					
 				},
 				offset: '50%',  // trigger halfway up the viewport
@@ -151,8 +155,7 @@ function ready() {
 		
 		// create clearing div below everything
 		$(".bubble-nav").append("<div class='clearer'></div>")
-	}
-
+	}	
 
 	function updateChart(nextStep,dataName) {
 		// update left-hand nav		
@@ -197,7 +200,6 @@ function ready() {
 		var x = shortchartVars.x;
 		x.domain([0, d3.max(shortchartVars.data, function(d) { return d[dataName]; })]).nice();
 
-		// console.log(g.selectAll(".bar"))
 		var g = shortchartVars.g;
 
 		// transition bars
@@ -213,8 +215,10 @@ function ready() {
 	function advanceMap(map, item) {
 		if (item === "raceMap") {
 			map.setPaintProperty("urban-areas-fill",'fill-opacity',0)
-			map.setPaintProperty("balt-tract-lines",'line-opacity',0)		
+			map.setPaintProperty("balt-tract-lines",'line-opacity',0)
 			map.setPaintProperty("dots",'circle-opacity',circleOpacity)
+			$(".choromap").removeClass("active")
+			$(".dotmap").addClass("active")
 		} else {
 			map.setPaintProperty("dots",'circle-opacity',0)
 			map.setPaintProperty("urban-areas-fill", 'fill-opacity', fillOpacity)
@@ -231,13 +235,22 @@ function ready() {
 	               	varListMaster[item].range[4], colors[4],
 	            ]	           
 	            );
+			// set the legend 
+			$(".choromap").addClass("active")
+			$(".dotmap").removeClass("active")
+			$("#mapheader").text(varListMaster[item].chartTitle)
+			$("#c1 span").text(`Less than ${formatter(varListMaster[item].range[0])}`);
+			$("#c2 span").text(`${formatter(varListMaster[item].range[0])} - ${formatter(varListMaster[item].range[1])}`);
+			$("#c3 span").text(`${formatter(varListMaster[item].range[1])} - ${formatter(varListMaster[item].range[2])}`);
+			$("#c4 span").text(`${formatter(varListMaster[item].range[2])} - ${formatter(varListMaster[item].range[3])}`);
+			$("#c5 span").text(`More than ${formatter(varListMaster[item].range[3])}`)
 		}
 		
 	}
 
 
 
-	map.on('load', function () {	
+	map.on('load', function () {
 		
 		var layers = map.getStyle().layers;
 		// console.log(layers)
@@ -346,13 +359,10 @@ function ready() {
 	  //       }
    //  	});   
 
-
-
-
-
-  		// console.log('start')
-  		// updateChart(0, curStep)
-	    // advanceMap(map, curStep)
+   		console.error('finally doneso')
+   		if (!isNaN(cache.nextStep)) {
+   			updateChart(cache.nextStep, cache.dataName)		
+   		}   	
 	})
 
 
@@ -400,4 +410,12 @@ function wrap(text, width) {
       }
     }
   });
+}
+
+function formatter(num) {
+	if (num > 1) {
+		return d3.format("$,.2r")(num)
+	} else {
+		return d3.format(",.0%")(num)
+	}
 }

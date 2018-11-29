@@ -122,8 +122,7 @@
 			    background-color: #fff;
 
 			    .legend {
-			    	// width: 100px;
-			    	// height: 100px;
+			    	max-width: 250px;
 			    	background-color: white;
 			    	position:absolute;
 			    	bottom:0;
@@ -138,26 +137,37 @@
 			    		text-transform: uppercase;
 			    	}
 			    	.choromap {
+			    		display: none;
+
+			    		&.active {
+			    			display: block;
+			    		}
+
 			    		div.item {
 				    		font-size: 14px;
 				    		div {
 				    			// border-radius:50%;
-				    			height: 10px;
+				    			height: 12px;
 				    			width: 20px;
 				    			float: left;
-				    			margin-top: 1px;
+				    			margin-top: 5px;
 				    			margin-right: 10px;
-
-
-				    			&#c1 {background-color:#cfe8f3;}
-				    			&#c2 {background-color:#73bfe2;}
-				    			&#c3 {background-color:#1696d2;}
-				    			&#c4 {background-color:#0a4c6a;}
-				    			&#c5 {background-color:#000000;}
 				    		}
+
+				    		&#c1 div {background-color:#cfe8f3;}
+							&#c2 div {background-color:#73bfe2;}
+							&#c3 div {background-color:#1696d2;}
+							&#c4 div {background-color:#0a4c6a;}
+							&#c5 div {background-color:#000000;}
 				    	}
 			    	}
 			    	.dotmap {
+			    		display: none;
+
+			    		&.active {
+			    			display: block;
+			    		}
+			    		
 			    		div.item {
 				    		font-size: 14px;
 				    		div {
