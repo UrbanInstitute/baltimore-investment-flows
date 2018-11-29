@@ -179,7 +179,8 @@ function ready() {
 		// use try???? if item is below the fold on load, don't shoot error
 		
 		// $(".graphic div").html(nextStep)
-
+		$("#n1").html(`<b>Sources</b>: ${varListMaster[dataName].sources}`)
+		$("#n2").html(`<b>Notes</b>: ${varListMaster[dataName].notes}`)
 	}
 
 	function mapDraw() {
@@ -245,6 +246,7 @@ function ready() {
 			$("#c4 span").text(`${formatter(varListMaster[item].range[2])} - ${formatter(varListMaster[item].range[3])}`);
 			$("#c5 span").text(`More than ${formatter(varListMaster[item].range[3])}`)
 		}
+
 		
 	}
 
@@ -359,7 +361,6 @@ function ready() {
 	  //       }
    //  	});   
 
-   		console.error('finally doneso')
    		if (!isNaN(cache.nextStep)) {
    			updateChart(cache.nextStep, cache.dataName)		
    		}   	
@@ -413,7 +414,7 @@ function wrap(text, width) {
 }
 
 function formatter(num) {
-	if (num > 1) {
+	if (num > 1 || num === 0) {
 		return d3.format("$,.2r")(num)
 	} else {
 		return d3.format(",.0%")(num)
