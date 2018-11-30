@@ -203,17 +203,55 @@
 				  &.inactive {
 				  	opacity: 0;
 				  }
+
+				  .title {
+				  	// position: absolute;
+
+				  	h4 {
+				  		font-size: 14px;
+				  		font-family: "Lato";
+				  		text-transform: none;
+				  	}
+				  }
+
+				  .inline-legend {
+				  	background-color: pink;
+
+				  	.item {
+				  		float: left;
+				  		font-size: 12px;
+				  		padding-right: 10px;
+
+				  		div {
+				  			width: 20px;
+						    height: 10px;
+						    float: left;
+						    margin-top: 2px;
+						    margin-right: 5px;
+
+						    &#s1 {background-color: #1696d2};
+						    &#s2 {background-color: #fdbf11};
+						    &#s3 {background-color: #000};
+				  		}
+				  	}
+				  }
 				}
 	    	}
 
 	    	.notes {
-	    		padding-top: 110px;
+	    		// padding-top: 110px;
 	    		font-size: 12px;
-	    		position:absolute;
+			    height: 65%;
+			    top: 50%;
+			    position: relative;
+			    transform: translateY(-50%);
+			    pointer-events: all;
+			    // background-color: #fff;
 
 			    @media (max-width: $MaxTabletSize){	
-		    		padding-top: 40px;
-		    		padding-left: 5px;
+		    		// padding-top: 40px;
+		    		// padding-left: 5px;
+		    		display: none;
 			    }
 			    	
 	    	}

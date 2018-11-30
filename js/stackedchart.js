@@ -1,6 +1,6 @@
 function stackedchart() {
 	var stackedchartVars = {};
-	var margin = {top: 20, right: 60, bottom: 30, left: 90},
+	var margin = {top: 10, right: 60, bottom: 45, left: 90},
 	width = getChartWidth(),
 	Chartwidth = width - margin.left - margin.right,
 	height = getChartHeight(),

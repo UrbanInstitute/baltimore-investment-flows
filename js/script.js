@@ -198,6 +198,8 @@ function ready() {
 
 
 	function advanceChart(shortchartVars,dataName) {
+		$("#chartSmall .title").html(`<h4>${varListMaster[dataName].chartTitle}</h4>`)
+
 		var x = shortchartVars.x;
 		x.domain([0, d3.max(shortchartVars.data, function(d) { return d[dataName]; })]).nice();
 
