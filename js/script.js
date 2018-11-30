@@ -180,7 +180,12 @@ function ready() {
 		
 		// $(".graphic div").html(nextStep)
 		$("#n1").html(`<b>Sources</b>: ${varListMaster[dataName].sources}`)
-		$("#n2").html(`<b>Notes</b>: ${varListMaster[dataName].notes}`)
+		if (varListMaster[dataName].notes !== "") {
+			$("#n2").html(`<b>Notes</b>: ${varListMaster[dataName].notes}`)
+		} else {
+			$("#n2").html('')
+		}
+		
 	}
 
 	function mapDraw() {
