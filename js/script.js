@@ -38,6 +38,16 @@ function ready() {
 		// pymChild.sendHeight()
 
 	  }, 250);
+	});
+
+	$(".highlight").on("mouseover",function(){
+		var type = $(this).hasClass("race") ? "AfAmPct_numeric" : "HighPov_numeric";
+		var lowhigh = $(this).hasClass("low") ? "low" : "high";
+		hoverHighlight(type,lowhigh)
+	})
+
+	$(".highlight").on("mouseout",function(){
+		hoverout();
 	})
 
 
@@ -220,6 +230,32 @@ function ready() {
 	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
 	}
 
+	function hoverHighlight(type,lowhigh) {
+		// adjust paint property
+
+		console.log(type)
+
+		// figure out how to do lowhigh conversion to 1,2,3 for the indexes 
+
+		map.setPaintProperty("balt-tract-lines2","line-opacity",1)
+		map.setPaintProperty("balt-tract-lines2",
+            "line-color", [
+                'interpolate',
+                ['linear'],
+                ['to-number',['get', "AfAmPct_numeric"]],
+               	2, "transparent",
+               	3, "#fdbf11",	     
+	            ]
+			)
+	}
+
+	function hoverout() {
+
+		map.setPaintProperty("balt-tract-lines2",
+			"line-opacity",0
+	    )
+	}
+
 	function advanceMap(map, item) {
 		if (item === "raceMap") {
 			map.setPaintProperty("urban-areas-fill",'fill-opacity',0)
@@ -348,25 +384,30 @@ function ready() {
 			}
     	});
 
-	  //   map.addLayer({
-	  //       'id': 'balt-tract-lines2',
-	  //       'type': 'line',
-	  //       'source': {
-	  //           'type': 'geojson',
-	  //           'data': 'data/joined/balt_joined2.geojson'
-	  //       },
-	  //       'layout': {},
+	    map.addLayer({
+	        'id': 'balt-tract-lines2',
+	        'type': 'line',
+	        'source': {
+	            'type': 'geojson',
+	            'data': 'data/joined/balt_joined2.geojson'
+	        },
+	        'layout': {},
+	        "paint": {
+	            "line-color": "#fff",
+	            "line-width": 2,
+	            "line-opacity":0
+	        }	
 			// "paint": {
-	  //           "line-color": [
-	  //               'interpolate',
-	  //               ['linear'],
-	  //               ['to-number',['get', "HighPov_numeric"]],
-	  //              	0, "transparent",
-	  //              	1, "#fdbf11",	     
-	  //           ],
-	  //           "line-width": 4
-	  //       }
-   //  	});   
+	            // "line-color": [
+	            //     'interpolate',
+	            //     ['linear'],
+	            //     ['to-number',['get', "HighPov_numeric"]],
+	            //    	0, "transparent",
+	            //    	1, "#fdbf11",	     
+	            // ],
+	        //     "line-width": 2
+	        // }
+    	});   
 
    		if (!isNaN(cache.nextStep)) {
    			updateChart(cache.nextStep, cache.dataName)		
