@@ -232,41 +232,93 @@ function ready() {
 
 	function hoverHighlight(type,lowhigh) {
 		// adjust paint property
+		
+		var lowhighvals = {
+			onVal: {
+				opacity: 0.8,
+				color: "#fdbf11"
+			},
+			offVal: {
+				opacity: 0,
+				color: "transparent"
+			},
+			onOfflow:{},
+			onOffhigh:{}
+		}
 
-		// console.log(type)
+		if (type === "AfAmPct_numeric") {			
+			lowhighvals.low = 1;
+			lowhighvals.high = 3;
+		} else  {
+			lowhighvals.low = 0;
+			lowhighvals.high = 1;
+		}
 
-		// figure out how to do lowhigh conversion to 1,2,3 for the indexes 
+		if (lowhigh === "low") {
+			lowhighvals.onOfflow.opacity = lowhighvals.onVal.opacity;
+			lowhighvals.onOffhigh.opacity = lowhighvals.offVal.opacity;
+			lowhighvals.onOfflow.color = lowhighvals.onVal.color;
+			lowhighvals.onOffhigh.color = lowhighvals.offVal.color;
+		} else {
+			lowhighvals.onOffhigh.opacity = lowhighvals.onVal.opacity;
+			lowhighvals.onOfflow.opacity = lowhighvals.offVal.opacity;	
+			lowhighvals.onOffhigh.color = lowhighvals.onVal.color;
+			lowhighvals.onOfflow.color = lowhighvals.offVal.color;	
+		}
 
+		// console.log(lowhighvals)
+	
 		map.setPaintProperty("urban-areas-fill2", 
 			'fill-opacity', 
-				[
-	                'interpolate',
-	                ['linear'],
-	                ['to-number',['get', "AfAmPct_numeric"]],
-	               	2, 0,
-	               	3, .8,	     
+				[	
+	                'match',	                
+	                ['to-number',['get', type]],
+	               	[lowhighvals.low], lowhighvals.onOfflow.opacity,
+	               	lowhighvals.onOffhigh.opacity
+	               	// 2, 0.5,
+	               	// 3, 0
 	            ]
 			)
 
+		// map.setPaintProperty("balt-tract-lines2","line-opacity",1)
+		// map.setPaintProperty("balt-tract-lines2",
+  //           "line-color", [
+  //           	"match",
+  //               ['to-number',['get', type]],
+  //              	[lowhighvals.low], lowhighvals.onOfflow.color,
+  //              	lowhighvals.onOffhigh.color
+	 //            ]
+		// 	)
 
-		map.setPaintProperty("balt-tract-lines2","line-opacity",1)
-		map.setPaintProperty("balt-tract-lines2",
-            "line-color", [
-                'interpolate',
-                ['linear'],
-                ['to-number',['get', "AfAmPct_numeric"]],
-               	2, "transparent",
-               	3, "#fdbf11",	     
-	            ]
-			)
+
+		// map.setPaintProperty("urban-areas-fill2", 
+		// 	'fill-opacity', 
+		// 		[
+	 //                'interpolate',
+	 //                ['linear'],
+	 //                ['to-number',['get', type]],
+	 //               	lowhighvals.low, lowhighvals.onOfflow.opacity,
+	 //               	lowhighvals.high, lowhighvals.onOffhigh.opacity,
+	 //            ]
+		// 	)
+
+		// map.setPaintProperty("balt-tract-lines2","line-opacity",1)
+		// map.setPaintProperty("balt-tract-lines2",
+  //           "line-color", [
+  //               'interpolate',
+  //               ['linear'],
+  //               ['to-number',['get', type]],
+  //              	lowhighvals.low, lowhighvals.onOfflow.color,
+  //              	lowhighvals.high, lowhighvals.onOffhigh.color,	     
+	 //            ]
+		// 	)
 	}
 
 	function hoverout() {
+		map.setPaintProperty("balt-tract-lines2","line-opacity",0)
 		map.setPaintProperty("urban-areas-fill2", 'fill-opacity', 0)
 
-		map.setPaintProperty("balt-tract-lines2",
-			"line-opacity",0
-	    )
+		
 	}
 
 	function advanceMap(map, item) {
