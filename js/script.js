@@ -233,9 +233,21 @@ function ready() {
 	function hoverHighlight(type,lowhigh) {
 		// adjust paint property
 
-		console.log(type)
+		// console.log(type)
 
 		// figure out how to do lowhigh conversion to 1,2,3 for the indexes 
+
+		map.setPaintProperty("urban-areas-fill2", 
+			'fill-opacity', 
+				[
+	                'interpolate',
+	                ['linear'],
+	                ['to-number',['get', "AfAmPct_numeric"]],
+	               	2, 0,
+	               	3, .8,	     
+	            ]
+			)
+
 
 		map.setPaintProperty("balt-tract-lines2","line-opacity",1)
 		map.setPaintProperty("balt-tract-lines2",
@@ -250,6 +262,7 @@ function ready() {
 	}
 
 	function hoverout() {
+		map.setPaintProperty("urban-areas-fill2", 'fill-opacity', 0)
 
 		map.setPaintProperty("balt-tract-lines2",
 			"line-opacity",0
@@ -328,6 +341,20 @@ function ready() {
 			}
 		// Do not remove, this is how you would bring the neighborhood name layer on top
     	// }, firstSymbolId);
+    	});
+
+    	map.addLayer({
+	        'id': 'urban-areas-fill2',
+	        'type': 'fill',
+	        'source': {
+	            'type': 'geojson',
+	            'data': 'data/joined/balt_joined2.geojson'
+	        },
+	        'layout': {},
+			'paint': {
+				'fill-opacity': 0,
+				'fill-color': "#fff"
+			}
     	});
 
 
