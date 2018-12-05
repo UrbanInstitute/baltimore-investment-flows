@@ -182,7 +182,7 @@ a {
   padding-left: 2px;
   padding-right: 2px;
   cursor: pointer;
-  border-bottom: 2px solid #ca5800;
+  padding-bottom: 2px;
   border-radius: 2px;
 }
 /* line 78, ../sass/main.scss */
