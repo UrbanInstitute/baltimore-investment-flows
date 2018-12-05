@@ -1,3 +1,4 @@
+
 var cache = {}
 var startIndex = 0;
 var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
@@ -8,6 +9,7 @@ var curStep = "capFlowRate";
 var circleOpacity = 0.8;
 var fillOpacity = 0.7;
 
+var baltlineData = 'data/joined/balt_joined3.geojson';
 var hiPoints = {
 	"Canton": [-76.5712757,39.2743012],
 	"Holabird": [-76.538202,39.26505],
@@ -262,17 +264,25 @@ function ready() {
 			var type = "AfAmPct_numeric";
 			if ($(dis).hasClass("low")) {
 				var pick = 1;
+				var data = "aflow.geojson"
 			} else {
 				var pick = 3;
+				var data = "afhigh.geojson"
 			}	
-		} else {
+		} else if ($(dis).hasClass("pov")) {
 			var type = "HighPov_numeric";
 			if ($(dis).hasClass("low")) {
 				var pick = 0;
+				var data = "povlow.geojson"
 			} else {
 				var pick = 1;
+				var data = "povhigh.geojson"
 			}	
-		}	
+		} else if ($(dis).hasClass("cbd")){
+			var type = "cbd";
+			var pick = 1;
+			var data = "cbd.geojson"
+		}
 
 		map.setPaintProperty("urban-areas-fill2", 
 			'fill-opacity', 
@@ -286,22 +296,16 @@ function ready() {
 
 			// // if we also to do the tract lines illuminated
 
-			// map.setPaintProperty("balt-tract-lines2",
-			// "line-opacity", 
-			// 	[
-			//     	"match",
-			//         ['to-number',['get', type]],
-			//        	[pick], 1,
-			//        	0
-			   	
-			//     ]
-			// )
+		map.setPaintProperty("hilines", "line-opacity",1)
+		map.getSource('hilines').setData('data/joined/' + data);
 
 	}	
 
 	function hoverout() {
 		// map.setPaintProperty("balt-tract-lines2","line-opacity",0)
 		map.setPaintProperty("urban-areas-fill2", 'fill-opacity', 0)		
+		map.setPaintProperty("hilines", "line-opacity",0)
+
 	}
 
 	function highlightPoint(point) {
@@ -375,7 +379,7 @@ function ready() {
 	        'type': 'fill',
 	        'source': {
 	            'type': 'geojson',
-	            'data': 'data/joined/balt_joined2.geojson'
+	            'data': baltlineData
 	        },
 	        'layout': {},
 			'paint': {
@@ -397,7 +401,7 @@ function ready() {
 	        'type': 'fill',
 	        'source': {
 	            'type': 'geojson',
-	            'data': 'data/joined/balt_joined2.geojson'
+	            'data': baltlineData
 	        },
 	        'layout': {},
 			'paint': {
@@ -412,7 +416,7 @@ function ready() {
 	        'type': 'line',
 	        'source': {
 	            'type': 'geojson',
-	            'data': 'data/joined/balt_joined2.geojson'
+	            'data': baltlineData
 	        },
 	        'layout': {},
 			"paint": {
@@ -492,6 +496,20 @@ function ready() {
             'paint': {'circle-color': "#fdbf11",'circle-radius':8}
         });
 
+    	map.addLayer({
+	        'id': 'hilines',
+	        'type': 'line',
+	        'source': {
+	            'type': 'geojson',
+	            'data': 'data/joined/afhigh.geojson'
+	        },
+	        'layout': {},
+			"paint": {
+	            "line-color": "#fdbf11",
+	            "line-width": 3,
+	            "line-opacity":0
+	        }			
+    	});
 
    		if (!isNaN(cache.nextStep)) {
    			updateChart(cache.nextStep, cache.dataName)		
