@@ -1,11 +1,22 @@
 var cache = {}
 var startIndex = 0;
 var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
+var highlightOpacity = 0.9;
 
 // define starting variable
 var curStep = "capFlowRate";
 var circleOpacity = 0.8;
 var fillOpacity = 0.7;
+
+var hiPoints = {
+	"Canton": [-76.5712757,39.2743012],
+	"Holabird": [-76.538202,39.26505],
+	"Dundalk": [-76.5371497,39.2440511],
+	"Loyola": [-76.6203821,39.3461692],
+	"Johns": [-76.6205392,39.3284585],
+	"Mondawmin": [-76.654851,39.317171],
+	"Reisterstown": [-76.704939,39.352153]
+}
 
 ready();	
 
@@ -40,16 +51,30 @@ function ready() {
 	  }, 250);
 	});
 
-	$(".highlight").on("mouseover",function(){
-		var type = $(this).hasClass("race") ? "AfAmPct_numeric" : "HighPov_numeric";
-		var lowhigh = $(this).hasClass("low") ? "low" : "high";
-		hoverHighlight(type,lowhigh)
+	$(".highlight.choro").on("mouseover",function(){
+		highlightOnMap(this)
 	})
 
-	$(".highlight").on("mouseout",function(){
+	$(".highlight.choro").on("mouseout",function(){
 		hoverout();
 	})
 
+	$(".highlight.charles").on("mouseover",function(){
+		map.setPaintProperty("charles","line-opacity", 1)
+	})
+
+	$(".highlight.charles").on("mouseout",function(){
+		map.setPaintProperty("charles","line-opacity", 0)	
+	})
+
+	$(".highlight.point").on("mouseover",function(){
+		var pointName = $(this).attr("id");
+		highlightPoint(hiPoints[pointName])
+	})
+
+	$(".highlight.point").on("mouseout",function(){
+		map.setPaintProperty("highlightPointy", "circle-opacity",0)
+	})
 
 	// helper function so we can map over dom selection
 	function selectionToArray(selection) {
@@ -230,95 +255,67 @@ function ready() {
 	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
 	}
 
-	function hoverHighlight(type,lowhigh) {
-		// adjust paint property
-		
-		var lowhighvals = {
-			onVal: {
-				opacity: 0.8,
-				color: "#fdbf11"
-			},
-			offVal: {
-				opacity: 0,
-				color: "transparent"
-			},
-			onOfflow:{},
-			onOffhigh:{}
-		}
 
-		if (type === "AfAmPct_numeric") {			
-			lowhighvals.low = 1;
-			lowhighvals.high = 3;
-		} else  {
-			lowhighvals.low = 0;
-			lowhighvals.high = 1;
-		}
-
-		if (lowhigh === "low") {
-			lowhighvals.onOfflow.opacity = lowhighvals.onVal.opacity;
-			lowhighvals.onOffhigh.opacity = lowhighvals.offVal.opacity;
-			lowhighvals.onOfflow.color = lowhighvals.onVal.color;
-			lowhighvals.onOffhigh.color = lowhighvals.offVal.color;
+	// Create the highlight on the map for hoverover
+	function highlightOnMap(dis) {
+		if ($(dis).hasClass("race")) {
+			var type = "AfAmPct_numeric";
+			if ($(dis).hasClass("low")) {
+				var pick = 1;
+			} else {
+				var pick = 3;
+			}	
 		} else {
-			lowhighvals.onOffhigh.opacity = lowhighvals.onVal.opacity;
-			lowhighvals.onOfflow.opacity = lowhighvals.offVal.opacity;	
-			lowhighvals.onOffhigh.color = lowhighvals.onVal.color;
-			lowhighvals.onOfflow.color = lowhighvals.offVal.color;	
-		}
+			var type = "HighPov_numeric";
+			if ($(dis).hasClass("low")) {
+				var pick = 0;
+			} else {
+				var pick = 1;
+			}	
+		}	
 
-		// console.log(lowhighvals)
-	
 		map.setPaintProperty("urban-areas-fill2", 
 			'fill-opacity', 
 				[	
 	                'match',	                
 	                ['to-number',['get', type]],
-	               	[lowhighvals.low], lowhighvals.onOfflow.opacity,
-	               	lowhighvals.onOffhigh.opacity
-	               	// 2, 0.5,
-	               	// 3, 0
+	               	[pick], 0,
+	               	highlightOpacity
 	            ]
 			)
 
-		// map.setPaintProperty("balt-tract-lines2","line-opacity",1)
-		// map.setPaintProperty("balt-tract-lines2",
-  //           "line-color", [
-  //           	"match",
-  //               ['to-number',['get', type]],
-  //              	[lowhighvals.low], lowhighvals.onOfflow.color,
-  //              	lowhighvals.onOffhigh.color
-	 //            ]
-		// 	)
+			// // if we also to do the tract lines illuminated
 
+			// map.setPaintProperty("balt-tract-lines2",
+			// "line-opacity", 
+			// 	[
+			//     	"match",
+			//         ['to-number',['get', type]],
+			//        	[pick], 1,
+			//        	0
+			   	
+			//     ]
+			// )
 
-		// map.setPaintProperty("urban-areas-fill2", 
-		// 	'fill-opacity', 
-		// 		[
-	 //                'interpolate',
-	 //                ['linear'],
-	 //                ['to-number',['get', type]],
-	 //               	lowhighvals.low, lowhighvals.onOfflow.opacity,
-	 //               	lowhighvals.high, lowhighvals.onOffhigh.opacity,
-	 //            ]
-		// 	)
-
-		// map.setPaintProperty("balt-tract-lines2","line-opacity",1)
-		// map.setPaintProperty("balt-tract-lines2",
-  //           "line-color", [
-  //               'interpolate',
-  //               ['linear'],
-  //               ['to-number',['get', type]],
-  //              	lowhighvals.low, lowhighvals.onOfflow.color,
-  //              	lowhighvals.high, lowhighvals.onOffhigh.color,	     
-	 //            ]
-		// 	)
-	}
+	}	
 
 	function hoverout() {
-		map.setPaintProperty("balt-tract-lines2","line-opacity",0)
-		map.setPaintProperty("urban-areas-fill2", 'fill-opacity', 0)
+		// map.setPaintProperty("balt-tract-lines2","line-opacity",0)
+		map.setPaintProperty("urban-areas-fill2", 'fill-opacity', 0)		
+	}
 
-		
+	function highlightPoint(point) {
+		map.setPaintProperty("highlightPointy", "circle-opacity",1)
+		map.getSource('highlightPointy').setData({
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": point
+                    }
+                }]
+            });
 	}
 
 	function advanceMap(map, item) {
@@ -422,9 +419,7 @@ function ready() {
 	            "line-color": "#fff",
 	            "line-width": 1
 	        }			
-    	});    	
-
-
+    	});
 
 	    map.addLayer({
 	        'id': 'dots',
@@ -463,30 +458,40 @@ function ready() {
 			}
     	});
 
-	    map.addLayer({
-	        'id': 'balt-tract-lines2',
+    	map.addLayer({
+	        'id': 'charles',
 	        'type': 'line',
 	        'source': {
 	            'type': 'geojson',
-	            'data': 'data/joined/balt_joined2.geojson'
+	            'data': 'data/charles.geojson'
 	        },
 	        'layout': {},
-	        "paint": {
-	            "line-color": "#fff",
-	            "line-width": 2,
+			"paint": {
+	            "line-color": "#fdbf11",
+	            "line-width": 3,
 	            "line-opacity":0
-	        }	
-			// "paint": {
-	            // "line-color": [
-	            //     'interpolate',
-	            //     ['linear'],
-	            //     ['to-number',['get', "HighPov_numeric"]],
-	            //    	0, "transparent",
-	            //    	1, "#fdbf11",	     
-	            // ],
-	        //     "line-width": 2
-	        // }
-    	});   
+	        }			
+    	});
+
+    	map.addLayer({
+            "id": "highlightPointy",
+            "type": "circle",
+            "source":{
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [0,0]
+                        }
+                    }]
+                }
+            },
+            'paint': {'circle-color': "#fdbf11",'circle-radius':8}
+        });
+
 
    		if (!isNaN(cache.nextStep)) {
    			updateChart(cache.nextStep, cache.dataName)		
