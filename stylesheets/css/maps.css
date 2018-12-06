@@ -57,7 +57,6 @@
 h1 {
   font-family: Lato;
   margin-bottom: 70px;
-  font-size: 2em;
   line-height: 38px;
   font-size: 40px;
   font-weight: 700;
@@ -107,6 +106,22 @@ a {
   font-size: 14px;
 }
 
+@media (max-width: 850px) {
+  /* line 60, ../sass/_typography.scss */
+  h1 {
+    line-height: 26px;
+    font-size: 22px;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  /* line 71, ../sass/_typography.scss */
+  #lede p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
 /* line 6, ../sass/maps.scss */
 html, body {
   padding: 0px;

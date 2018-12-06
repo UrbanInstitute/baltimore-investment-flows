@@ -3,7 +3,7 @@
 h1 {
 	font-family: Lato;
 	margin-bottom: 70px;
-    font-size: 2em;
+    // font-size: 2em;
     line-height: 38px;
     font-size: 40px;
     font-weight: 700;
@@ -56,6 +56,22 @@ a {
 // }
 
 // Can edit these break points as time goes on. 
-// @media (max-width: $MaxTabletSize){
+@media (max-width: $MaxTabletSize){
+    h1 {                
+        line-height: 26px;
+        font-size: 22px;
+        max-width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;    
+    }
+    h2 {
 
-// }
+    }
+    p {}
+    #lede p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    a {}
+    .date {}
+}

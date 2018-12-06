@@ -61,7 +61,6 @@
 h1 {
   font-family: Lato;
   margin-bottom: 70px;
-  font-size: 2em;
   line-height: 38px;
   font-size: 40px;
   font-weight: 700;
@@ -111,6 +110,22 @@ a {
   font-size: 14px;
 }
 
+@media (max-width: 850px) {
+  /* line 60, ../sass/_typography.scss */
+  h1 {
+    line-height: 26px;
+    font-size: 22px;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  /* line 71, ../sass/_typography.scss */
+  #lede p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
 /* line 10, ../sass/main.scss */
 .banner-img {
   position: relative;
@@ -118,8 +133,8 @@ a {
   width: 100%;
   height: 400px;
   max-width: none;
-  background-image: url(../../img/baltimore.jpg);
-  background-position: center bottom;
+  background-image: url(../../img/baltimore2.jpg);
+  background-position: center 72%;
   background-size: cover;
 }
 
@@ -529,81 +544,87 @@ a {
   #lede {
     padding-left: 40px;
     padding-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  /* line 406, ../sass/main.scss */
+  #lede .date {
+    padding-bottom: 20px;
   }
 
-  /* line 404, ../sass/main.scss */
+  /* line 413, ../sass/main.scss */
   .mega-container {
     margin: 0px;
   }
-  /* line 409, ../sass/main.scss */
+  /* line 418, ../sass/main.scss */
   .mega-container #story-container #story {
     width: 100%;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 0px;
   }
-  /* line 416, ../sass/main.scss */
+  /* line 425, ../sass/main.scss */
   .mega-container #story-container #story .div-section-divider {
     margin-top: 40px;
     margin-bottom: 30px;
   }
-  /* line 426, ../sass/main.scss */
+  /* line 435, ../sass/main.scss */
   .mega-container #story-container #sticky-right {
     z-index: -100;
     width: 100%;
   }
-  /* line 431, ../sass/main.scss */
+  /* line 440, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed {
     z-index: 100;
   }
-  /* line 436, ../sass/main.scss */
+  /* line 445, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner {
     width: 100%;
     margin-left: 0;
   }
-  /* line 440, ../sass/main.scss */
+  /* line 449, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner .graphic {
     width: 100%;
     transform: none;
     top: 40px;
   }
-  /* line 452, ../sass/main.scss */
+  /* line 461, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .graphic {
     border-bottom: 3px solid black;
   }
-  /* line 459, ../sass/main.scss */
+  /* line 468, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav {
     width: 40px;
     right: -15px;
     background-color: rgba(255, 255, 255, 0.5);
   }
-  /* line 466, ../sass/main.scss */
+  /* line 475, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
     display: none;
   }
 
-  /* line 476, ../sass/main.scss */
+  /* line 485, ../sass/main.scss */
   .footer {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
-/* line 485, ../sass/main.scss */
+/* line 494, ../sass/main.scss */
 .bar {
   fill: #1696d2;
 }
 
-/* line 489, ../sass/main.scss */
+/* line 498, ../sass/main.scss */
 .bar.mission, .bar.special, .bar.poverty {
   fill: #fdbf11;
 }
 
-/* line 493, ../sass/main.scss */
+/* line 502, ../sass/main.scss */
 .bar.public {
   fill: #000;
 }
 
-/* line 497, ../sass/main.scss */
+/* line 506, ../sass/main.scss */
 .axis path,
 .axis line {
   fill: none;
@@ -612,29 +633,29 @@ a {
   shape-rendering: crispEdges;
 }
 
-/* line 505, ../sass/main.scss */
+/* line 514, ../sass/main.scss */
 .tick text {
   font-family: "Lato";
 }
 
-/* line 509, ../sass/main.scss */
+/* line 518, ../sass/main.scss */
 .x path {
   display: none;
 }
 
-/* line 513, ../sass/main.scss */
+/* line 522, ../sass/main.scss */
 .y line {
   display: none;
 }
 
 @media (max-width: 600px) {
-  /* line 518, ../sass/main.scss */
+  /* line 527, ../sass/main.scss */
   .footer, #story, #lede {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  /* line 523, ../sass/main.scss */
+  /* line 532, ../sass/main.scss */
   #story-container #story .div-section-divider {
     width: 100%;
   }

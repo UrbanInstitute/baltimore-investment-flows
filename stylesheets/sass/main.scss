@@ -14,8 +14,8 @@
     width: 100%;
     height: 400px;
     max-width: none;
-    background-image: url(../../img/baltimore.jpg);
-    background-position: center bottom;
+    background-image: url(../../img/baltimore2.jpg);
+    background-position: center 72%;
     background-size: cover;   
 }
 
@@ -400,7 +400,16 @@
 	#lede {
 		padding-left:40px;
 		padding-right:40px;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	
+		.date {
+			padding-bottom: 20px;
+		}
 	}
+
+
+
 	.mega-container {
 		margin:0px;
 
