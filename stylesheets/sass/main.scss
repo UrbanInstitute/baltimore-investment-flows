@@ -417,8 +417,8 @@
 
 		    #story {
 		    	width:100%;
-		    	padding-left:40px;
-		    	padding-right:40px;
+		    	padding-left:30px;
+		    	padding-right:30px;
 		    	padding-top:0px;
 
 
@@ -436,6 +436,7 @@
 		    	// display: none;
 		    	z-index: -100;
 		    	width: 100%;
+		    	margin-left: 0;
 
 			    &.is-fixed {
 			    	
@@ -485,6 +486,11 @@
 	.footer {
  		padding-left:40px;
  		padding-right:40px;
+
+ 		h1 {
+ 			font-size: 24px;
+ 			margin-left: 0px;
+ 		}
  	}
 	
 }

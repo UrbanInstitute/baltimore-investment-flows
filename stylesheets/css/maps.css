@@ -115,12 +115,6 @@ a {
     margin: 0 auto;
     margin-bottom: 30px;
   }
-
-  /* line 71, ../sass/_typography.scss */
-  #lede p {
-    font-size: 14px;
-    line-height: 22px;
-  }
 }
 /* line 6, ../sass/maps.scss */
 html, body {
