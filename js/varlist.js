@@ -25,14 +25,14 @@ var varListMaster = {
 		"chartTitle":"HUD’s HOME and CDBG Investment",
 		"textTitle":"HUD’s HOME and CDBG Investment",
 		"notes":"CDBG = Community Development Block Grant Program; HOME = HOME Investment Partnerships Program; HUD = US Department of Housing and Urban Development; LIHTC = low-income housing tax credit. Census tracts are high poverty if more than 25 percent of households are below the federal poverty level and are low poverty if less than 25 percent of households are below the federal poverty level.",
-		"sources":""
+		"sources":"2012–16 American Community Survey data, Baltimore City Planning Department data, and U.S. Department of Housing and Urban Development data."
 	},	
 	"tripleChart2":{
 		"chartType":"hor-bar-chart",
 		"chartTitle":"Baltimore’s Capital Improvement Program Financing",
 		"textTitle":"Baltimore’s Capital Improvement Program Financing",
 		"notes":"CDBG = Community Development Block Grant Program; HOME = HOME Investment Partnerships Program; HUD = US Department of Housing and Urban Development; LIHTC = low-income housing tax credit. Census tracts are high poverty if more than 25 percent of households are below the federal poverty level and are low poverty if less than 25 percent of households are below the federal poverty level.",
-		"sources":""
+		"sources":"2012–16 American Community Survey data, Baltimore City Planning Department data, and U.S. Department of Housing and Urban Development data."
 	},	
 	"investmentShareChart":{
 		"chartType":"stacked-bar-chart",
