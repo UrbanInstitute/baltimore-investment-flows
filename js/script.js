@@ -53,6 +53,14 @@ function ready() {
 	  }, 250);
 	});
 
+	$(".notes").on("mouseover",function(){
+		$(this).addClass("active")
+	})
+
+	$(".notes").on("mouseout",function(){		
+		$(this).removeClass("active")
+	})
+
 	$(".highlight.choro").on("mouseover",function(){
 		highlightOnMap(this)
 	})
@@ -148,7 +156,7 @@ function ready() {
 					}
 					
 				},
-				offset: '50%',  // trigger halfway up the viewport
+				offset: '90%',  // trigger halfway up the viewport
 			})
 		})
 
@@ -348,7 +356,7 @@ function ready() {
 			// set the legend 
 			$(".choromap").addClass("active")
 			$(".dotmap").removeClass("active")
-			$("#mapheader").text(varListMaster[item].chartTitle)
+			// $("#mapheader").text(varListMaster[item].chartTitle)
 			$("#c1 span").text(`Less than ${formatter(varListMaster[item].range[0])}`);
 			$("#c2 span").text(`${formatter(varListMaster[item].range[0])} - ${formatter(varListMaster[item].range[1])}`);
 			$("#c3 span").text(`${formatter(varListMaster[item].range[1])} - ${formatter(varListMaster[item].range[2])}`);
@@ -570,3 +578,4 @@ function formatter(num) {
 		return d3.format(",.0%")(num)
 	}
 }
+

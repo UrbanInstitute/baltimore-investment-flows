@@ -146,8 +146,8 @@
 
 
 			    .legend {
-			    	max-width: 250px;
-			    	background-color: white;
+			    	max-width: 220px;
+			    	background-color: rgba(255,255,255,0.8);
 			    	position:absolute;
 			    	bottom:0;
 			    	left: 0;
@@ -159,7 +159,7 @@
 			    	h5 {
 			    		font-size: 16px;
 			    		font-weight: bold;
-			    		text-transform: uppercase;
+			    		// text-transform: uppercase;
 			    		font-family: "Lato";
 			    	}
 			    	.choromap {
@@ -228,7 +228,7 @@
 				  	// position: absolute;
 
 				  	h4 {
-				  		font-size: 14px;
+				  		font-size: 16px;
 				  		font-family: "Lato";
 				  		text-transform: none;
 				  	}
@@ -266,12 +266,34 @@
 			    position: relative;
 			    transform: translateY(-50%);
 			    pointer-events: all;
-			    // background-color: #fff;
+			    background-color: #fff;
+
+			    &#mobile-spacer {
+				    	display: none;
+				    }
 
 			    @media (max-width: $MaxTabletSize){	
-		    		// padding-top: 40px;
-		    		// padding-left: 5px;
-		    		display: none;
+		    		top: calc(40% + 32px);
+				    padding-left: 5px;
+				    z-index: 1000;
+				    position:absolute;
+				    transform: none;
+			        height: 15px;
+			        width: 100%;
+				    overflow: hidden;
+				    cursor: pointer;
+
+				    &.active {
+				    	height: unset;
+				    	// margin-bottom:10px;
+				    	padding-bottom:5px;
+				    	border-bottom: 3px solid black;
+				    }
+
+				    #mobile-spacer {
+				    	display: block;
+				    	color: $cerulean !important;
+				    }
 			    }
 			    	
 	    	}
@@ -413,6 +435,11 @@
 	.mega-container {
 		margin:0px;
 
+		// hide mapbox item on mobile
+		.mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-bottom-left {
+			display: none;
+		}
+
 		#story-container {
 
 		    #story {
@@ -450,7 +477,7 @@
 				    	.graphic {
 				    		width: 100%;
 				    		transform: none;
-				    		top:40px;
+				    		top:50px;
 				    	}
 				    }
 				}
@@ -470,6 +497,7 @@
 			    		width: 40px;					    
 					    right: -15px;
 					    background-color: rgba(255,255,255,.5);
+					    display: none;
 
 						.bubble {
 							.label {
