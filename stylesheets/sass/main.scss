@@ -142,6 +142,7 @@
 
 			    @media (max-width: $MaxTabletSize){	
 			    	height: 40%;
+			    	width: 100%;
 				}
 
 
@@ -268,29 +269,32 @@
 			    pointer-events: all;
 			    background-color: #fff;
 
-			    &#mobile-spacer {
+			    #mobile-spacer {
 				    	display: none;
 				    }
 
 			    @media (max-width: $MaxTabletSize){	
-		    		top: calc(40% + 32px);
+		    		top: calc(40% + 30px);
 				    padding-left: 5px;
 				    z-index: 1000;
 				    position:absolute;
 				    transform: none;
-			        height: 15px;
+			        height: 20px;
 			        width: 100%;
 				    overflow: hidden;
 				    cursor: pointer;
+				    color: #696969;
+				    border-bottom: 3px solid black;
 
 				    &.active {
 				    	height: unset;
-				    	// margin-bottom:10px;
 				    	padding-bottom:5px;
-				    	border-bottom: 3px solid black;
+				    	
 				    }
 
 				    #mobile-spacer {
+				    	padding-bottom:5px;
+				    	font-size: 14px;
 				    	display: block;
 				    	color: $cerulean !important;
 				    }
