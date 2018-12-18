@@ -61,28 +61,32 @@ function ready() {
 		$(this).removeClass("active")
 	})
 
-	$(".highlight.choro").on("mouseover",function(){
+	$(".active .highlight.choro").on("mouseover",function(){
 		highlightOnMap(this)
 	})
 
-	$(".highlight.choro").on("mouseout",function(){
+	$(".active .highlight.choro").on("mouseout",function(){
 		hoverout();
 	})
 
-	$(".highlight.charles").on("mouseover",function(){
+	$("div.slide.trigger.active > .highlight.charles").on("mouseover",function(){
 		map.setPaintProperty("charles","line-opacity", 1)
 	})
 
-	$(".highlight.charles").on("mouseout",function(){
+// why isn't this working????????
+
+	$("div.slide.trigger.active >  .highlight.charles").on("mouseout",function(){
 		map.setPaintProperty("charles","line-opacity", 0)	
 	})
 
-	$(".highlight.point").on("mouseover",function(){
+	$(".active .highlight.point").on("mouseover",function(){
 		var pointName = $(this).attr("id");
 		highlightPoint(hiPoints[pointName])
 	})
 
-	$(".highlight.point").on("mouseout",function(){
+
+
+	$(".active .highlight.point").on("mouseout",function(){
 		map.setPaintProperty("highlightPointy", "circle-opacity",0)
 	})
 
@@ -100,6 +104,7 @@ function ready() {
 	function waypoints() {
 		// select elements
 		var graphicEl = document.querySelector('#story-container')
+		console.log(graphicEl)
 		var graphicVisEl = graphicEl.querySelector('#sticky-right')
 		var triggerEls = selectionToArray(graphicEl.querySelectorAll('.trigger'))
 
@@ -132,9 +137,13 @@ function ready() {
 					// else, we want to trigger the previous one
 					var nextStep = direction === 'down' ? step : Math.max(0, step - 1)
 					
+					console.log('doodoo')
+
+
 					if (direction === 'down') {
 						var nextStep = step;
 						var dataName = el.getAttribute('data-name');
+
 					} else {
 						var nextStep = Math.max(0, step - 1)
 						try {							
@@ -144,6 +153,10 @@ function ready() {
 							var dataName = el.getAttribute('data-name');
 						}
 					}
+
+					// mark current card text as active 
+					$(".trigger").removeClass("active")
+					$(el).addClass("active")
 
 					// tell our graphic to update with a specific step
 					try {
