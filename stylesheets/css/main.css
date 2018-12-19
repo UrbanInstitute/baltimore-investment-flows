@@ -414,9 +414,8 @@ a {
   position: relative;
   transform: translateY(-50%);
   pointer-events: all;
-  background-color: #fff;
 }
-/* line 273, ../sass/main.scss */
+/* line 272, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .notes #mobile-spacer {
   display: none;
 }
@@ -433,6 +432,7 @@ a {
     overflow: hidden;
     cursor: pointer;
     color: #696969;
+    background-color: #fff;
     border-bottom: 3px solid black;
   }
   /* line 290, ../sass/main.scss */

@@ -267,8 +267,7 @@
 			    top: 50%;
 			    position: relative;
 			    transform: translateY(-50%);
-			    pointer-events: all;
-			    background-color: #fff;
+			    pointer-events: all;			    
 
 			    #mobile-spacer {
 				    	display: none;
@@ -285,6 +284,7 @@
 				    overflow: hidden;
 				    cursor: pointer;
 				    color: #696969;
+				    background-color: #fff;
 				    border-bottom: 3px solid black;
 
 				    &.active {

@@ -1,6 +1,6 @@
 function shortchart() {
 	var shortchartVars = {};
-	var margin = {top: 0, right: 60, bottom: 50, left: 100},
+	var margin = {top: 0, right: 60, bottom: 70, left: 100},
 	width = getChartWidth(),
 	Chartwidth = width - margin.left - margin.right,
 	height = getChartHeight(),
