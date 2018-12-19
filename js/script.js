@@ -61,6 +61,15 @@ function ready() {
 		$(this).removeClass("active")
 	})
 
+	$(document).on("click",function(){
+		if(!$(event.target).is('b'))
+		{
+		    $(".notes").removeClass("active")
+		}
+	})
+
+
+
 	$(document).on("mouseover",".active .highlight.choro",function(){
 		highlightOnMap(this)
 	})

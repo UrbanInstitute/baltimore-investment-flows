@@ -34,13 +34,17 @@
 			text-align: center;
 			margin-top:0px;
 			font-weight: normal;
+			line-height: 40px;
 		}
 
 		@media (max-width: $MaxTabletSize){	
 			margin-bottom: 30px;
 
 			h2.subtitle {
-				font-size: 16px;				
+				font-size: 16px;		
+				line-height: 20px;
+				padding-top: 10px;
+
 			}
 		}
     }
@@ -248,6 +252,7 @@
 
 				  .title {
 				  	padding-left:5px;
+				  	padding-top:5px;
 
 				  	h4 {
 				  		font-size: 16px;
@@ -300,7 +305,7 @@
 				    z-index: 1000;
 				    position:absolute;
 				    transform: none;
-			        height: 20px;
+			        height: 25px;
 			        width: 100%;
 				    overflow: hidden;
 				    cursor: pointer;
@@ -316,6 +321,7 @@
 
 				    #mobile-spacer {
 				    	padding-bottom:5px;
+				    	padding-top: 5px;
 				    	font-size: 14px;
 				    	display: block;
 				    	color: $cerulean !important;
