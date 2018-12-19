@@ -56,7 +56,6 @@
 /* line 3, ../sass/_typography.scss */
 h1 {
   font-family: Lato;
-  margin-bottom: 70px;
   line-height: 38px;
   font-size: 40px;
   font-weight: 700;
@@ -65,7 +64,7 @@ h1 {
   text-align: center;
 }
 
-/* line 16, ../sass/_typography.scss */
+/* line 15, ../sass/_typography.scss */
 h2 {
   font-family: Lato;
   font-size: 22px;
@@ -77,7 +76,7 @@ h2 {
   color: #333;
 }
 
-/* line 27, ../sass/_typography.scss */
+/* line 26, ../sass/_typography.scss */
 p {
   margin-bottom: 12px;
   margin-top: 0;
@@ -89,31 +88,30 @@ p {
   font-weight: 400;
 }
 
-/* line 38, ../sass/_typography.scss */
+/* line 37, ../sass/_typography.scss */
 #lede p {
   font-size: 17px;
   line-height: 24px;
 }
 
-/* line 43, ../sass/_typography.scss */
+/* line 42, ../sass/_typography.scss */
 a {
   color: #1696d2;
 }
 
-/* line 47, ../sass/_typography.scss */
+/* line 46, ../sass/_typography.scss */
 .date {
   color: #353535;
   font-size: 14px;
 }
 
 @media (max-width: 850px) {
-  /* line 60, ../sass/_typography.scss */
+  /* line 59, ../sass/_typography.scss */
   h1 {
     line-height: 26px;
     font-size: 22px;
     max-width: 90%;
     margin: 0 auto;
-    margin-bottom: 30px;
   }
 }
 /* line 6, ../sass/maps.scss */

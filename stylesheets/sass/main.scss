@@ -26,6 +26,27 @@
     margin-bottom: 50px;
     margin-top: 80px;
 
+    .title-text {    	
+    	margin-bottom: 70px;
+
+	    h2.subtitle {
+			font-size: 20px;		
+			text-align: center;
+			margin-top:0px;
+			font-weight: normal;
+		}
+
+		@media (max-width: $MaxTabletSize){	
+			margin-bottom: 30px;
+
+			h2.subtitle {
+				font-size: 16px;				
+			}
+		}
+    }
+
+
+
 	.date 	{
 		width: 100%;
 		text-align: center;
@@ -429,7 +450,7 @@
 		padding-right:40px;
 		margin-top: 40px;
 		margin-bottom: 40px;
-	
+
 		.date {
 			padding-bottom: 20px;
 		}
