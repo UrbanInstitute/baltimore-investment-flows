@@ -141,7 +141,7 @@
 
 
 			    @media (max-width: $MaxTabletSize){	
-			    	height: 40%;
+			    	height: $graphic-height-mobile;
 			    	width: 100%;
 				}
 
@@ -226,7 +226,7 @@
 				  }
 
 				  .title {
-				  	// position: absolute;
+				  	padding-left:5px;
 
 				  	h4 {
 				  		font-size: 16px;
@@ -237,6 +237,7 @@
 
 				  .inline-legend {
 				  	background-color: pink;
+				  	padding-left: 5px;
 
 				  	.item {
 				  		float: left;
@@ -274,7 +275,7 @@
 				    }
 
 			    @media (max-width: $MaxTabletSize){	
-		    		top: calc(40% + 30px);
+		    		top: calc(#{$graphic-height-mobile} + 47px);
 				    padding-left: 5px;
 				    z-index: 1000;
 				    position:absolute;
@@ -533,12 +534,12 @@
 	fill: #1696d2;
 }
 
-.bar.mission, .bar.special, .bar.poverty {
-	fill: #fdbf11;
+.bar.mission, .bar.poverty {
+	fill: #000;
 }
 
-.bar.public {
-	fill: #000;
+.bar.public, .bar.special {
+	fill: #fdbf11;
 }
 
 .axis path,
@@ -550,7 +551,8 @@
 }
 
 .tick text {
-	font-family: "Lato"
+	font-family: "Lato";
+	font-size: 12px;
 }
 
 .x path {

@@ -61,32 +61,28 @@ function ready() {
 		$(this).removeClass("active")
 	})
 
-	$(".active .highlight.choro").on("mouseover",function(){
+	$(document).on("mouseover",".active .highlight.choro",function(){
 		highlightOnMap(this)
 	})
 
-	$(".active .highlight.choro").on("mouseout",function(){
+	$(document).on("mouseout",".active .highlight.choro",function(){
 		hoverout();
 	})
 
-	$("div.slide.trigger.active > .highlight.charles").on("mouseover",function(){
+	$(document).on("mouseover", ".active .highlight.charles", function(){
 		map.setPaintProperty("charles","line-opacity", 1)
 	})
 
-// why isn't this working????????
-
-	$("div.slide.trigger.active >  .highlight.charles").on("mouseout",function(){
+	$(document).on("mouseout", ".active .highlight.charles", function(){		
 		map.setPaintProperty("charles","line-opacity", 0)	
 	})
 
-	$(".active .highlight.point").on("mouseover",function(){
+	$(document).on("mouseover", ".active .highlight.point", function(){		
 		var pointName = $(this).attr("id");
 		highlightPoint(hiPoints[pointName])
 	})
 
-
-
-	$(".active .highlight.point").on("mouseout",function(){
+	$(document).on("mouseout", ".active .highlight.point", function(){		
 		map.setPaintProperty("highlightPointy", "circle-opacity",0)
 	})
 
@@ -104,7 +100,6 @@ function ready() {
 	function waypoints() {
 		// select elements
 		var graphicEl = document.querySelector('#story-container')
-		console.log(graphicEl)
 		var graphicVisEl = graphicEl.querySelector('#sticky-right')
 		var triggerEls = selectionToArray(graphicEl.querySelectorAll('.trigger'))
 
@@ -135,10 +130,7 @@ function ready() {
 				handler: function(direction) {
 					// if the direction is down then we use that number,
 					// else, we want to trigger the previous one
-					var nextStep = direction === 'down' ? step : Math.max(0, step - 1)
-					
-					console.log('doodoo')
-
+					var nextStep = direction === 'down' ? step : Math.max(0, step - 1)				
 
 					if (direction === 'down') {
 						var nextStep = step;
@@ -153,10 +145,6 @@ function ready() {
 							var dataName = el.getAttribute('data-name');
 						}
 					}
-
-					// mark current card text as active 
-					$(".trigger").removeClass("active")
-					$(el).addClass("active")
 
 					// tell our graphic to update with a specific step
 					try {
@@ -216,6 +204,11 @@ function ready() {
 	}	
 
 	function updateChart(nextStep,dataName) {
+		$(".trigger").removeClass("active")
+		$(".trigger[data-name='" + dataName + "']").attr("data-name",dataName).addClass("active")
+
+		clearHighlights()
+
 		// update left-hand nav		
 		$(".bubble").removeClass("active")
 
@@ -275,7 +268,7 @@ function ready() {
 	    	})
 	   
 	   	d3.select("#chartSmall").select("g.x.axis").transition()
-	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
+	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
 	}
 
 
@@ -343,6 +336,12 @@ function ready() {
             });
 	}
 
+	function clearHighlights() {
+		hoverout();
+		map.setPaintProperty("charles","line-opacity", 0)	
+		map.setPaintProperty("highlightPointy", "circle-opacity",0)
+	}
+
 	function advanceMap(map, item) {
 		if (item === "raceMap") {
 			map.setPaintProperty("urban-areas-fill",'fill-opacity',0)
@@ -369,7 +368,7 @@ function ready() {
 			// set the legend 
 			$(".choromap").addClass("active")
 			$(".dotmap").removeClass("active")
-			// $("#mapheader").text(varListMaster[item].chartTitle)
+			$("#map .title").html("<h4>" + varListMaster[item].chartTitle + "</h4>")
 			$("#c1 span").text(`Less than ${formatter(varListMaster[item].range[0])}`);
 			$("#c2 span").text(`${formatter(varListMaster[item].range[0])} - ${formatter(varListMaster[item].range[1])}`);
 			$("#c3 span").text(`${formatter(varListMaster[item].range[1])} - ${formatter(varListMaster[item].range[2])}`);
@@ -554,9 +553,6 @@ function ready() {
         	scrollTop: mover.offset().top - 100},
         	'slow');
 	})
-
-
-
 }
 
 // wrap text
@@ -591,4 +587,3 @@ function formatter(num) {
 		return d3.format(",.0%")(num)
 	}
 }
-

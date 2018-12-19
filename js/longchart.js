@@ -1,6 +1,6 @@
 function longchart() {
 
-	var margin = {top: 10, right: 20, bottom: 45, left: 90},
+	var margin = {top: 0, right: 20, bottom: 30, left: 100},
 	width = getChartWidth(),
 	Chartwidth = width - margin.left - margin.right,
 	height = getChartHeight(),
@@ -68,8 +68,9 @@ function longchart() {
 	}
 
 	function getChartHeight() {
-		var chartDiv = document.getElementById("graphic-container");		
-		var h = chartDiv.clientHeight;		
+		var chartDiv = document.getElementById("graphic-container");
+		var chartSubtractor = $("#chartLong .title")[0].clientHeight;
+		var h = chartDiv.clientHeight - chartSubtractor;
 		return h;
 	}
 

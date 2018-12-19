@@ -1,5 +1,5 @@
 /*colors*/
-/* line 36, ../sass/_variables.scss */
+/* line 37, ../sass/_variables.scss */
 #isPhone, #isTablet, #isDesktop {
   display: none;
   pointer-events: none;
@@ -10,44 +10,44 @@
   left: 0;
 }
 
-/* line 46, ../sass/_variables.scss */
+/* line 47, ../sass/_variables.scss */
 .hide-for-mobile-only {
   display: block;
 }
 
-/* line 50, ../sass/_variables.scss */
+/* line 51, ../sass/_variables.scss */
 .show-for-mobile-only {
   display: none;
 }
 
 @media (max-width: 600px) {
-  /* line 56, ../sass/_variables.scss */
+  /* line 57, ../sass/_variables.scss */
   #isPhone {
     display: block;
   }
 
-  /* line 60, ../sass/_variables.scss */
+  /* line 61, ../sass/_variables.scss */
   #isTablet, #isDesktop {
     display: none;
   }
 
-  /* line 64, ../sass/_variables.scss */
+  /* line 65, ../sass/_variables.scss */
   .hide-for-mobile-only {
     display: none;
   }
 
-  /* line 67, ../sass/_variables.scss */
+  /* line 68, ../sass/_variables.scss */
   .show-for-mobile-only {
     display: block;
   }
 }
 @media (max-width: 850px) {
-  /* line 73, ../sass/_variables.scss */
+  /* line 74, ../sass/_variables.scss */
   #isTablet {
     display: block;
   }
 
-  /* line 77, ../sass/_variables.scss */
+  /* line 78, ../sass/_variables.scss */
   #isPhone, #isDesktop {
     display: none;
   }

@@ -1,6 +1,6 @@
 function stackedchart() {
 	var stackedchartVars = {};
-	var margin = {top: 10, right: 60, bottom: 60, left: 90},
+	var margin = {top: 10, right: 60, bottom: 50, left: 100},
 	width = getChartWidth(),
 	Chartwidth = width - margin.left - margin.right,
 	height = getChartHeight(),
@@ -165,7 +165,8 @@ function stackedchart() {
 
 	function getChartHeight() {
 		var chartDiv = document.getElementById("graphic-container");		
-		var h = chartDiv.clientHeight;		
+		var chartSubtractor = $("#chartStacked .title")[0].clientHeight + $("#chartStacked .inline-legend")[0].clientHeight;
+		var h = chartDiv.clientHeight - chartSubtractor;
 		return h;
 	}
 

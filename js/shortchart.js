@@ -1,6 +1,6 @@
 function shortchart() {
 	var shortchartVars = {};
-	var margin = {top: 10, right: 60, bottom: 45, left: 90},
+	var margin = {top: 0, right: 60, bottom: 50, left: 100},
 	width = getChartWidth(),
 	Chartwidth = width - margin.left - margin.right,
 	height = getChartHeight(),
@@ -79,7 +79,7 @@ function shortchart() {
 	g.append("g")
 	    .attr("class", "x axis")
 	   	.attr("transform", "translate(0," + Chartheight + ")")
-	  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
+	  	.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
 
 	g.append("g")
 	    .attr("class", "y axis")
@@ -106,9 +106,9 @@ function shortchart() {
 		return w;
 	}
 
-	function getChartHeight() {
-		var chartDiv = document.getElementById("graphic-container");		
-		var h = chartDiv.clientHeight;		
+	function getChartHeight() {		
+		var chartDiv = document.getElementById("graphic-container");				
+		var h = chartDiv.clientHeight;
 		return h;
 	}
 
@@ -129,7 +129,7 @@ function shortchart() {
 	    	})
 
 	   	g.select("g.x.axis").transition()
-	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
+	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
 
 	}
 
