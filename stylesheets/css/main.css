@@ -389,35 +389,41 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-}
-/* line 256, ../sass/main.scss */
-#story-container #sticky-right .sticky-right-inner .graphic .chart-type.inactive {
-  opacity: 0;
+  z-index: 100;
+  -webkit-transition: opacity 0.1s ease-out;
+  -moz-transition: opacity 0.1s ease-out;
+  -o-transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out;
 }
 /* line 260, ../sass/main.scss */
+#story-container #sticky-right .sticky-right-inner .graphic .chart-type.inactive {
+  z-index: 0;
+  opacity: 0;
+}
+/* line 265, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .title {
   padding-left: 5px;
   padding-top: 5px;
   padding-right: 10px;
 }
-/* line 265, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .title h4 {
   font-size: 16px;
   font-family: "Lato";
   text-transform: none;
 }
-/* line 272, ../sass/main.scss */
+/* line 277, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .inline-legend {
   background-color: pink;
   padding-left: 5px;
 }
-/* line 276, ../sass/main.scss */
+/* line 281, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .inline-legend .item {
   float: left;
   font-size: 12px;
   padding-right: 10px;
 }
-/* line 281, ../sass/main.scss */
+/* line 286, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .inline-legend .item div {
   width: 20px;
   height: 10px;
@@ -425,33 +431,33 @@ a {
   margin-top: 2px;
   margin-right: 5px;
 }
-/* line 288, ../sass/main.scss */
+/* line 293, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .inline-legend .item div#s1 {
   background-color: #1696d2;
 }
-/* line 289, ../sass/main.scss */
+/* line 294, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .inline-legend .item div#s2 {
   background-color: #fdbf11;
 }
-/* line 290, ../sass/main.scss */
+/* line 295, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .inline-legend .item div#s3 {
   background-color: #000;
 }
-/* line 297, ../sass/main.scss */
+/* line 302, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .notes {
   font-size: 12px;
   height: 65%;
   top: 50%;
   position: relative;
   transform: translateY(-50%);
-  pointer-events: all;
+  pointer-events: none;
 }
-/* line 306, ../sass/main.scss */
+/* line 310, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .notes #mobile-spacer {
   display: none;
 }
 @media (max-width: 850px) {
-  /* line 297, ../sass/main.scss */
+  /* line 302, ../sass/main.scss */
   #story-container #sticky-right .sticky-right-inner .notes {
     top: calc(50% + 47px);
     padding-left: 5px;
@@ -465,13 +471,14 @@ a {
     color: #696969;
     background-color: #fff;
     border-bottom: 3px solid black;
+    pointer-events: all;
   }
-  /* line 324, ../sass/main.scss */
+  /* line 329, ../sass/main.scss */
   #story-container #sticky-right .sticky-right-inner .notes.active {
     height: unset;
     padding-bottom: 5px;
   }
-  /* line 330, ../sass/main.scss */
+  /* line 335, ../sass/main.scss */
   #story-container #sticky-right .sticky-right-inner .notes #mobile-spacer {
     padding-bottom: 5px;
     padding-top: 5px;
@@ -480,7 +487,7 @@ a {
     color: #0096d2 !important;
   }
 }
-/* line 342, ../sass/main.scss */
+/* line 347, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav {
   width: 15px;
   position: absolute;
@@ -488,7 +495,7 @@ a {
   top: 50%;
   right: 5px;
 }
-/* line 349, ../sass/main.scss */
+/* line 354, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble {
   height: 14px;
   width: 14px;
@@ -502,7 +509,7 @@ a {
   cursor: pointer;
   pointer-events: all;
 }
-/* line 362, ../sass/main.scss */
+/* line 367, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label {
   margin-left: 17px;
   margin-top: -9px;
@@ -514,7 +521,7 @@ a {
   white-space: nowrap;
   direction: rtl;
 }
-/* line 374, ../sass/main.scss */
+/* line 379, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
   display: inline-block;
   background-color: #1696D2;
@@ -526,27 +533,27 @@ a {
   padding-bottom: 8px;
   margin-top: -6px;
 }
-/* line 387, ../sass/main.scss */
+/* line 392, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble.active {
   background-color: #0096d2;
 }
-/* line 392, ../sass/main.scss */
+/* line 397, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble:hover .label {
   display: block;
 }
-/* line 397, ../sass/main.scss */
+/* line 402, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .bubble-nav .clearer {
   clear: both;
 }
 
-/* line 405, ../sass/main.scss */
+/* line 410, ../sass/main.scss */
 .footer {
   width: 100%;
   max-width: 725px;
   padding: 20px;
   margin: 0 auto;
 }
-/* line 411, ../sass/main.scss */
+/* line 416, ../sass/main.scss */
 .footer h1 {
   text-align: left;
   text-transform: uppercase;
@@ -556,12 +563,12 @@ a {
   font-size: 34px;
   font-weight: 300;
 }
-/* line 421, ../sass/main.scss */
+/* line 426, ../sass/main.scss */
 .footer p {
   color: #353535;
   font-size: 16px;
 }
-/* line 426, ../sass/main.scss */
+/* line 431, ../sass/main.scss */
 .footer .button {
   background-color: #000;
   color: #fff;
@@ -576,11 +583,11 @@ a {
   border-radius: 0;
   text-transform: uppercase;
 }
-/* line 440, ../sass/main.scss */
+/* line 445, ../sass/main.scss */
 .footer .button:hover {
   background-color: #1696d2;
 }
-/* line 446, ../sass/main.scss */
+/* line 451, ../sass/main.scss */
 .footer .credit-list p {
   margin-bottom: 10px;
   color: #353535;
@@ -588,112 +595,112 @@ a {
 }
 
 @media (max-width: 850px) {
-  /* line 456, ../sass/main.scss */
+  /* line 461, ../sass/main.scss */
   h2 {
     font-size: 20px;
   }
 
-  /* line 459, ../sass/main.scss */
+  /* line 464, ../sass/main.scss */
   .banner-img {
     height: 300px;
   }
 
-  /* line 462, ../sass/main.scss */
+  /* line 467, ../sass/main.scss */
   #lede {
     padding-left: 40px;
     padding-right: 40px;
     margin-top: 40px;
     margin-bottom: 40px;
   }
-  /* line 468, ../sass/main.scss */
+  /* line 473, ../sass/main.scss */
   #lede .date {
     padding-bottom: 20px;
   }
 
-  /* line 475, ../sass/main.scss */
+  /* line 480, ../sass/main.scss */
   .mega-container {
     margin: 0px;
   }
-  /* line 479, ../sass/main.scss */
+  /* line 484, ../sass/main.scss */
   .mega-container .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mega-container .mapboxgl-ctrl-bottom-left {
     display: none;
   }
-  /* line 485, ../sass/main.scss */
+  /* line 490, ../sass/main.scss */
   .mega-container #story-container #story {
     width: 100%;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 0px;
   }
-  /* line 492, ../sass/main.scss */
+  /* line 497, ../sass/main.scss */
   .mega-container #story-container #story .div-section-divider {
     margin-top: 40px;
     margin-bottom: 30px;
   }
-  /* line 502, ../sass/main.scss */
+  /* line 507, ../sass/main.scss */
   .mega-container #story-container #sticky-right {
     z-index: -100;
     width: 100%;
     margin-left: 0;
   }
-  /* line 508, ../sass/main.scss */
+  /* line 513, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed {
     z-index: 100;
   }
-  /* line 513, ../sass/main.scss */
+  /* line 518, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner {
     width: 100%;
     margin-left: 0;
   }
-  /* line 517, ../sass/main.scss */
+  /* line 522, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner .graphic {
     width: 100%;
     transform: none;
     top: 50px;
   }
-  /* line 529, ../sass/main.scss */
+  /* line 534, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .graphic {
     border-bottom: 3px solid black;
   }
-  /* line 536, ../sass/main.scss */
+  /* line 541, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav {
     width: 40px;
     right: -15px;
     background-color: rgba(255, 255, 255, 0.5);
     display: none;
   }
-  /* line 544, ../sass/main.scss */
+  /* line 549, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
     display: none;
   }
 
-  /* line 554, ../sass/main.scss */
+  /* line 559, ../sass/main.scss */
   .footer {
     padding-left: 40px;
     padding-right: 40px;
   }
-  /* line 558, ../sass/main.scss */
+  /* line 563, ../sass/main.scss */
   .footer h1 {
     font-size: 24px;
     margin-left: 0px;
   }
 }
-/* line 568, ../sass/main.scss */
+/* line 573, ../sass/main.scss */
 .bar {
   fill: #1696d2;
 }
 
-/* line 572, ../sass/main.scss */
+/* line 577, ../sass/main.scss */
 .bar.mission, .bar.poverty {
   fill: #000;
 }
 
-/* line 576, ../sass/main.scss */
+/* line 581, ../sass/main.scss */
 .bar.public, .bar.special {
   fill: #fdbf11;
 }
 
-/* line 580, ../sass/main.scss */
+/* line 585, ../sass/main.scss */
 .axis path,
 .axis line {
   fill: none;
@@ -702,30 +709,30 @@ a {
   shape-rendering: crispEdges;
 }
 
-/* line 588, ../sass/main.scss */
+/* line 593, ../sass/main.scss */
 .tick text {
   font-family: "Lato";
   font-size: 12px;
 }
 
-/* line 593, ../sass/main.scss */
+/* line 598, ../sass/main.scss */
 .x path {
   display: none;
 }
 
-/* line 597, ../sass/main.scss */
+/* line 602, ../sass/main.scss */
 .y line {
   display: none;
 }
 
 @media (max-width: 600px) {
-  /* line 602, ../sass/main.scss */
+  /* line 607, ../sass/main.scss */
   .footer, #story, #lede {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  /* line 607, ../sass/main.scss */
+  /* line 612, ../sass/main.scss */
   #story-container #story .div-section-divider {
     width: 100%;
   }
