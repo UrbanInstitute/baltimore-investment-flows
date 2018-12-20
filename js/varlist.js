@@ -30,7 +30,7 @@ var varListMaster = {
 	"tripleChart2":{
 		"chartType":"hor-bar-chart",
 		"chartTitle":"Baltimore Capital Improvement Program financing per household, 2011-16",
-		"notes":"CDBG = Community Development Block Grant Program; HOME = HOME Investment Partnerships Program; HUD = US Department of Housing and Urban Development; LIHTC = low-income housing tax credit. Census tracts are high poverty if more than 25 percent of households are below the federal poverty level and are low poverty if less than 25 percent of households are below the federal poverty level.",
+		"notes":"CDBG = Community Development Block Grant Program; HOME = HOME Investment Partnerships Program; LIHTC = low-income housing tax credit. Census tracts are high poverty if more than 25 percent of households are below the federal poverty level and are low poverty if less than 25 percent of households are below the federal poverty level.",
 		"sources":"2012–16 American Community Survey data, Baltimore City Planning Department data, and U.S. Department of Housing and Urban Development data.",
 		"id":12
 	},	
@@ -100,7 +100,7 @@ var varListMaster = {
 		"chartType":"poly-map",
 		"chartTitle":"CRA small business lending volume per household, 2011-16",
 		"notes":"",
-		"sources":"2004–16 Community Reinvestment Act Federal Financial Institutions Examination Council reporting and 2015 Longitudinal Employer-Household Dynamics Origin-Destination Employment Statistics Workplace Area Characteristics data.",
+		"sources":"2011–16 Community Reinvestment Act Federal Financial Institutions Examination Council reporting and 2015 Longitudinal Employer-Household Dynamics Origin-Destination Employment Statistics Workplace Area Characteristics data.",
 		"id":9
 	},
 	"pub_hh":{

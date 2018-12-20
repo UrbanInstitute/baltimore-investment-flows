@@ -50,7 +50,7 @@ function shortchart() {
 			"capFlowRate":133601,
 			"tripleChart1":163,
 			"tripleChart2":3022,
-			"loanChart":160438,
+			"loanChart":152465,
 			"type":"race"
 		},
 		{
@@ -58,7 +58,7 @@ function shortchart() {
 			"capFlowRate":56412,
 			"tripleChart1":280,
 			"tripleChart2":5583,
-			"loanChart":0,
+			"loanChart":68090,
 			"type":"race"
 		},
 		{
@@ -66,7 +66,7 @@ function shortchart() {
 			"capFlowRate":33987,
 			"tripleChart1":368,
 			"tripleChart2":2372,
-			"loanChart":68133,
+			"loanChart":43840,
 			"type":"race"
 		}
 
