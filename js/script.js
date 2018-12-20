@@ -68,8 +68,6 @@ function ready() {
 		}
 	})
 
-
-
 	$(document).on("mouseover",".active .highlight.choro",function(){
 		highlightOnMap(this)
 	})
@@ -216,7 +214,7 @@ function ready() {
 		$(".trigger").removeClass("active")
 		$(".trigger[data-name='" + dataName + "']").attr("data-name",dataName).addClass("active")
 
-		clearHighlights()
+		clearHighlights();
 
 		// update left-hand nav		
 		$(".bubble").removeClass("active")
@@ -224,6 +222,12 @@ function ready() {
 		$(".bubble:nth-child(" + (nextStep+1) +")").addClass("active")
 
 		$(".chart-type").addClass("inactive")
+
+		if (varListMaster[dataName].chartType !== "hor-bar-chart") {
+			shortchartVars.active = "interstitial";
+			advanceChart(shortchartVars,"interstitial",true)	
+		}
+		
 		if (varListMaster[dataName].chartType === "poly-map" || varListMaster[dataName].chartType === "dot-map") {
 			$("#map").removeClass("inactive")
 			advanceMap(map, dataName)	
@@ -231,7 +235,7 @@ function ready() {
 			$("#chartLong").removeClass("inactive")
 		} else if (varListMaster[dataName].chartType === "hor-bar-chart") {			
 			$("#chartSmall").removeClass("inactive")
-			advanceChart(shortchartVars,dataName)
+			advanceChart(shortchartVars,dataName,false)
 		} else if (varListMaster[dataName].chartType === "stacked-bar-chart") {			
 			$("#chartStacked").removeClass("inactive")
 		}
@@ -262,8 +266,17 @@ function ready() {
 	}
 
 
-	function advanceChart(shortchartVars,dataName) {
-		$("#chartSmall .title").html(`<h4>${varListMaster[dataName].chartTitle}</h4>`)
+	function advanceChart(shortchartVars,dataName,background) {
+
+		// allows it to update in the background for better transitions. 
+
+		// This selection only happens when NOT in the background
+		if (!background) {
+			$("#chartSmall .title").html(`<h4>${varListMaster[dataName].chartTitle}</h4>`)			
+		}
+
+
+		shortchartVars.active = dataName;
 
 		var x = shortchartVars.x;
 		x.domain([0, d3.max(shortchartVars.data, function(d) { return d[dataName]; })]).nice();

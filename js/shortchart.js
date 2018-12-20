@@ -15,6 +15,7 @@ function shortchart() {
 	shortchartVars.x = x;
 	var y = d3.scaleBand().range([Chartheight, 0]);
 	shortchartVars.y = y;
+	shortchartVars.active = "interstitial";
 
 	var g = svg.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -27,6 +28,7 @@ function shortchart() {
 			"tripleChart1":99,
 			"tripleChart2":2606,
 			"loanChart":111577,
+			"interstitial":0,
 			"type":"poverty"
 		},
 		{
@@ -35,6 +37,7 @@ function shortchart() {
 			"tripleChart1":531,
 			"tripleChart2":4596,
 			"loanChart":59822,
+			"interstitial":0,
 			"type":"poverty"
 		},
 		{
@@ -43,6 +46,7 @@ function shortchart() {
 			"tripleChart1":0,
 			"tripleChart2":0,
 			"loanChart":0,
+			"interstitial":0,
 			"type":"spacer"
 		},
 		{
@@ -51,6 +55,7 @@ function shortchart() {
 			"tripleChart1":163,
 			"tripleChart2":3022,
 			"loanChart":152465,
+			"interstitial":0,
 			"type":"race"
 		},
 		{
@@ -59,6 +64,7 @@ function shortchart() {
 			"tripleChart1":280,
 			"tripleChart2":5583,
 			"loanChart":68090,
+			"interstitial":0,
 			"type":"race"
 		},
 		{
@@ -67,6 +73,7 @@ function shortchart() {
 			"tripleChart1":368,
 			"tripleChart2":2372,
 			"loanChart":43840,
+			"interstitial":0,
 			"type":"race"
 		}
 
@@ -113,6 +120,8 @@ function shortchart() {
 	}
 
 	function redraw(){
+
+
 		// get new width
 		width = getChartWidth();
 		Chartwidth = width - margin.left - margin.right;
@@ -125,7 +134,7 @@ function shortchart() {
 		// transition bars
 		g.selectAll(".bar").transition()
 	    	.attr("width", function(d) { 
-	    		return x(d.capFlowRate); 
+	    		return x(d[shortchartVars.active]); 
 	    	})
 
 	   	g.select("g.x.axis").transition()
