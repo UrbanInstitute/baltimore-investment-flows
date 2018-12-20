@@ -239,9 +239,9 @@ function ready() {
 		// use try???? if item is below the fold on load, don't shoot error
 		
 		// $(".graphic div").html(nextStep)
-		$("#n1").html(`<b>Sources</b>: ${varListMaster[dataName].sources}`)
+		$("#n1").html(varListMaster[dataName].sources)
 		if (varListMaster[dataName].notes !== "") {
-			$("#n2").html(`<b>Notes</b>: ${varListMaster[dataName].notes}`)
+			$("#n2").html(varListMaster[dataName].notes)
 		} else {
 			$("#n2").html('')
 		}
@@ -358,6 +358,7 @@ function ready() {
 			map.setPaintProperty("dots",'circle-opacity',circleOpacity)
 			$(".choromap").removeClass("active")
 			$(".dotmap").addClass("active")
+			$("#map .title").html("<h4>" + varListMaster[item].chartTitle + "</h4>")
 		} else {
 			map.setPaintProperty("dots",'circle-opacity',0)
 			map.setPaintProperty("urban-areas-fill", 'fill-opacity', fillOpacity)
@@ -376,7 +377,7 @@ function ready() {
 	            );
 			// set the legend 
 			$(".choromap").addClass("active")
-			$(".dotmap").removeClass("active")
+			$(".dotmap").removeClass("active")			
 			$("#map .title").html("<h4>" + varListMaster[item].chartTitle + "</h4>")
 			$("#c1 span").text(`Less than ${formatter(varListMaster[item].range[0])}`);
 			$("#c2 span").text(`${formatter(varListMaster[item].range[0])} - ${formatter(varListMaster[item].range[1])}`);
