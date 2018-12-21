@@ -408,7 +408,7 @@ a {
 }
 /* line 270, ../sass/main.scss */
 #story-container #sticky-right .sticky-right-inner .graphic .chart-type .title h4 {
-  font-size: 16px;
+  font-size: 16px !important;
   font-family: "Lato";
   text-transform: none;
 }
