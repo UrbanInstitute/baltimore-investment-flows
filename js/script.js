@@ -274,8 +274,7 @@ function ready() {
 		if (!background) {
 			$("#chartSmall .title").html(`<h4>${varListMaster[dataName].chartTitle}</h4>`)			
 		}
-
-
+		
 		shortchartVars.active = dataName;
 
 		var x = shortchartVars.x;
