@@ -516,7 +516,6 @@ a {
   font-size: 13px;
   display: none;
   pointer-events: none;
-  text-transform: capitalize;
   background-color: #fff;
   white-space: nowrap;
   direction: rtl;

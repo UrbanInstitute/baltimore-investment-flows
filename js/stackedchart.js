@@ -24,7 +24,7 @@ function stackedchart() {
 
 	var data = [
 		{
-			"area":"All Neighborhoods",			
+			"area":"All neighborhoods",			
 			"investmentShareChart":{
 				"mainstream":16800000000,
 				"mission": 942000000,
@@ -42,7 +42,7 @@ function stackedchart() {
 			"type":"spacer"
 		},
 		{
-			"area":"Low Poverty Neighborhoods",			
+			"area":"Low-poverty neighborhoods",			
 			"investmentShareChart":{
 				"mainstream":12300000000,
 				"mission":457000000,
@@ -51,7 +51,7 @@ function stackedchart() {
 			"type":"poverty"
 		},
 		{
-			"area":"High Poverty Neighborhoods",			
+			"area":"High-poverty neighborhoods",			
 			"investmentShareChart":{
 				"mainstream":4520000000,
 				"mission":485000000,
@@ -78,7 +78,7 @@ function stackedchart() {
 			"type":"race"
 		},
 		{
-			"area":"50% - 85% African American",			
+			"area":"50%–85% African American",			
 			"investmentShareChart":{
 				"mainstream":2540000000,
 				"mission":356000000,

@@ -232,7 +232,7 @@ function ready() {
 			$("#map").removeClass("inactive")
 			advanceMap(map, dataName)	
 		} else if (varListMaster[dataName].chartType === "long-bar-chart") {
-			$("#chartLong").removeClass("inactive")
+			$("#chartLong").removeClass("inactive");
 		} else if (varListMaster[dataName].chartType === "hor-bar-chart") {			
 			$("#chartSmall").removeClass("inactive")
 			advanceChart(shortchartVars,dataName,false)
@@ -274,7 +274,7 @@ function ready() {
 		if (!background) {
 			$("#chartSmall .title").html(`<h4>${varListMaster[dataName].chartTitle}</h4>`)			
 		}
-		
+
 		shortchartVars.active = dataName;
 
 		var x = shortchartVars.x;
@@ -392,9 +392,9 @@ function ready() {
 			$(".dotmap").removeClass("active")			
 			$("#map .title").html("<h4>" + varListMaster[item].chartTitle + "</h4>")
 			$("#c1 span").text(`Less than ${formatter(varListMaster[item].range[0])}`);
-			$("#c2 span").text(`${formatter(varListMaster[item].range[0])} - ${formatter(varListMaster[item].range[1])}`);
-			$("#c3 span").text(`${formatter(varListMaster[item].range[1])} - ${formatter(varListMaster[item].range[2])}`);
-			$("#c4 span").text(`${formatter(varListMaster[item].range[2])} - ${formatter(varListMaster[item].range[3])}`);
+			$("#c2 span").text(`${formatter(varListMaster[item].range[0])}–${formatter(varListMaster[item].range[1])}`);
+			$("#c3 span").text(`${formatter(varListMaster[item].range[1])}–${formatter(varListMaster[item].range[2])}`);
+			$("#c4 span").text(`${formatter(varListMaster[item].range[2])}–${formatter(varListMaster[item].range[3])}`);
 			$("#c5 span").text(`More than ${formatter(varListMaster[item].range[3])}`)
 		}
 

@@ -23,7 +23,7 @@ function shortchart() {
 
 	var data = [
 		{
-			"area":"Low Poverty Neighborhoods",
+			"area":"Low-poverty neighborhoods",
 			"capFlowRate":89754,
 			"tripleChart1":99,
 			"tripleChart2":2606,
@@ -32,7 +32,7 @@ function shortchart() {
 			"type":"poverty"
 		},
 		{
-			"area":"High Poverty Neighborhoods",
+			"area":"High-poverty neighborhoods",
 			"capFlowRate":58328,
 			"tripleChart1":531,
 			"tripleChart2":4596,
@@ -59,11 +59,11 @@ function shortchart() {
 			"type":"race"
 		},
 		{
-			"area":"50% - 85% African American",
+			"area":"50%–85% African American",
 			"capFlowRate":56412,
 			"tripleChart1":280,
 			"tripleChart2":5583,
-			"loanChart":68090,
+			"loanChart":43840,
 			"interstitial":0,
 			"type":"race"
 		},
@@ -72,7 +72,7 @@ function shortchart() {
 			"capFlowRate":33987,
 			"tripleChart1":368,
 			"tripleChart2":2372,
-			"loanChart":43840,
+			"loanChart":68090,
 			"interstitial":0,
 			"type":"race"
 		}
