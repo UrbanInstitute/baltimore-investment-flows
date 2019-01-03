@@ -289,7 +289,7 @@ function ready() {
 	    	})
 	   
 	   	d3.select("#chartSmall").select("g.x.axis").transition()
-	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
+	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-shortchartVars.Chartheight]));	    	
 	}
 
 
@@ -391,7 +391,14 @@ function ready() {
 			$(".choromap").addClass("active")
 			$(".dotmap").removeClass("active")			
 			$("#map .title").html("<h4>" + varListMaster[item].chartTitle + "</h4>")
-			$("#c1 span").text(`Less than ${formatter(varListMaster[item].range[0])}`);
+			$("#c1 span").text(function(){
+				if (varListMaster[item].range[0] === 0) {
+					return "$0"
+				} else {
+					return "Less than " + formatter(varListMaster[item].range[0]);
+				}
+				
+			});
 			$("#c2 span").text(`${formatter(varListMaster[item].range[0])}–${formatter(varListMaster[item].range[1])}`);
 			$("#c3 span").text(`${formatter(varListMaster[item].range[1])}–${formatter(varListMaster[item].range[2])}`);
 			$("#c4 span").text(`${formatter(varListMaster[item].range[2])}–${formatter(varListMaster[item].range[3])}`);
@@ -603,8 +610,10 @@ function wrap(text, width) {
 }
 
 function formatter(num) {
-	if (num > 1 || num === 0) {
+	if (num > 1) {
 		return d3.format("$,.2r")(num)
+	} else if(num === 0){
+		return d3.format("$,.0r")(num)
 	} else {
 		return d3.format(",.0%")(num)
 	}

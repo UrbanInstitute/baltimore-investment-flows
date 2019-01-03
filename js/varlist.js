@@ -53,7 +53,7 @@ var varListMaster = {
 		"chartType":"poly-map",
 		"chartTitle":"Poverty rate by tract",
 		"notes":"",
-		"sources":"<b>Source:</b> 2012–16 American Community Survey data",
+		"sources":"<b>Source:</b> 2012–16 American Community Survey data.",
 		"id":2
 	},
 	"permit_hh":{
@@ -82,7 +82,7 @@ var varListMaster = {
 	"res_hh":{
 		"range":[0,12422,24877,39472,74426,277759],
 		"chartType":"poly-map",
-		"chartTitle":"Aggregate private sector real estate lending volume per household, 2011–16",
+		"chartTitle":"Aggregate private-sector real estate lending volume per household, 2011–16",
 		"notes":"",
 		"sources":"<b>Source:</b> 2011–16 CoreLogic data and 2012–16 American Community Survey data.",
 		"id":6
@@ -106,7 +106,7 @@ var varListMaster = {
 	"pub_hh":{
 		"range":[0,12,425,1164,3111,150313],
 		"chartType":"poly-map",
-		"chartTitle":"Public sector investment per household, 2011–16",
+		"chartTitle":"Public-sector investment per household, 2011–16",
 		"notes":"",
 		"sources":"<b>Sources:</b> 2012–16 American Community Survey data; 2011–16 Baltimore City Planning Department Capital Improvement Plans; 2011–15 US Department of Housing and Urban Development data; 2011–16 Maryland Department of Education data; and 2011–15 Baltimore City Department of Finance data.",
 		"id":10

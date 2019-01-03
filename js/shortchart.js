@@ -83,10 +83,12 @@ function shortchart() {
 	x.domain([0, d3.max(data, function(d) { return d.capFlowRate; })]).nice();
 	y.domain(data.map(function(d) { return d.area; })).padding(0.2);
 
+	// console.log(d3.format(",.0r")(0))
+
 	g.append("g")
 	    .attr("class", "x axis")
 	   	.attr("transform", "translate(0," + Chartheight + ")")
-	  	.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
+	  	.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-Chartheight]));
 
 	g.append("g")
 	    .attr("class", "y axis")
@@ -138,7 +140,7 @@ function shortchart() {
 	    	})
 
 	   	g.select("g.x.axis").transition()
-	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
+	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-Chartheight]));
 
 	}
 
