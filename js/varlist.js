@@ -44,7 +44,7 @@ var varListMaster = {
 	"raceMap":{
 		"chartType":"dot-map",
 		"chartTitle":"Population distribution of residents by race",
-		"notes":"<b>Notes:</b> Each dot represents 1,000 residents. AAPI = Asian American and Pacific Islander.",
+		"notes":"<b>Notes:</b> Each dot represents 200 residents. AAPI = Asian American and Pacific Islander.",
 		"sources":"<b>Source:</b> 2012–16 American Community Survey data.",
 		"id":1
 	},
@@ -84,34 +84,37 @@ var varListMaster = {
 		"chartType":"poly-map",
 		"chartTitle":"Aggregate private-sector real estate lending volume per household, 2011–16",
 		"notes":"",
-		"sources":"<b>Source:</b> 2011–16 CoreLogic data and 2012–16 American Community Survey data.",
+		"sources":"<b>Sources:</b> 2011–16 CoreLogic data and 2012–16 American Community Survey data.",
 		"id":6
 	},
 	"comm_hh":{
+		// 9 0's
 		"range":[0,838,3357,8912,24804,419182],
 		"chartType":"poly-map",
-		"chartTitle":"Commercial real estate lending volume per household, 2011–16",
+		"chartTitle":"Commercial real estate lending volume per household, 2011–15",
 		"notes":"",
-		"sources":"<b>Source:</b> 2011–16 CoreLogic data and 2012–16 American Community Survey data.",
+		"sources":"<b>Sources:</b> 2012-16 American Community Survey data; 2011-15 US Department of Housing and Urban Development data.",
 		"id":8
 	},
 	"CRA_hh":{
-		"range":[7.587253571,81,199,474,1287,10670],
+		"range":[8,81,199,474,1287,10670],
 		"chartType":"poly-map",
 		"chartTitle":"CRA small business lending volume per household, 2011–16",
 		"notes":"",
-		"sources":"<b>Sources:</b> 2011–16 Community Reinvestment Act Federal Financial Institutions Examination Council reporting and 2015 Longitudinal Employer-Household Dynamics Origin-Destination Employment Statistics Workplace Area Characteristics data.",
+		"sources":"<b>Sources:</b> 2012-16 American Community Survey data; 2011-16 Baltimore City Planning Department Capital Improvement Plans.",
 		"id":9
 	},
 	"pub_hh":{
+		// 37 0s
 		"range":[0,12,425,1164,3111,150313],
 		"chartType":"poly-map",
 		"chartTitle":"Public-sector investment per household, 2011–16",
 		"notes":"",
-		"sources":"<b>Sources:</b> 2012–16 American Community Survey data; 2011–16 Baltimore City Planning Department Capital Improvement Plans; 2011–15 US Department of Housing and Urban Development data; 2011–16 Maryland Department of Education data; and 2011–15 Baltimore City Department of Finance data.",
+		"sources":"<b>Sources:</b> 2012-16 American Community Survey data; 2011-16 Baltimore City Planning Department Capital Improvement Plans; 2011-15 US Department of Housing and Urban Development data; 2011-16 Maryland Department of Education data; 2011-16 CoreLogic; US Department of the Treasury’s Community Development Financial Institutions Fund Transaction Level Report database; and Opportunity Finance Network.",
 		"id":10
 	},
 	"miss_hh":{
+		// 5 0s
 		"range":[0,1079,1800,3151,4324,115561],
 		"chartType":"poly-map",
 		"chartTitle":"Aggregate mission lending volume per household, 2011–16",

@@ -377,14 +377,16 @@ function ready() {
 			map.setPaintProperty("balt-tract-lines", 'line-opacity', 1)
 			map.setPaintProperty("urban-areas-fill", 
 				'fill-color', [
-	                'interpolate',
-	                ['linear'],
+	                'step',	                
+	                // The following is the buckets for the maps..
 	                ['to-number',['get', item]],
-	               	varListMaster[item].range[0], colors[0],
-	               	varListMaster[item].range[1], colors[1],
-	               	varListMaster[item].range[2], colors[2],
-	               	varListMaster[item].range[3], colors[3],
-	               	varListMaster[item].range[4], colors[4],
+	                // "#ff00ff", 1,
+					colors[0],varListMaster[item].range[1]+2, 
+					colors[1],varListMaster[item].range[2], 
+					colors[2],varListMaster[item].range[3], 
+					colors[3],varListMaster[item].range[4], 
+					colors[4]	 
+					// Last color is anything above range[4]
 	            ]	           
 	            );
 			// set the legend 
@@ -392,17 +394,17 @@ function ready() {
 			$(".dotmap").removeClass("active")			
 			$("#map .title").html("<h4>" + varListMaster[item].chartTitle + "</h4>")
 			$("#c1 span").text(function(){
-				if (varListMaster[item].range[0] === 0) {
+				if (varListMaster[item].range[1] === 0) {
 					return "$0"
 				} else {
-					return "Less than " + formatter(varListMaster[item].range[0]);
+					return "Less than " + formatter(varListMaster[item].range[1]);
 				}
 				
 			});
-			$("#c2 span").text(formatter(varListMaster[item].range[0])+"–"+formatter(varListMaster[item].range[1]));
-			$("#c3 span").text(formatter(varListMaster[item].range[1])+"–"+formatter(varListMaster[item].range[2]));
-			$("#c4 span").text(formatter(varListMaster[item].range[2])+"–"+formatter(varListMaster[item].range[3]));
-			$("#c5 span").text("More than " + formatter(varListMaster[item].range[3]))
+			$("#c2 span").text(formatter(varListMaster[item].range[1])+"–"+formatter(varListMaster[item].range[2]));
+			$("#c3 span").text(formatter(varListMaster[item].range[2])+"–"+formatter(varListMaster[item].range[3]));
+			$("#c4 span").text(formatter(varListMaster[item].range[3])+"–"+formatter(varListMaster[item].range[4]));
+			$("#c5 span").text("More than " + formatter(varListMaster[item].range[4]))
 		}
 
 	}
