@@ -272,7 +272,7 @@ function ready() {
 
 		// This selection only happens when NOT in the background
 		if (!background) {
-			$("#chartSmall .title").html(`<h4>${varListMaster[dataName].chartTitle}</h4>`)			
+			$("#chartSmall .title").html("<h4>" + varListMaster[dataName].chartTitle + "</h4>")			
 		}
 
 		shortchartVars.active = dataName;
@@ -399,16 +399,13 @@ function ready() {
 				}
 				
 			});
-			$("#c2 span").text(`${formatter(varListMaster[item].range[0])}–${formatter(varListMaster[item].range[1])}`);
-			$("#c3 span").text(`${formatter(varListMaster[item].range[1])}–${formatter(varListMaster[item].range[2])}`);
-			$("#c4 span").text(`${formatter(varListMaster[item].range[2])}–${formatter(varListMaster[item].range[3])}`);
-			$("#c5 span").text(`More than ${formatter(varListMaster[item].range[3])}`)
+			$("#c2 span").text(formatter(varListMaster[item].range[0])+"–"+formatter(varListMaster[item].range[1]));
+			$("#c3 span").text(formatter(varListMaster[item].range[1])+"–"+formatter(varListMaster[item].range[2]));
+			$("#c4 span").text(formatter(varListMaster[item].range[2])+"–"+formatter(varListMaster[item].range[3]));
+			$("#c5 span").text("More than " + formatter(varListMaster[item].range[3]))
 		}
 
-		
 	}
-
-
 
 	map.on('load', function () {
 		
