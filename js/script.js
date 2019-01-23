@@ -26,6 +26,9 @@ function ready() {
 
 	waypoints();
 	createDots();
+
+
+
 	longchart();
 	var shortchartVars = shortchart();
 	stackedchart();
@@ -164,7 +167,7 @@ function ready() {
 					}
 					
 				},
-				offset: '90%',  // trigger halfway up the viewport
+				offset: '40%',  // trigger halfway up the viewport
 			})
 		})
 
@@ -197,10 +200,13 @@ function ready() {
 			// get item label
 
 			var name = $('.trigger')[i].getAttribute('data-name');
-			var itemLabel = varListMaster[name].chartTitle;
+			var itemLabel = varListMaster[name].sectionTitle;
 			
 			// append items
-			$(".bubble-nav").append("<div class='bubble'><div class='label'><p class='bubble-text'>" + itemLabel +"</p></div></div>");
+			$(".bubble-nav").append("<div class='bubble'><div class='label'><p class='bubble-text'>" + itemLabel +"</p></div></div>");			
+			
+			// add h2's onto the divs. 
+			$(".slide.trigger[data-name="+ name +"] .div-section-divider").after("<h2>" + itemLabel + "</h2>");	
 		}
 		
 		// set first to active
