@@ -23,8 +23,11 @@
 	width: 100%;
 	max-width:725px;
 	margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     margin-top: 80px;
+    // padding-bottom: 100px;
+    // border-bottom: 10px solid $cerulean;
+
 
     .title-text {    	
     	margin-bottom: 70px;
@@ -80,10 +83,14 @@
 		.div-section-divider {
 		    display: block;
 		    width: 200px;
-		    height: 6px;
+		    height: 10px;
 		    margin-top: 60px;
 		    background-color: #1696d2;
 		    margin-bottom: 50px;
+
+		    &.first {
+		    	background-color:#fff;
+		    }
 		}
 
 		 .slide {
@@ -472,7 +479,7 @@
 		padding-left:40px;
 		padding-right:40px;
 		margin-top: 40px;
-		margin-bottom: 40px;
+		// margin-bottom: 5px;
 
 		.date {
 			padding-bottom: 20px;
