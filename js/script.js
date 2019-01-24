@@ -387,7 +387,7 @@ function ready() {
 	                // The following is the buckets for the maps..
 	                ['to-number',['get', item]],
 	                // "#ff00ff", 1,
-					colors[0],varListMaster[item].range[1]+2, 
+					colors[0],varListMaster[item].range[1], 
 					colors[1],varListMaster[item].range[2], 
 					colors[2],varListMaster[item].range[3], 
 					colors[3],varListMaster[item].range[4], 
