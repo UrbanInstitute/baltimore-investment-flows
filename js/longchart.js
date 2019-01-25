@@ -38,7 +38,7 @@ function longchart() {
 	g.append("g")
 	    .attr("class", "x axis")
 	   	.attr("transform", "translate(0," + Chartheight + ")")
-	  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-Chartheight]));
+	  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
 
 	g.append("g")
 	    .attr("class", "y axis")
@@ -143,7 +143,7 @@ function longchart() {
 
 	   	g.select("g.x.axis").transition()
 	   		.attr("transform", "translate(0," + Chartheight + ")")
-	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-Chartheight]));
+	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
 
 		g.select("g.y.axis").transition()
 	    	.call(d3.axisLeft(y));
