@@ -174,11 +174,19 @@ function stackedchart() {
 		// get new width
 		width = getChartWidth();
 		Chartwidth = width - margin.left - margin.right;
+		height = getChartHeight(),
+		Chartheight = height - margin.top - margin.bottom;
 
-		svg.attr("width", width)
+		svg.attr("width", width).attr("height",height)
 
 		// set new x range
 		x.range([0, Chartwidth]);
+		y.range([Chartheight, 0]);
+
+		g.selectAll(".bar")
+			.attr("height", y.bandwidth())
+	    	.attr("y", function(d) { return y(d.area); })
+
 
 		// transition bars
 		g.selectAll(".bar.mainstream").transition()
@@ -192,7 +200,15 @@ function stackedchart() {
 		    .attr("x", function(d){ return x((d.investmentShareChart.mainstream+d.investmentShareChart.mission) / d.investmentShareChart.total)})
 		    .attr("width", function(d) {return x(d.investmentShareChart.public / d.investmentShareChart.total); })
 
+		
+
+		g.select("g.y.axis")
+		    .call(d3.axisLeft(y))
+		        .selectAll(".tick text")
+		    	.call(wrap, (margin.left-5));
+
 	   	g.select("g.x.axis").transition()
+	   		.attr("transform", "translate(0," + Chartheight + ")")
 		  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format(",.0%")(d) }).tickSizeInner([-Chartheight]));
 
 	}

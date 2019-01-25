@@ -122,24 +122,36 @@ function shortchart() {
 	}
 
 	function redraw(){
-
-
 		// get new width
 		width = getChartWidth();
 		Chartwidth = width - margin.left - margin.right;
+		height = getChartHeight(),
+		Chartheight = height - margin.top - margin.bottom;
 
-		svg.attr("width", width)
+		svg.attr("width", width).attr("height",height)
 
 		// set new x range
 		x.range([0, Chartwidth]);
 
+		y.range([Chartheight, 0]);
+
 		// transition bars
-		g.selectAll(".bar").transition()
+		g.selectAll(".bar")
 	    	.attr("width", function(d) { 
 	    		return x(d[shortchartVars.active]); 
 	    	})
+	    	.attr("height", y.bandwidth())
+	    	.attr("y", function(d) {
+	    		return y(d.area); })
 
-	   	g.select("g.x.axis").transition()
+		g.select("g.y.axis")
+		    .call(d3.axisLeft(y))
+		    	.selectAll(".tick text")
+	    		.call(wrap, (margin.left-5));
+
+
+	   	g.select("g.x.axis")	
+	   		.attr("transform", "translate(0," + Chartheight + ")")
 	   		.call(d3.axisBottom(x).ticks(4).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-Chartheight]));
 
 	}
