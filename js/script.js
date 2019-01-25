@@ -1,4 +1,3 @@
-
 var cache = {}
 var startIndex = 0;
 var colors = ["#cfe8f3","#73bfe2","#1696d2","#0a4c6a","#000000"];
@@ -22,12 +21,29 @@ var hiPoints = {
 
 ready();	
 
+function returnPercent(first) {
+	width = $(window).innerWidth();		
+	if (first) {		
+		if (width < 850) {
+			amount = "70%"	
+		} else {			
+			amount = "0%"
+		}
+	} else {
+		if (width < 850) {
+			amount = "80%"	
+		} else {
+			amount = "40%"
+		}
+	}
+	
+	return amount;
+}
+
 function ready() {
 
 	waypoints();
 	createDots();
-
-
 
 	longchart();
 	var shortchartVars = shortchart();
@@ -54,6 +70,9 @@ function ready() {
 		// pymChild.sendHeight()
 
 	  }, 250);
+
+	  Waypoint.destroyAll();
+	  waypoints();
 	});
 
 	$(".notes").on("mouseover",function(){
@@ -167,7 +186,7 @@ function ready() {
 					}
 					
 				},
-				offset: '40%',  // trigger halfway up the viewport
+				offset: returnPercent(false),  // trigger halfway up the viewport
 			})
 		})
 
@@ -179,6 +198,7 @@ function ready() {
 				var bottom = false
 				toggle(fixed, bottom)
 			},
+			offset: returnPercent(true)
 		})
 
 		var exitWaypoint = new Waypoint({

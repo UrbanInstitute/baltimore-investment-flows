@@ -623,90 +623,90 @@ a {
     padding-bottom: 20px;
   }
 
-  /* line 491, ../sass/main.scss */
+  /* line 496, ../sass/main.scss */
   .mega-container {
     margin: 0px;
   }
-  /* line 495, ../sass/main.scss */
+  /* line 500, ../sass/main.scss */
   .mega-container .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mega-container .mapboxgl-ctrl-bottom-left {
     display: none;
   }
-  /* line 501, ../sass/main.scss */
+  /* line 506, ../sass/main.scss */
   .mega-container #story-container #story {
     width: 100%;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 0px;
   }
-  /* line 508, ../sass/main.scss */
+  /* line 513, ../sass/main.scss */
   .mega-container #story-container #story .div-section-divider {
     margin-top: 40px;
     margin-bottom: 30px;
   }
-  /* line 518, ../sass/main.scss */
+  /* line 523, ../sass/main.scss */
   .mega-container #story-container #sticky-right {
     z-index: -100;
     width: 100%;
     margin-left: 0;
   }
-  /* line 524, ../sass/main.scss */
+  /* line 529, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed {
     z-index: 100;
   }
-  /* line 529, ../sass/main.scss */
+  /* line 534, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner {
     width: 100%;
     margin-left: 0;
   }
-  /* line 533, ../sass/main.scss */
+  /* line 538, ../sass/main.scss */
   .mega-container #story-container #sticky-right.is-fixed .sticky-right-inner .graphic {
     width: 100%;
     transform: none;
     top: 50px;
   }
-  /* line 545, ../sass/main.scss */
+  /* line 550, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .graphic {
     border-bottom: 3px solid black;
   }
-  /* line 552, ../sass/main.scss */
+  /* line 557, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav {
     width: 40px;
     right: -15px;
     background-color: rgba(255, 255, 255, 0.5);
     display: none;
   }
-  /* line 560, ../sass/main.scss */
+  /* line 565, ../sass/main.scss */
   .mega-container #story-container #sticky-right .sticky-right-inner .bubble-nav .bubble .label p.bubble-text {
     display: none;
   }
 
-  /* line 570, ../sass/main.scss */
+  /* line 575, ../sass/main.scss */
   .footer {
     padding-left: 40px;
     padding-right: 40px;
   }
-  /* line 574, ../sass/main.scss */
+  /* line 579, ../sass/main.scss */
   .footer h1 {
     font-size: 24px;
     margin-left: 0px;
   }
 }
-/* line 584, ../sass/main.scss */
+/* line 589, ../sass/main.scss */
 .bar {
   fill: #1696d2;
 }
 
-/* line 588, ../sass/main.scss */
+/* line 593, ../sass/main.scss */
 .bar.mission, .bar.poverty {
   fill: #000;
 }
 
-/* line 592, ../sass/main.scss */
+/* line 597, ../sass/main.scss */
 .bar.public, .bar.special {
   fill: #fdbf11;
 }
 
-/* line 596, ../sass/main.scss */
+/* line 601, ../sass/main.scss */
 .axis path,
 .axis line {
   fill: none;
@@ -715,30 +715,30 @@ a {
   shape-rendering: crispEdges;
 }
 
-/* line 604, ../sass/main.scss */
+/* line 609, ../sass/main.scss */
 .tick text {
   font-family: "Lato";
   font-size: 12px;
 }
 
-/* line 609, ../sass/main.scss */
+/* line 614, ../sass/main.scss */
 .x path {
   display: none;
 }
 
-/* line 613, ../sass/main.scss */
+/* line 618, ../sass/main.scss */
 .y line {
   display: none;
 }
 
 @media (max-width: 600px) {
-  /* line 618, ../sass/main.scss */
+  /* line 623, ../sass/main.scss */
   .footer, #story, #lede {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  /* line 623, ../sass/main.scss */
+  /* line 628, ../sass/main.scss */
   #story-container #story .div-section-divider {
     width: 100%;
   }

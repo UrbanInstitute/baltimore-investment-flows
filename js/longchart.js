@@ -30,6 +30,10 @@ function longchart() {
 		.sort(function(a, b) { return a.value - b.value; })
 		.map(function(d) { return d.area; })).padding(0.1);
 
+		console.log(data
+			.sort(function(a, b) { return b.pop - a.pop; })
+			.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore") || (d.area === "Washington, DC") || (d.area === "Los Angeles") || (d.area === "San Antonio")) })
+			.sort(function(a, b) { return a.value - b.value; }))
 
 	g.append("g")
 	    .attr("class", "x axis")
@@ -78,18 +82,18 @@ function longchart() {
 		// get new width
 		width = getChartWidth();
 		Chartwidth = width - margin.left - margin.right;
-		// height = getChartHeight(),
-		// Chartheight = height - margin.top - margin.bottom;
+		height = getChartHeight(),
+		Chartheight = height - margin.top - margin.bottom;
 
-		svg.attr("width", width)
+		svg.attr("width", width).attr("height",height)
 
 		// set new x range
 		x.range([0, Chartwidth]);
 
 
-		// barMax = Math.floor(Chartheight / barHeight);
-		// console.log(Chartheight)
-		// console.log(barMax)
+		barMax = Math.floor(Chartheight / barHeight) - 1;		
+
+		y.range([Chartheight, 0]);
 
 		y.domain(data
 			.sort(function(a, b) { return b.pop - a.pop; })
@@ -99,36 +103,50 @@ function longchart() {
 
 		// transition bars
 
-		// var selection = g.selectAll(".bar")
-		//     .data(data
-		//     	.sort(function(a, b) { return b.pop - a.pop; })
-		// 		.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore")) })
-		// 		.sort(function(a, b) { return a.value - b.value; })
-		//     )
+		var selection = g.selectAll(".bar")
+		    .data(data
+		    	.sort(function(a, b) { return b.pop - a.pop; })
+				.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore")) })
+				.sort(function(a, b) { return a.value - b.value; })
+		    )
 
-	 //    selection.exit().remove();
-	 //    selection.enter().append("rect")
-	 //    	.attr("x", 0)		    
+	    selection.exit().remove();
 
-		// selection.transition()
-		// 	.attr("class", function(d){
-		//     	if (d.area === "Baltimore") {
-		//     		return "bar special"
-		//     	}
-		//     	return "bar"
-		//     })
-	 //    	.attr("width", function(d) { 
-	 //    		return x(d.value); 
-	 //    	})
-	 //    	.attr("height", y.bandwidth())
-		//     .attr("y", function(d) { return y(d.area); })
+	    selection.enter().append("rect")
+	    	.attr("class", function(d){
+		    	if (d.area === "Baltimore") {
+		    		return "bar special"
+		    	}
+		    	return "bar"
+		    })
+		    .attr("x", 0)
+		    .attr("height", y.bandwidth())
+		    .attr("y", function(d) { return y(d.area); })
+		    .attr("width", function(d) { return x(d.value); })
+
+		selection.transition()
+			.attr("class", function(d){
+		    	if (d.area === "Baltimore") {
+		    		return "bar special"
+		    	}
+		    	return "bar"
+		    })
+	    	.attr("width", function(d) { 
+	    		return x(d.value); 
+	    	})
+	    	.attr("height", y.bandwidth())
+		    .attr("y", function(d) { return y(d.area); })
 
 	    g.selectAll(".bar").attr("width", function(d) { 
 	    		return x(d.value); 
 	    	})
 
 	   	g.select("g.x.axis").transition()
+	   		.attr("transform", "translate(0," + Chartheight + ")")
 	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.0r")(d) }).tickSizeInner([-Chartheight]));
+
+		g.select("g.y.axis").transition()
+	    	.call(d3.axisLeft(y));
 
 	}
 }
