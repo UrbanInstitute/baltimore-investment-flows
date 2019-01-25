@@ -30,11 +30,6 @@ function longchart() {
 		.sort(function(a, b) { return a.value - b.value; })
 		.map(function(d) { return d.area; })).padding(0.1);
 
-		console.log(data
-			.sort(function(a, b) { return b.pop - a.pop; })
-			.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore") || (d.area === "Washington, DC") || (d.area === "Los Angeles") || (d.area === "San Antonio")) })
-			.sort(function(a, b) { return a.value - b.value; }))
-
 	g.append("g")
 	    .attr("class", "x axis")
 	   	.attr("transform", "translate(0," + Chartheight + ")")
