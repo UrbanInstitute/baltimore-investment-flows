@@ -101,7 +101,7 @@ var varListMaster = {
 		"id":8
 	},
 	"CRA_hh":{
-		"range":[8,81,199,474,1287,10670],
+		"range":[0,562,1287,3116,9321,84248],
 		"chartType":"poly-map",
 		"chartTitle":"CRA small business lending volume per household, <span class='nowrap'>2011–16</span>",
 		"sectionTitle":"Small business lending",

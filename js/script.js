@@ -8,7 +8,7 @@ var curStep = "capFlowRate";
 var circleOpacity = 0.8;
 var fillOpacity = 0.7;
 
-var baltlineData = 'data/joined/balt_joined3.geojson';
+var baltlineData = 'data/joined/balt_joined4.geojson';
 var hiPoints = {
 	"Canton": [-76.5712757,39.2743012],
 	"Holabird": [-76.538202,39.26505],
@@ -52,7 +52,7 @@ function ready() {
 	var map = mapDraw();	
 	
 	// map bounds
-	var sw = new mapboxgl.LngLat(-76.7156027, 39.196494);
+	var sw = new mapboxgl.LngLat(-76.7156027, 39.181924);
 	var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
 	var llb = new mapboxgl.LngLatBounds(sw, ne);
 
