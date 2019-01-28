@@ -22,6 +22,18 @@ var hiPoints = {
 ready();	
 
 
+function returnLineheightOffset() {
+	width = $(window).innerWidth();
+	var lineheightoffset = {}
+	if (width < 850) {
+		lineheightoffset.lineheight = "0.5";
+		lineheightoffset.offset = ".45";
+	} else {		
+		lineheightoffset.lineheight = "1.1";
+		lineheightoffset.offset = ".75";
+	}
+	return lineheightoffset;
+}
 
 function returnllb() {
 	width = $(window).innerWidth();
@@ -633,10 +645,10 @@ function wrap(text, width) {
         word,
         line = [],
         lineNumber = 0,
-        lineHeight = 1.1, // ems
+        lineHeightOffset = returnLineheightOffset(), // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", -5).attr("y", y).attr("dy", (dy-0.75) + "em");
+        tspan = text.text(null).append("tspan").attr("x", -5).attr("y", y).attr("dy", (dy-lineHeightOffset.offset) + "em");
     while (word = words.pop()) {
       line.push(word);
       tspan.text(line.join(" "));
@@ -644,7 +656,7 @@ function wrap(text, width) {
         line.pop();
         tspan.text(line.join(" "));
         line = [word];
-        tspan = text.append("tspan").attr("x", -5).attr("y", y).attr("dy", ++lineNumber * lineHeight + (dy) + "em").text(word);
+        tspan = text.append("tspan").attr("x", -5).attr("y", y).attr("dy", ++lineNumber * lineHeightOffset.lineheight + (dy) + "em").text(word);
       }
     }
   });
