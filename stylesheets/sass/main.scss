@@ -196,6 +196,11 @@
 			    	margin:10px;
 			    	font-family: "Lato" !important;
 
+			    	@media (max-width: $MaxTabletSize){	
+				    	padding:0px;
+				    	margin:5px;
+					}
+
 			    	h5 {
 			    		font-size: 16px;
 			    		font-weight: bold;

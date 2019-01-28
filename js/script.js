@@ -21,6 +21,21 @@ var hiPoints = {
 
 ready();	
 
+
+
+function returnllb() {
+	width = $(window).innerWidth();
+	if (width < 850) {
+		var sw = new mapboxgl.LngLat(-76.7956027, 39.181924);
+		var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
+		return new mapboxgl.LngLatBounds(sw, ne);
+	} else {
+		var sw = new mapboxgl.LngLat(-76.7156027, 39.181924);
+		var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
+		return new mapboxgl.LngLatBounds(sw, ne);
+	}
+}
+
 function returnPercent(first) {
 	width = $(window).innerWidth();		
 	if (first) {		
@@ -51,10 +66,8 @@ function ready() {
 	
 	var map = mapDraw();	
 	
-	// map bounds
-	var sw = new mapboxgl.LngLat(-76.7156027, 39.181924);
-	var ne = new mapboxgl.LngLat(-76.5309037, 39.372537);
-	var llb = new mapboxgl.LngLatBounds(sw, ne);
+	// map bounds	
+	var llb = returnllb();
 
 	// zoom to DC bounds
 	map.fitBounds(llb, { duration: 0, padding: 10 })
@@ -64,6 +77,9 @@ function ready() {
 	window.addEventListener("resize", function(e){
 	  clearTimeout(resizeTimer);
 	  resizeTimer = setTimeout(function() {	   	
+	  
+		var llb = returnllb();
+
 		map.fitBounds(llb, { duration: 0, padding: 10 })
 		// update()
 		// removeTooltip()

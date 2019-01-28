@@ -21,7 +21,7 @@ function longchart() {
 	] 
 
 	var barHeight = 12;
-	var barMax = Math.floor(Chartheight / barHeight) - 1;
+	var barMax = Math.floor(Chartheight / barHeight)
 
 	x.domain([0, d3.max(data, function(d) { return d.value; })]);
 	y.domain(data
@@ -33,7 +33,7 @@ function longchart() {
 	g.append("g")
 	    .attr("class", "x axis")
 	   	.attr("transform", "translate(0," + Chartheight + ")")
-	  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
+	  	.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return formatNum(d) }).tickSizeInner([-Chartheight]));
 
 	g.append("g")
 	    .attr("class", "y axis")
@@ -85,8 +85,7 @@ function longchart() {
 		// set new x range
 		x.range([0, Chartwidth]);
 
-
-		barMax = Math.floor(Chartheight / barHeight) - 1;		
+		barMax = Math.floor(Chartheight / barHeight);
 
 		y.range([Chartheight, 0]);
 
@@ -101,11 +100,9 @@ function longchart() {
 		var selection = g.selectAll(".bar")
 		    .data(data
 		    	.sort(function(a, b) { return b.pop - a.pop; })
-				.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore")) })
+				.filter(function(d,i) {return ((i < barMax) || (d.area === "Baltimore") || (d.area === "Washington, DC") || (d.area === "Los Angeles") || (d.area === "San Antonio")) })
 				.sort(function(a, b) { return a.value - b.value; })
-		    )
-
-	    selection.exit().remove();
+		    )	    
 
 	    selection.enter().append("rect")
 	    	.attr("class", function(d){
@@ -132,16 +129,26 @@ function longchart() {
 	    	.attr("height", y.bandwidth())
 		    .attr("y", function(d) { return y(d.area); })
 
+		selection.exit().remove();
+
 	    g.selectAll(".bar").attr("width", function(d) { 
 	    		return x(d.value); 
 	    	})
 
 	   	g.select("g.x.axis").transition()
 	   		.attr("transform", "translate(0," + Chartheight + ")")
-	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return d3.format("$,.2r")(d) }).tickSizeInner([-Chartheight]));
+	   		.call(d3.axisBottom(x).ticks(5).tickFormat(function(d) { return formatNum(d) }).tickSizeInner([-Chartheight]));
 
 		g.select("g.y.axis").transition()
 	    	.call(d3.axisLeft(y));
 
+	}
+}
+
+function formatNum(d) {
+	if (d>=10000) {
+		return d3.format("$,.2s")(d)
+	} else {
+		return d3.format("$,.1s")(d)
 	}
 }
