@@ -10,13 +10,13 @@ var fillOpacity = 0.7;
 
 var baltlineData = 'data/joined/balt_joined4.geojson';
 var hiPoints = {
-	"Canton": [-76.5712757,39.2743012],
-	"Holabird": [-76.538202,39.26505],
-	"Dundalk": [-76.5371497,39.2440511],
-	"Loyola": [-76.6203821,39.3461692],
-	"Johns": [-76.6205392,39.3284585],
-	"Mondawmin": [-76.654851,39.317171],
-	"Reisterstown": [-76.704939,39.352153]
+	"Canton": [[-76.5712757,39.2743012]],
+	"Holabird": [[-76.538202,39.26505]],
+	"Dundalk": [[-76.5371497,39.2440511]],
+	"Loyola": [[-76.6203821,39.3461692]],
+	"Mondawmin": [[-76.654851,39.317171]],
+	"Reisterstown": [[-76.704939,39.352153]],
+	"Johns": [[-76.6205392,39.3284585],[-76.5488741,39.2909354]]	
 }
 
 ready();	
@@ -397,17 +397,23 @@ function ready() {
 
 	}
 
-	function highlightPoint(point) {
+	function highlightPoint(points) {
+		var pointsUnpacked = [];
+		for (var i = 0; i < points.length; i++) {
+			pointsUnpacked.push({
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": points[i]
+                }
+           	})
+		}
+
+
 		map.setPaintProperty("highlightPointy", "circle-opacity",1)
 		map.getSource('highlightPointy').setData({
                 "type": "FeatureCollection",
-                "features": [{
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": point
-                    }
-                }]
+                "features": pointsUnpacked
             });
 	}
 
