@@ -8,7 +8,7 @@ var curStep = "capFlowRate";
 var circleOpacity = 0.8;
 var fillOpacity = 0.7;
 
-var baltlineData = 'data/joined/balt_joined4.geojson';
+var baltlineData = 'data/joined/balt_joined5.geojson';
 var hiPoints = {
 	"Canton": [[-76.5712757,39.2743012]],
 	"Holabird": [[-76.538202,39.26505]],
@@ -371,6 +371,10 @@ function ready() {
 			var type = "cbd";
 			var pick = 1;
 			var data = "cbd.geojson"
+		} else if ($(dis).hasClass("ozs")) {
+			var type = "ozs";
+			var pick = 1;
+			var data = "ozs.geojson"
 		}
 
 		map.setPaintProperty("urban-areas-fill2", 
